@@ -302,13 +302,16 @@ export default function KTEDPitchPage() {
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </motion.button>
               
-              <motion.button
+              <motion.a
+                href="https://calendly.com/nexgent-demo/subvencion-kted-2025"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-primary-500 text-white rounded-xl font-bold text-lg border-2 border-white/30 hover:bg-primary-400 transition-all duration-300"
+                className="px-8 py-4 bg-primary-500 text-white rounded-xl font-bold text-lg border-2 border-white/30 hover:bg-primary-400 transition-all duration-300 cursor-pointer inline-block"
               >
-                Ver cómo funciona
-              </motion.button>
+                Agendar llamada
+              </motion.a>
             </div>
 
             <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
@@ -1153,14 +1156,17 @@ export default function KTEDPitchPage() {
                 <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
               </motion.button>
               
-              <motion.button
+              <motion.a
+                href="https://calendly.com/nexgent-demo/subvencion-kted-2025"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-10 py-5 bg-primary-500 text-white rounded-xl font-bold text-xl border-2 border-white/30 hover:bg-primary-400 transition-all duration-300 flex items-center gap-2"
+                className="px-10 py-5 bg-primary-500 text-white rounded-xl font-bold text-xl border-2 border-white/30 hover:bg-primary-400 transition-all duration-300 flex items-center gap-2 cursor-pointer"
               >
                 <Calendar className="w-6 h-6" />
                 Agendar reunión
-              </motion.button>
+              </motion.a>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
