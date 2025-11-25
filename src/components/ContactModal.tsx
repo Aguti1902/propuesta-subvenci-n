@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Mail, Building2, Send, CheckCircle } from 'lucide-react';
+import { X, Mail, Building2, Send, CheckCircle, Phone } from 'lucide-react';
 import { useState, FormEvent } from 'react';
 import emailjs from '@emailjs/browser';
 
@@ -12,6 +12,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
   const [formData, setFormData] = useState({
     associationName: '',
     email: '',
+    phone: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -31,6 +32,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
       const templateParams = {
         association_name: formData.associationName,
         user_email: formData.email,
+        user_phone: formData.phone,
         to_email: 'info@nexgent.io',
       };
 
@@ -40,7 +42,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
       setTimeout(() => {
         onClose();
         setIsSuccess(false);
-        setFormData({ associationName: '', email: '' });
+        setFormData({ associationName: '', email: '', phone: '' });
       }, 3000);
     } catch (err) {
       console.error('Error al enviar email:', err);
@@ -54,7 +56,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
     if (!isSubmitting) {
       onClose();
       setError('');
-      setFormData({ associationName: '', email: '' });
+      setFormData({ associationName: '', email: '', phone: '' });
     }
   };
 
@@ -157,6 +159,26 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                           className="w-full pl-11 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:border-primary-500 focus:ring-2 focus:ring-primary-200 outline-none transition-all"
                           placeholder="info@tuasociacion.com"
+                          disabled={isSubmitting}
+                        />
+                      </div>
+                    </div>
+
+                    {/* Número de teléfono */}
+                    <div>
+                      <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-2">
+                        Número de teléfono *
+                      </label>
+                      <div className="relative">
+                        <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                        <input
+                          type="tel"
+                          id="phone"
+                          required
+                          value={formData.phone}
+                          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                          className="w-full pl-11 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:border-primary-500 focus:ring-2 focus:ring-primary-200 outline-none transition-all"
+                          placeholder="+34 600 000 000"
                           disabled={isSubmitting}
                         />
                       </div>

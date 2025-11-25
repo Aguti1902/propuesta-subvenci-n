@@ -39,6 +39,9 @@ Nueva solicitud de información - {{association_name}}
 <p><strong>Correo electrónico:</strong><br>
 {{user_email}}</p>
 
+<p><strong>Teléfono:</strong><br>
+{{user_phone}}</p>
+
 <hr>
 
 <p><em>Este mensaje fue enviado desde el formulario de contacto de la presentación KTED 2025</em></p>
@@ -82,13 +85,14 @@ const publicKey = 'xxxxxxxxxxxx'; // Tu Public Key de EmailJS
 Ahora cada vez que alguien envíe el formulario, recibirás un email con:
 - Nombre de la asociación
 - Email de contacto
+- Número de teléfono
 
 ## 🔧 Solución de problemas
 
 ### "Error al enviar el formulario"
 - Verifica que las credenciales sean correctas
 - Asegúrate de que el servicio de Gmail esté autorizado
-- Revisa que la plantilla use los parámetros correctos: `association_name`, `user_email`, `to_email`
+- Revisa que la plantilla use los parámetros correctos: `association_name`, `user_email`, `user_phone`, `to_email`
 
 ### No llegan los emails
 - Revisa la carpeta de spam
