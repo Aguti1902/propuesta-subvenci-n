@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 import {
   Phone,
   Clock,
@@ -30,8 +31,11 @@ import FeatureCard from './FeatureCard';
 import ProblemCard from './ProblemCard';
 import Timeline from './Timeline';
 import FAQAccordion from './FAQAccordion';
+import ContactModal from './ContactModal';
 
 export default function KTEDPitchPage() {
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+
   const scrollToContact = () => {
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -295,7 +299,7 @@ export default function KTEDPitchPage() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={scrollToContact}
+                onClick={() => setIsContactModalOpen(true)}
                 className="px-8 py-4 bg-white text-primary-700 rounded-xl font-bold text-lg shadow-2xl hover:shadow-3xl transition-all duration-300 flex items-center gap-2 group"
               >
                 Quiero más información
@@ -1150,6 +1154,7 @@ export default function KTEDPitchPage() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => setIsContactModalOpen(true)}
                 className="px-10 py-5 bg-white text-primary-700 rounded-xl font-bold text-xl shadow-2xl hover:shadow-3xl transition-all duration-300 flex items-center gap-2 group"
               >
                 Solicitar más información
@@ -1233,6 +1238,12 @@ export default function KTEDPitchPage() {
           </div>
         </div>
       </footer>
+
+      {/* Contact Modal */}
+      <ContactModal 
+        isOpen={isContactModalOpen} 
+        onClose={() => setIsContactModalOpen(false)} 
+      />
     </div>
   );
 }
