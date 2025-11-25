@@ -726,6 +726,256 @@ export default function KTEDPitchPage() {
         </div>
       </section>
 
+      {/* VENTAJAS DATOS COMPARTIDOS SECTION */}
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <div className="inline-flex items-center gap-2 bg-green-100 text-green-700 px-4 py-2 rounded-full mb-6 font-semibold">
+              <Shield className="w-5 h-5" />
+              Datos Colaborativos Seguros
+            </div>
+            <h2 className="text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4">
+              Ventajas de un ecosistema de datos unificado
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Mejora la calidad asistencial compartiendo información de forma <strong>segura, anónima y controlada</strong> entre todos los centros de la asociación
+            </p>
+          </motion.div>
+
+          {/* Beneficios principales */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            {/* Beneficios para pacientes */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-3xl p-8 shadow-xl border-2 border-green-200"
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center">
+                  <Users className="w-8 h-8 text-green-600" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900">Para los pacientes</h3>
+              </div>
+              <div className="space-y-4">
+                <div className="flex items-start gap-3 p-4 bg-green-50 rounded-xl">
+                  <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <h4 className="font-bold text-gray-900 mb-1">Continuidad asistencial</h4>
+                    <p className="text-gray-600 text-sm">Si un paciente acude a otra clínica de la red, su historial está disponible de forma segura</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3 p-4 bg-green-50 rounded-xl">
+                  <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <h4 className="font-bold text-gray-900 mb-1">Evitar pruebas duplicadas</h4>
+                    <p className="text-gray-600 text-sm">No repetir pruebas ya realizadas en otro centro, ahorrando tiempo y coste</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3 p-4 bg-green-50 rounded-xl">
+                  <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <h4 className="font-bold text-gray-900 mb-1">Mejor diagnóstico</h4>
+                    <p className="text-gray-600 text-sm">Historial completo disponible para tomar mejores decisiones clínicas</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3 p-4 bg-green-50 rounded-xl">
+                  <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <h4 className="font-bold text-gray-900 mb-1">Experiencia fluida</h4>
+                    <p className="text-gray-600 text-sm">Atención homogénea sin importar a qué centro de la red acuda</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Beneficios para centros */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-3xl p-8 shadow-xl border-2 border-blue-200"
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center">
+                  <Building2 className="w-8 h-8 text-blue-600" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900">Para los centros</h3>
+              </div>
+              <div className="space-y-4">
+                <div className="flex items-start gap-3 p-4 bg-blue-50 rounded-xl">
+                  <CheckCircle className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <h4 className="font-bold text-gray-900 mb-1">Análisis agregados</h4>
+                    <p className="text-gray-600 text-sm">Insights de toda la red para mejorar tratamientos y protocolos</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3 p-4 bg-blue-50 rounded-xl">
+                  <CheckCircle className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <h4 className="font-bold text-gray-900 mb-1">Protocolos homogéneos</h4>
+                    <p className="text-gray-600 text-sm">Misma calidad y estándares en toda la asociación</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3 p-4 bg-blue-50 rounded-xl">
+                  <CheckCircle className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <h4 className="font-bold text-gray-900 mb-1">Detección de tendencias</h4>
+                    <p className="text-gray-600 text-sm">Identificar patrones y oportunidades de mejora en tiempo real</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3 p-4 bg-blue-50 rounded-xl">
+                  <CheckCircle className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <h4 className="font-bold text-gray-900 mb-1">Eficiencia operativa</h4>
+                    <p className="text-gray-600 text-sm">Optimización de recursos basada en datos reales de toda la red</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Seguridad y privacidad */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+            className="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-3xl p-8 lg:p-12 text-white mb-12"
+          >
+            <div className="text-center mb-10">
+              <Shield className="w-20 h-20 mx-auto mb-4" />
+              <h3 className="text-3xl lg:text-4xl font-extrabold mb-4">
+                Privacidad y seguridad garantizadas
+              </h3>
+              <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+                Todos los datos se gestionan bajo los más altos estándares de seguridad y privacidad
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-4">
+                  <Shield className="w-6 h-6" />
+                </div>
+                <h4 className="font-bold text-lg mb-2">Anonimización total</h4>
+                <p className="text-blue-100 text-sm">Datos siempre anonimizados y cifrados. Cumplimiento estricto GDPR y LOPD</p>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-4">
+                  <CheckCircle className="w-6 h-6" />
+                </div>
+                <h4 className="font-bold text-lg mb-2">Consentimiento informado</h4>
+                <p className="text-blue-100 text-sm">Solo con autorización expresa del paciente y para fines asistenciales</p>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-4">
+                  <Building2 className="w-6 h-6" />
+                </div>
+                <h4 className="font-bold text-lg mb-2">Control total</h4>
+                <p className="text-blue-100 text-sm">Cada centro decide qué comparte. Datos bajo control de la asociación</p>
+              </div>
+            </div>
+
+            <div className="mt-8 p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20">
+              <div className="flex items-start gap-4">
+                <FileCheck className="w-8 h-8 flex-shrink-0 mt-1" />
+                <div>
+                  <h4 className="font-bold text-lg mb-2">Trazabilidad completa</h4>
+                  <p className="text-blue-100">
+                    Registro detallado de todos los accesos. Solo personal autorizado puede acceder a la información. 
+                    Auditorías periódicas y sistemas certificados por la UE.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Casos de uso */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            <h3 className="text-3xl font-bold text-gray-900 text-center mb-10">
+              Casos de uso reales
+            </h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
+                <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4">
+                  <Users className="w-6 h-6 text-purple-600" />
+                </div>
+                <h4 className="text-lg font-bold text-gray-900 mb-3">
+                  Paciente en tránsito
+                </h4>
+                <p className="text-gray-600 text-sm">
+                  Un paciente de vacaciones cerca de otra clínica de la red puede ser atendido con acceso a su historial completo de forma segura
+                </p>
+              </div>
+
+              <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
+                <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
+                  <BarChart3 className="w-6 h-6 text-orange-600" />
+                </div>
+                <h4 className="text-lg font-bold text-gray-900 mb-3">
+                  Análisis de efectividad
+                </h4>
+                <p className="text-gray-600 text-sm">
+                  Comparar resultados de tratamientos entre centros (datos anónimos) para identificar las mejores prácticas
+                </p>
+              </div>
+
+              <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
+                <div className="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center mb-4">
+                  <Lightbulb className="w-6 h-6 text-teal-600" />
+                </div>
+                <h4 className="text-lg font-bold text-gray-900 mb-3">
+                  Inteligencia colectiva
+                </h4>
+                <p className="text-gray-600 text-sm">
+                  El Agente de IA aprende de todos los centros para dar mejores recomendaciones, manteniendo la privacidad
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Mensaje tranquilizador final */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            viewport={{ once: true }}
+            className="mt-12 bg-white rounded-3xl p-8 shadow-xl border-2 border-gray-100 text-center"
+          >
+            <div className="max-w-3xl mx-auto">
+              <div className="flex items-center justify-center gap-3 mb-4">
+                <Shield className="w-8 h-8 text-green-600" />
+                <h4 className="text-2xl font-bold text-gray-900">Transparencia total</h4>
+              </div>
+              <p className="text-gray-600 text-lg leading-relaxed">
+                Los datos <strong>nunca salen del ecosistema de la asociación</strong>. No se comparten con terceros 
+                ni con la UE más allá de estadísticas agregadas y totalmente anónimas para fines de mejora del sector sanitario. 
+                <span className="block mt-3 font-semibold text-gray-900">
+                  Cada centro mantiene el control absoluto de su información.
+                </span>
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* QUÉ INCLUYEN LOS 15.000€ SECTION */}
       <section className="py-20 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
