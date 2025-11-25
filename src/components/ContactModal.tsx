@@ -24,10 +24,9 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
     try {
       // Configuración de EmailJS
-      // IMPORTANTE: Necesitas crear una cuenta en emailjs.com y obtener estas credenciales
-      const serviceId = 'YOUR_SERVICE_ID'; // Reemplazar con tu Service ID
-      const templateId = 'YOUR_TEMPLATE_ID'; // Reemplazar con tu Template ID
-      const publicKey = 'YOUR_PUBLIC_KEY'; // Reemplazar con tu Public Key
+      const serviceId = 'service_wznjn3c';
+      const templateId = 'template_ff46z9n';
+      const publicKey = 'etF2nODXHXiaWXxIR';
 
       const templateParams = {
         association_name: formData.associationName,
