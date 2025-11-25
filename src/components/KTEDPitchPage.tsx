@@ -36,10 +36,6 @@ import ContactModal from './ContactModal';
 export default function KTEDPitchPage() {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 
-  const scrollToContact = () => {
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   const problems = [
     {
       icon: Phone,
