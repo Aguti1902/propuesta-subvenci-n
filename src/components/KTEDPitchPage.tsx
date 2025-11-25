@@ -325,7 +325,7 @@ export default function KTEDPitchPage() {
                 transition={{ delay: 0.4 }}
                 className="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20"
               >
-                <div className="text-4xl font-bold mb-2">Hasta 30.000€</div>
+                <div className="text-4xl font-bold mb-2">30.000€</div>
                 <div className="text-primary-100">por cada centro</div>
               </motion.div>
               <motion.div
