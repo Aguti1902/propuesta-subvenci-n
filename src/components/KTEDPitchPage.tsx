@@ -482,6 +482,250 @@ export default function KTEDPitchPage() {
         </div>
       </section>
 
+      {/* QUÉ SON LOS ESPACIOS DE DATOS SECTION */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full mb-6 font-semibold">
+              <Database className="w-5 h-5" />
+              Espacios de Datos
+            </div>
+            <h2 className="text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4">
+              ¿Cómo funciona la subvención KTED?
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              La subvención financia la integración de tu asociación en <strong>Espacios de Datos sectoriales europeos</strong>, 
+              permitiendo compartir datos de forma segura y colaborativa
+            </p>
+          </motion.div>
+
+          {/* Explicación principal */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8 lg:p-12 mb-12 border-2 border-blue-200"
+          >
+            <div className="flex items-start gap-4 mb-6">
+              <div className="w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                <Database className="w-8 h-8 text-white" />
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                  Espacios de Datos: El ecosistema digital europeo
+                </h3>
+                <p className="text-gray-700 text-lg leading-relaxed mb-4">
+                  Los <strong>Espacios de Datos</strong> son infraestructuras digitales promovidas por la Unión Europea para 
+                  que empresas y entidades de un mismo sector puedan <strong>compartir datos de forma segura, ética y colaborativa</strong>.
+                </p>
+                <p className="text-gray-700 text-lg leading-relaxed">
+                  La subvención KTED financia <strong>todo lo necesario</strong> para que tu asociación se integre en estos espacios, 
+                  aportando datos anonimizados que benefician al sector mientras mejoras tus procesos internos con IA.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Grid de lo que cubre la subvención */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            {/* Conexión técnica */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300"
+            >
+              <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+                <Settings className="w-6 h-6 text-blue-600" />
+              </div>
+              <h4 className="text-lg font-bold text-gray-900 mb-3">Conexión técnica</h4>
+              <ul className="space-y-2 text-sm text-gray-600">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                  <span>APIs e integraciones</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                  <span>Sistemas de interoperabilidad</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                  <span>Adaptaciones técnicas completas</span>
+                </li>
+              </ul>
+            </motion.div>
+
+            {/* Tratamiento de datos */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300"
+            >
+              <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mb-4">
+                <Shield className="w-6 h-6 text-green-600" />
+              </div>
+              <h4 className="text-lg font-bold text-gray-900 mb-3">Preparación de datos</h4>
+              <ul className="space-y-2 text-sm text-gray-600">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                  <span>Limpieza y estructuración</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                  <span>Anonimización segura</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                  <span>Dataset mínimo requerido</span>
+                </li>
+              </ul>
+            </motion.div>
+
+            {/* Software necesario */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300"
+            >
+              <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4">
+                <Rocket className="w-6 h-6 text-purple-600" />
+              </div>
+              <h4 className="text-lg font-bold text-gray-900 mb-3">Software especializado</h4>
+              <ul className="space-y-2 text-sm text-gray-600">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                  <span>Seguridad y gobernanza</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                  <span>Herramientas de modelado</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                  <span>Automatización técnica</span>
+                </li>
+              </ul>
+            </motion.div>
+
+            {/* Servicios externos */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300"
+            >
+              <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
+                <Users className="w-6 h-6 text-orange-600" />
+              </div>
+              <h4 className="text-lg font-bold text-gray-900 mb-3">Servicios externos</h4>
+              <ul className="space-y-2 text-sm text-gray-600">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                  <span>Consultoría especializada</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                  <span>Integración técnica (ACCURO)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                  <span>Desarrollo IA (Nexgent)</span>
+                </li>
+              </ul>
+            </motion.div>
+
+            {/* Personal propio */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300"
+            >
+              <div className="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center mb-4">
+                <Building2 className="w-6 h-6 text-indigo-600" />
+              </div>
+              <h4 className="text-lg font-bold text-gray-900 mb-3">Personal propio</h4>
+              <ul className="space-y-2 text-sm text-gray-600">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                  <span>Horas de equipo interno</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                  <span>Data governance y seguridad</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                  <span>Preparación documentación</span>
+                </li>
+              </ul>
+            </motion.div>
+
+            {/* Evidencias y documentación */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300"
+            >
+              <div className="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center mb-4">
+                <FileCheck className="w-6 h-6 text-teal-600" />
+              </div>
+              <h4 className="text-lg font-bold text-gray-900 mb-3">Documentación técnica</h4>
+              <ul className="space-y-2 text-sm text-gray-600">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                  <span>Preparación de evidencias</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                  <span>Documentación completa</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                  <span>Cumplimiento normativo</span>
+                </li>
+              </ul>
+            </motion.div>
+          </div>
+
+          {/* Mensaje final destacado */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-3xl p-8 lg:p-10 text-white text-center shadow-2xl"
+          >
+            <Shield className="w-16 h-16 mx-auto mb-4" />
+            <h3 className="text-3xl font-bold mb-4">Todo está cubierto por la subvención</h3>
+            <p className="text-xl text-blue-50 max-w-3xl mx-auto mb-6">
+              ACCURO gestiona como proveedor de datos toda la conexión al Espacio de Datos sectorial, 
+              mientras <strong>Nexgent desarrolla tu Agente de IA</strong> con los 15.000€ destinados al proyecto
+            </p>
+            <div className="flex items-center justify-center gap-3 text-lg font-semibold">
+              <CheckCircle className="w-6 h-6" />
+              <span>Sin inversión · Sin riesgo · Sin complicaciones</span>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* QUÉ INCLUYEN LOS 15.000€ SECTION */}
       <section className="py-20 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
