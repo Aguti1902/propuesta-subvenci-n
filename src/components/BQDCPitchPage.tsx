@@ -21,6 +21,14 @@ import {
   Rocket,
   Calendar,
   MessageCircle,
+  Newspaper,
+  Globe,
+  Megaphone,
+  Radio,
+  Tv,
+  Share2,
+  Camera,
+  Mic,
 } from 'lucide-react';
 import ContactModal from './ContactModal';
 
@@ -31,7 +39,7 @@ interface BQDCPitchPageProps {
 export default function BQDCPitchPage({ onBack }: BQDCPitchPageProps) {
   const [currentStep, setCurrentStep] = useState(0);
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
-  const totalSteps = 6;
+  const totalSteps = 7;
 
   const nextStep = () => {
     if (currentStep < totalSteps - 1) {
@@ -74,9 +82,14 @@ export default function BQDCPitchPage({ onBack }: BQDCPitchPageProps) {
       icon: Bot,
     },
     {
-      title: 'Impacto Real',
+      title: 'Impacto Operativo',
       subtitle: 'Qué gana BQDC',
       icon: Award,
+    },
+    {
+      title: 'Impacto Marketing',
+      subtitle: 'Proyección nacional',
+      icon: TrendingUp,
     },
     {
       title: 'Próximos Pasos',
@@ -152,7 +165,8 @@ export default function BQDCPitchPage({ onBack }: BQDCPitchPageProps) {
           {currentStep === 2 && <Step3DataSpace key="step3" />}
           {currentStep === 3 && <Step4AI key="step4" />}
           {currentStep === 4 && <Step5Impact key="step5" />}
-          {currentStep === 5 && <Step6NextSteps key="step6" onOpenContact={() => setIsContactModalOpen(true)} />}
+          {currentStep === 5 && <Step6Marketing key="step6" />}
+          {currentStep === 6 && <Step7NextSteps key="step7" onOpenContact={() => setIsContactModalOpen(true)} />}
         </AnimatePresence>
       </div>
 
@@ -736,10 +750,10 @@ function Step5Impact() {
       <div className="text-center mb-12">
         <div className="inline-flex items-center gap-2 bg-gradient-to-r from-green-600 to-emerald-600 text-white px-6 py-3 rounded-full mb-6 font-bold shadow-lg">
           <Award className="w-6 h-6" />
-          Impacto Real
+          Impacto Operativo
         </div>
         <h1 className="text-5xl lg:text-6xl font-extrabold text-gray-900 mb-6">
-          Qué gana BQDC
+          Qué gana BQDC operativamente
         </h1>
         <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
           Transformación estratégica completa de la organización
@@ -793,8 +807,234 @@ function Step5Impact() {
   );
 }
 
-// ============= STEP 6: PRÓXIMOS PASOS =============
-function Step6NextSteps({ onOpenContact }: { onOpenContact: () => void }) {
+// ============= STEP 6: IMPACTO MARKETING =============
+function Step6Marketing() {
+  const marketingOpportunities = [
+    {
+      icon: Newspaper,
+      title: 'Notas de prensa nacional',
+      description: 'Primera red dental privada de España con Espacio de Datos clínico común',
+      items: [
+        'Medios especializados en salud',
+        'Prensa económica (innovación empresarial)',
+        'Revistas del sector dental',
+        'Portales de tecnología sanitaria',
+      ],
+      color: 'from-blue-500 to-indigo-600',
+    },
+    {
+      icon: Globe,
+      title: 'Posicionamiento europeo',
+      description: 'Pioneros en preparación para el Espacio Europeo de Datos de Salud (EHDS)',
+      items: [
+        'Referencia en eventos europeos de e-Health',
+        'Casos de estudio para la Comisión Europea',
+        'Visibilidad en organismos reguladores',
+        'Partner preferente para proyectos piloto',
+      ],
+      color: 'from-purple-500 to-pink-600',
+    },
+    {
+      icon: Megaphone,
+      title: 'Contenido diferenciador',
+      description: 'Argumentos de venta únicos imposibles de copiar a corto plazo',
+      items: [
+        '"Tu historial dental te sigue en cualquier BQDC"',
+        '"Primera red con IA clínica dental"',
+        '"Continuidad asistencial garantizada"',
+        '"Tecnología europea de vanguardia"',
+      ],
+      color: 'from-green-500 to-emerald-600',
+    },
+    {
+      icon: Share2,
+      title: 'Redes sociales',
+      description: 'Contenido viral y educativo basado en tecnología punta',
+      items: [
+        'Videos explicativos del Espacio de Datos',
+        'Testimonios de pacientes con continuidad',
+        'Behind the scenes: "Así funciona la IA"',
+        'Infografías comparativas vs competencia',
+      ],
+      color: 'from-orange-500 to-red-600',
+    },
+    {
+      icon: Mic,
+      title: 'Autoridad y liderazgo',
+      description: 'BQDC como líder de pensamiento en odontología digital',
+      items: [
+        'Ponencias en congresos dentales',
+        'Webinars y masterclasses sobre IA dental',
+        'Artículos de opinión en medios',
+        'Colaboraciones con universidades',
+      ],
+      color: 'from-teal-500 to-cyan-600',
+    },
+    {
+      icon: Target,
+      title: 'Atracción pacientes premium',
+      description: 'Captación de perfiles de alto valor que buscan innovación',
+      items: [
+        'Pacientes tech-savvy y early adopters',
+        'Familias que valoran continuidad',
+        'Empresas para seguros dentales corporativos',
+        'Expatriados que necesitan movilidad',
+      ],
+      color: 'from-indigo-500 to-purple-600',
+    },
+  ];
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: 50 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: -50 }}
+      transition={{ duration: 0.3 }}
+      className="pb-24"
+    >
+      <div className="text-center mb-12">
+        <div className="inline-flex items-center gap-2 bg-gradient-to-r from-pink-600 to-rose-600 text-white px-6 py-3 rounded-full mb-6 font-bold shadow-lg">
+          <TrendingUp className="w-6 h-6" />
+          Impacto Marketing
+        </div>
+        <h1 className="text-5xl lg:text-6xl font-extrabold text-gray-900 mb-6">
+          Proyección nacional e internacional
+        </h1>
+        <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          El impulso de visibilidad y reputación que BQDC obtendrá como pionera
+        </p>
+      </div>
+
+      {/* Banner destacado */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2 }}
+        className="bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 rounded-3xl p-10 text-white mb-12 shadow-2xl relative overflow-hidden"
+      >
+        <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-10 rounded-full blur-3xl" />
+        <div className="relative flex items-center justify-center gap-6 flex-col lg:flex-row">
+          <div className="flex items-center gap-4">
+            <Tv className="w-16 h-16" />
+            <Radio className="w-16 h-16" />
+            <Camera className="w-16 h-16" />
+          </div>
+          <div className="text-center lg:text-left">
+            <h2 className="text-3xl lg:text-4xl font-extrabold mb-3">
+              BQDC será noticia
+            </h2>
+            <p className="text-xl text-yellow-100">
+              La primera red dental privada de España con Espacio de Datos + IA clínica
+            </p>
+          </div>
+        </div>
+      </motion.div>
+
+      {/* Grid de oportunidades */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+        {marketingOpportunities.map((opportunity, index) => {
+          const Icon = opportunity.icon;
+          return (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 + index * 0.1 }}
+              className="bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all border-2 border-gray-100"
+            >
+              <div className={`w-16 h-16 bg-gradient-to-br ${opportunity.color} rounded-2xl flex items-center justify-center mb-4 shadow-lg`}>
+                <Icon className="w-9 h-9 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-3">{opportunity.title}</h3>
+              <p className="text-gray-600 mb-4 leading-relaxed">{opportunity.description}</p>
+              <div className="space-y-2">
+                {opportunity.items.map((item, idx) => (
+                  <div key={idx} className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-sm text-gray-700">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          );
+        })}
+      </div>
+
+      {/* Ejemplos de titulares */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1 }}
+        className="bg-gradient-to-br from-gray-900 via-indigo-900 to-purple-900 rounded-3xl p-10 text-white shadow-2xl"
+      >
+        <div className="flex items-center gap-4 mb-8">
+          <Newspaper className="w-12 h-12 text-yellow-400" />
+          <h2 className="text-3xl font-bold">Ejemplos de titulares</h2>
+        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+            <div className="text-xs font-bold text-yellow-400 mb-2">PRENSA ESPECIALIZADA</div>
+            <p className="text-lg font-bold leading-tight">
+              "BQDC revoluciona la odontología española con el primer Espacio de Datos Dental integrado"
+            </p>
+          </div>
+          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+            <div className="text-xs font-bold text-blue-400 mb-2">MEDIOS ECONÓMICOS</div>
+            <p className="text-lg font-bold leading-tight">
+              "La red dental que se adelanta al futuro europeo de los datos de salud"
+            </p>
+          </div>
+          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+            <div className="text-xs font-bold text-green-400 mb-2">TECNOLOGÍA</div>
+            <p className="text-lg font-bold leading-tight">
+              "Inteligencia artificial y continuidad asistencial: así funciona BQDC"
+            </p>
+          </div>
+          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+            <div className="text-xs font-bold text-purple-400 mb-2">SECTOR DENTAL</div>
+            <p className="text-lg font-bold leading-tight">
+              "BQDC marca el camino: primera cadena con IA clínica transversal"
+            </p>
+          </div>
+        </div>
+      </motion.div>
+
+      {/* ROI Marketing */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1.2 }}
+        className="mt-12 bg-white rounded-3xl p-10 shadow-xl border-2 border-green-200"
+      >
+        <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center flex items-center justify-center gap-3">
+          <TrendingUp className="w-10 h-10 text-green-600" />
+          ROI de visibilidad
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div className="text-center">
+            <div className="text-5xl font-extrabold text-green-600 mb-2">∞</div>
+            <p className="text-gray-600 font-semibold">Valor de la publicity imposible de comprar</p>
+          </div>
+          <div className="text-center">
+            <div className="text-5xl font-extrabold text-blue-600 mb-2">+300%</div>
+            <p className="text-gray-600 font-semibold">Aumento estimado en menciones de marca</p>
+          </div>
+          <div className="text-center">
+            <div className="text-5xl font-extrabold text-purple-600 mb-2">#1</div>
+            <p className="text-gray-600 font-semibold">Posicionamiento top of mind en innovación</p>
+          </div>
+          <div className="text-center">
+            <div className="text-5xl font-extrabold text-orange-600 mb-2">+150%</div>
+            <p className="text-gray-600 font-semibold">Tráfico web estimado por cobertura mediática</p>
+          </div>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+}
+
+// ============= STEP 7: PRÓXIMOS PASOS =============
+function Step7NextSteps({ onOpenContact }: { onOpenContact: () => void }) {
   return (
     <motion.div
       initial={{ opacity: 0, x: 50 }}
