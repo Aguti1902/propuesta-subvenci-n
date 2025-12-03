@@ -1,25 +1,26 @@
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import {
-  Clock,
-  Calendar,
-  FileText,
-  AlertCircle,
+  ArrowLeft,
+  ArrowRight,
   Users,
+  Building2,
+  Database,
   Bot,
+  Award,
   CheckCircle,
   Sparkles,
-  Zap,
-  TrendingUp,
   Shield,
   Target,
-  Award,
-  ArrowRight,
-  Database,
-  Building2,
-  Rocket,
+  TrendingUp,
   BarChart3,
-  ArrowLeft,
+  Zap,
+  AlertCircle,
+  FileText,
+  Clock,
+  Rocket,
+  Calendar,
+  MessageCircle,
 } from 'lucide-react';
 import ContactModal from './ContactModal';
 
@@ -28,875 +29,895 @@ interface BQDCPitchPageProps {
 }
 
 export default function BQDCPitchPage({ onBack }: BQDCPitchPageProps) {
+  const [currentStep, setCurrentStep] = useState(0);
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+  const totalSteps = 6;
+
+  const nextStep = () => {
+    if (currentStep < totalSteps - 1) {
+      setCurrentStep(currentStep + 1);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  const prevStep = () => {
+    if (currentStep > 0) {
+      setCurrentStep(currentStep - 1);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  const goToStep = (step: number) => {
+    setCurrentStep(step);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const steps = [
+    {
+      title: 'Visión Estratégica',
+      subtitle: 'El futuro de BQDC',
+      icon: Rocket,
+    },
+    {
+      title: 'Situación Actual',
+      subtitle: 'Los retos de hoy',
+      icon: AlertCircle,
+    },
+    {
+      title: 'Espacio de Datos',
+      subtitle: 'Infraestructura digital',
+      icon: Database,
+    },
+    {
+      title: 'Inteligencia Artificial',
+      subtitle: 'IA clínica + administrativa',
+      icon: Bot,
+    },
+    {
+      title: 'Impacto Real',
+      subtitle: 'Qué gana BQDC',
+      icon: Award,
+    },
+    {
+      title: 'Próximos Pasos',
+      subtitle: 'Cómo empezar',
+      icon: ArrowRight,
+    },
+  ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-gray-50">
-      {/* HERO BQDC */}
-      <section className="py-24 bg-gradient-to-br from-blue-900 via-indigo-900 to-purple-900 text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
-        <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-blue-600 to-transparent opacity-30"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-600 rounded-full blur-3xl opacity-20"></div>
-
-        {/* Botón Volver */}
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
-          <motion.button
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            onClick={onBack}
-            className="flex items-center gap-2 text-blue-200 hover:text-white transition-colors duration-300 group"
-          >
-            <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
-            <span className="font-semibold">Volver a selección</span>
-          </motion.button>
-        </div>
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-12"
-          >
-            {/* Logos */}
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1, duration: 0.6 }}
-              className="flex items-center justify-center gap-8 mb-8"
-            >
-              <div className="bg-white rounded-2xl p-4 shadow-2xl">
-                <img 
-                  src="/images/LOGO.png" 
-                  alt="Nexgent Logo" 
-                  className="h-16 w-auto object-contain"
-                />
-              </div>
-              <div className="text-3xl font-bold text-white/60">+</div>
-              <div className="bg-white rounded-2xl p-4 shadow-2xl">
-                <img 
-                  src="/images/logo_ACCURO-843x800.avif" 
-                  alt="ACCURO Logo" 
-                  className="h-16 w-auto object-contain"
-                />
-              </div>
-            </motion.div>
-
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full mb-8 border border-white/20">
-              <Sparkles className="w-6 h-6" />
-              <span className="text-lg font-semibold">Propuesta Estratégica BQDC</span>
-            </div>
-
-            <h1 className="text-5xl lg:text-7xl font-extrabold mb-6 leading-tight">
-              Espacio de Datos Dental + IA
-              <span className="block text-blue-300 mt-3">para toda la red BQDC</span>
-            </h1>
-
-            <p className="text-2xl lg:text-3xl text-blue-100 mb-8 max-w-4xl mx-auto leading-relaxed">
-              Convertir a BQDC en la <strong className="text-white">primera red dental privada de España</strong> con un espacio de datos clínico común e IA transversal
-            </p>
-
-            <div className="flex flex-wrap items-center justify-center gap-4 mb-12">
-              <div className="flex items-center gap-2 bg-green-500/20 backdrop-blur-sm px-6 py-3 rounded-xl border border-green-400/30">
-                <CheckCircle className="w-6 h-6 text-green-300" />
-                <span className="font-semibold text-lg">Hasta 30.000€ por clínica</span>
-              </div>
-              <div className="flex items-center gap-2 bg-purple-500/20 backdrop-blur-sm px-6 py-3 rounded-xl border border-purple-400/30">
-                <Database className="w-6 h-6 text-purple-300" />
-                <span className="font-semibold text-lg">Espacio de Datos Común</span>
-              </div>
-              <div className="flex items-center gap-2 bg-blue-500/20 backdrop-blur-sm px-6 py-3 rounded-xl border border-blue-400/30">
-                <Bot className="w-6 h-6 text-blue-300" />
-                <span className="font-semibold text-lg">IA Clínica + Administrativa</span>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Wave separator */}
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="#F9FAFB"/>
-          </svg>
-        </div>
-      </section>
-
-      {/* PROBLEMA ACTUAL BQDC */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <div className="inline-flex items-center gap-2 bg-red-100 text-red-700 px-4 py-2 rounded-full mb-6 font-semibold">
-              <AlertCircle className="w-5 h-5" />
-              Situación Actual
-            </div>
-            <h2 className="text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4">
-              El reto de BQDC hoy
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Como muchas redes dentales, cada clínica funciona de forma independiente
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              viewport={{ once: true }}
-              className="bg-red-50 rounded-2xl p-6 border-2 border-red-200"
-            >
-              <div className="w-14 h-14 bg-red-100 rounded-xl flex items-center justify-center mb-4">
-                <Building2 className="w-8 h-8 text-red-600" />
-              </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-3">Clínicas como islas digitales</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                Cada clínica opera con sus propios sistemas y datos, sin conexión entre ellas
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              viewport={{ once: true }}
-              className="bg-red-50 rounded-2xl p-6 border-2 border-red-200"
-            >
-              <div className="w-14 h-14 bg-red-100 rounded-xl flex items-center justify-center mb-4">
-                <FileText className="w-8 h-8 text-red-600" />
-              </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-3">Pruebas y formularios repetidos</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                Cuando un paciente cambia de clínica, se vuelven a pedir pruebas ya realizadas
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              viewport={{ once: true }}
-              className="bg-red-50 rounded-2xl p-6 border-2 border-red-200"
-            >
-              <div className="w-14 h-14 bg-red-100 rounded-xl flex items-center justify-center mb-4">
-                <Users className="w-8 h-8 text-red-600" />
-              </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-3">Sin historial clínico único</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                No existe un historial clínico compartido a nivel de red BQDC
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              viewport={{ once: true }}
-              className="bg-red-50 rounded-2xl p-6 border-2 border-red-200"
-            >
-              <div className="w-14 h-14 bg-red-100 rounded-xl flex items-center justify-center mb-4">
-                <Clock className="w-8 h-8 text-red-600" />
-              </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-3">Carga administrativa repetitiva</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                Tareas manuales y procesos duplicados en cada centro
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              viewport={{ once: true }}
-              className="bg-red-50 rounded-2xl p-6 border-2 border-red-200"
-            >
-              <div className="w-14 h-14 bg-red-100 rounded-xl flex items-center justify-center mb-4">
-                <BarChart3 className="w-8 h-8 text-red-600" />
-              </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-3">Calidad asistencial desigual</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                Falta de estándares y protocolos comunes entre centros
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-              viewport={{ once: true }}
-              className="bg-red-50 rounded-2xl p-6 border-2 border-red-200"
-            >
-              <div className="w-14 h-14 bg-red-100 rounded-xl flex items-center justify-center mb-4">
-                <Shield className="w-8 h-8 text-red-600" />
-              </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-3">Datos sin aprovechar</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                Información valiosa que no se utiliza para mejorar la red
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* OPORTUNIDAD KTED PARA BQDC */}
-      <section className="py-20 bg-gradient-to-br from-green-50 to-emerald-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <div className="inline-flex items-center gap-2 bg-green-600 text-white px-4 py-2 rounded-full mb-6 font-semibold">
-              <Sparkles className="w-5 h-5" />
-              La Oportunidad
-            </div>
-            <h2 className="text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4">
-              Lo que permite KTED para BQDC
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Una subvención que transforma completamente la infraestructura digital de la red
-            </p>
-          </motion.div>
-
-          {/* Timeline de la oportunidad */}
-          <div className="relative max-w-5xl mx-auto">
-            {/* Línea vertical */}
-            <div className="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-green-400 via-blue-500 to-purple-600"></div>
-
-            {/* Step 1 */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.1 }}
-              viewport={{ once: true }}
-              className="relative pl-24 pb-12"
-            >
-              <div className="absolute left-0 w-16 h-16 bg-green-500 rounded-2xl flex items-center justify-center shadow-xl">
-                <span className="text-2xl font-bold text-white">1</span>
-              </div>
-              <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-green-200">
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">Hasta 30.000€ por clínica BQDC</h3>
-                <p className="text-gray-600 text-lg leading-relaxed">
-                  Cada clínica privada de BQDC puede acceder a la máxima cuantía de la subvención KTED. 
-                  <strong className="text-gray-900"> Coste 0 para las clínicas.</strong>
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Step 2 */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.2 }}
-              viewport={{ once: true }}
-              className="relative pl-24 pb-12"
-            >
-              <div className="absolute left-0 w-16 h-16 bg-blue-500 rounded-2xl flex items-center justify-center shadow-xl">
-                <span className="text-2xl font-bold text-white">2</span>
-              </div>
-              <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-blue-200">
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">Conexión al Espacio de Datos Dental</h3>
-                <p className="text-gray-600 text-lg leading-relaxed">
-                  Todas las clínicas se conectan a un <strong className="text-gray-900">Espacio de Datos Dental común</strong>, 
-                  permitiendo compartir información clínica de forma segura y controlada dentro de BQDC.
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Step 3 */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.3 }}
-              viewport={{ once: true }}
-              className="relative pl-24 pb-12"
-            >
-              <div className="absolute left-0 w-16 h-16 bg-indigo-500 rounded-2xl flex items-center justify-center shadow-xl">
-                <span className="text-2xl font-bold text-white">3</span>
-              </div>
-              <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-indigo-200">
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">Estándar único de datos clínicos</h3>
-                <p className="text-gray-600 text-lg leading-relaxed">
-                  Todas las clínicas trabajan con el mismo estándar de datos, facilitando la 
-                  <strong className="text-gray-900"> interoperabilidad y continuidad asistencial</strong> en toda la red.
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Step 4 */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.4 }}
-              viewport={{ once: true }}
-              className="relative pl-24 pb-12"
-            >
-              <div className="absolute left-0 w-16 h-16 bg-purple-500 rounded-2xl flex items-center justify-center shadow-xl">
-                <span className="text-2xl font-bold text-white">4</span>
-              </div>
-              <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-purple-200">
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">Implantación y 2 meses de servicio cubiertos</h3>
-                <p className="text-gray-600 text-lg leading-relaxed">
-                  La subvención cubre toda la implantación técnica, el desarrollo del Agente IA y 
-                  <strong className="text-gray-900"> los primeros 2 meses de servicio</strong> sin coste adicional.
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Step 5 */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.5 }}
-              viewport={{ once: true }}
-              className="relative pl-24"
-            >
-              <div className="absolute left-0 w-16 h-16 bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center shadow-xl">
-                <Shield className="w-8 h-8 text-white" />
-              </div>
-              <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-8 shadow-lg border-2 border-purple-300">
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">Preparación para el EHDS europeo</h3>
-                <p className="text-gray-600 text-lg leading-relaxed">
-                  BQDC se adelanta y se prepara para el futuro <strong className="text-gray-900">Espacio Europeo de Datos de Salud (EHDS)</strong>, 
-                  posicionándose como líder en digitalización del sector dental.
-                </p>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* BENEFICIOS DEL ESPACIO DE DATOS DENTAL */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full mb-6 font-semibold">
-              <Database className="w-5 h-5" />
-              Espacio de Datos Dental
-            </div>
-            <h2 className="text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4">
-              Beneficios del Espacio de Datos para BQDC
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Un ecosistema digital que conecta todas las clínicas y mejora la atención
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              viewport={{ once: true }}
-              className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 shadow-lg border border-blue-200 hover:shadow-xl transition-shadow"
-            >
-              <div className="w-14 h-14 bg-blue-500 rounded-xl flex items-center justify-center mb-4">
-                <Users className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Historia clínica portable</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Los pacientes pueden moverse entre clínicas BQDC con su historial completo siempre disponible
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              viewport={{ once: true }}
-              className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 shadow-lg border border-green-200 hover:shadow-xl transition-shadow"
-            >
-              <div className="w-14 h-14 bg-green-500 rounded-xl flex items-center justify-center mb-4">
-                <CheckCircle className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Menos pruebas duplicadas</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Evita repetir pruebas diagnósticas ya realizadas, ahorrando tiempo y recursos
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              viewport={{ once: true }}
-              className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8 shadow-lg border border-purple-200 hover:shadow-xl transition-shadow"
-            >
-              <div className="w-14 h-14 bg-purple-500 rounded-xl flex items-center justify-center mb-4">
-                <Shield className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Continuidad asistencial real</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Atención integrada y coordinada en toda la red BQDC
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              viewport={{ once: true }}
-              className="bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl p-8 shadow-lg border border-orange-200 hover:shadow-xl transition-shadow"
-            >
-              <div className="w-14 h-14 bg-orange-500 rounded-xl flex items-center justify-center mb-4">
-                <Shield className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Gobernanza y seguridad</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Control total sobre los datos con los máximos estándares de seguridad y privacidad
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              viewport={{ once: true }}
-              className="bg-gradient-to-br from-teal-50 to-cyan-50 rounded-2xl p-8 shadow-lg border border-teal-200 hover:shadow-xl transition-shadow"
-            >
-              <div className="w-14 h-14 bg-teal-500 rounded-xl flex items-center justify-center mb-4">
-                <BarChart3 className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Base para investigación</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Datos anonimizados para investigación clínica propia y mejora continua
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-              viewport={{ once: true }}
-              className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-2xl p-8 shadow-lg border border-indigo-200 hover:shadow-xl transition-shadow"
-            >
-              <div className="w-14 h-14 bg-indigo-500 rounded-xl flex items-center justify-center mb-4">
-                <Award className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Diferenciación total</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Ventaja competitiva única frente a otras cadenas dentales en España
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* CAPA DE IA SOBRE EL ESPACIO DE DATOS */}
-      <section className="py-20 bg-gradient-to-br from-gray-900 via-indigo-900 to-purple-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6 font-semibold border border-white/20">
-              <Bot className="w-5 h-5" />
-              Inteligencia Artificial
-            </div>
-            <h2 className="text-4xl lg:text-5xl font-extrabold mb-4">
-              IA clínica y administrativa
-              <span className="block text-blue-300 mt-2">sobre el Espacio de Datos de BQDC</span>
-            </h2>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-              La capa de inteligencia que multiplica el valor de los datos compartidos
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Card IA Clínica */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.2 }}
-              viewport={{ once: true }}
-              className="bg-gradient-to-br from-blue-500/20 to-indigo-600/20 backdrop-blur-sm rounded-3xl p-8 border-2 border-blue-400/30 shadow-2xl"
-            >
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-16 h-16 bg-blue-500 rounded-2xl flex items-center justify-center">
-                  <Sparkles className="w-9 h-9 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-3xl font-bold">IA Clínica</h3>
-                  <p className="text-blue-200">Soporte a decisiones médicas</p>
-                </div>
-              </div>
-
-              <div className="space-y-4">
-                <div className="flex items-start gap-3 bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                  <CheckCircle className="w-6 h-6 text-green-300 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <h4 className="font-bold text-lg mb-1">Pre-diagnósticos y alertas preventivas</h4>
-                    <p className="text-blue-100 text-sm">Análisis de datos históricos para detectar patrones y prevenir problemas</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3 bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                  <CheckCircle className="w-6 h-6 text-green-300 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <h4 className="font-bold text-lg mb-1">Soporte a toma de decisiones</h4>
-                    <p className="text-blue-100 text-sm">Recomendaciones basadas en casos similares de toda la red BQDC</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3 bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                  <CheckCircle className="w-6 h-6 text-green-300 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <h4 className="font-bold text-lg mb-1">Análisis de patrones</h4>
-                    <p className="text-blue-100 text-sm">Insights sobre caries, periodoncia, implantes, etc. en toda la red</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3 bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                  <CheckCircle className="w-6 h-6 text-green-300 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <h4 className="font-bold text-lg mb-1">Estandarización de protocolos</h4>
-                    <p className="text-blue-100 text-sm">Homogeneización de calidad asistencial en todas las clínicas BQDC</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-6 flex flex-wrap gap-2">
-                <span className="px-3 py-1 bg-green-500/30 rounded-full text-xs font-semibold border border-green-400/30">Mejor diagnóstico</span>
-                <span className="px-3 py-1 bg-blue-500/30 rounded-full text-xs font-semibold border border-blue-400/30">Prevención activa</span>
-                <span className="px-3 py-1 bg-purple-500/30 rounded-full text-xs font-semibold border border-purple-400/30">Calidad homogénea</span>
-              </div>
-            </motion.div>
-
-            {/* Card IA Administrativa */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.2 }}
-              viewport={{ once: true }}
-              className="bg-gradient-to-br from-purple-500/20 to-pink-600/20 backdrop-blur-sm rounded-3xl p-8 border-2 border-purple-400/30 shadow-2xl"
-            >
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-16 h-16 bg-purple-500 rounded-2xl flex items-center justify-center">
-                  <Zap className="w-9 h-9 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-3xl font-bold">IA Administrativa</h3>
-                  <p className="text-purple-200">Automatización operativa</p>
-                </div>
-              </div>
-
-              <div className="space-y-4">
-                <div className="flex items-start gap-3 bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                  <CheckCircle className="w-6 h-6 text-green-300 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <h4 className="font-bold text-lg mb-1">Atención al paciente 24/7</h4>
-                    <p className="text-purple-100 text-sm">WhatsApp, web, chat: respuesta instantánea cualquier día y hora</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3 bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                  <CheckCircle className="w-6 h-6 text-green-300 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <h4 className="font-bold text-lg mb-1">Gestión automatizada de citas</h4>
-                    <p className="text-purple-100 text-sm">Reservas, cambios, recordatorios y reducción de no-shows</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3 bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                  <CheckCircle className="w-6 h-6 text-green-300 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <h4 className="font-bold text-lg mb-1">Seguimiento post-tratamiento</h4>
-                    <p className="text-purple-100 text-sm">Comunicaciones automatizadas y personalizadas para cada paciente</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3 bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                  <CheckCircle className="w-6 h-6 text-green-300 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <h4 className="font-bold text-lg mb-1">Solicitud automática de reseñas</h4>
-                    <p className="text-purple-100 text-sm">Aumenta la reputación online en el momento perfecto</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3 bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                  <CheckCircle className="w-6 h-6 text-green-300 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <h4 className="font-bold text-lg mb-1">Organización documental</h4>
-                    <p className="text-purple-100 text-sm">Reducción del 50-70% de tareas administrativas repetitivas</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-6 flex flex-wrap gap-2">
-                <span className="px-3 py-1 bg-orange-500/30 rounded-full text-xs font-semibold border border-orange-400/30">Ahorro de tiempo</span>
-                <span className="px-3 py-1 bg-pink-500/30 rounded-full text-xs font-semibold border border-pink-400/30">Mejor experiencia</span>
-                <span className="px-3 py-1 bg-green-500/30 rounded-full text-xs font-semibold border border-green-400/30">Más ingresos</span>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* QUÉ GANA BQDC */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-full mb-6 font-semibold shadow-lg">
-              <Award className="w-6 h-6" />
-              Visión Estratégica
-            </div>
-            <h2 className="text-4xl lg:text-6xl font-extrabold text-gray-900 mb-4">
-              Qué gana BQDC con esta iniciativa
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Más que una subvención: una transformación estratégica completa
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.1 }}
-              viewport={{ once: true }}
-              className="bg-white rounded-2xl p-8 shadow-xl border-2 border-blue-200 hover:shadow-2xl transition-all"
-            >
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg">
-                <Award className="w-9 h-9 text-white" />
-              </div>
-              <div className="flex items-start gap-3 mb-3">
-                <CheckCircle className="w-7 h-7 text-green-600 flex-shrink-0 mt-1" />
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900">Primera red dental privada</h3>
-                </div>
-              </div>
-              <p className="text-gray-600 leading-relaxed">
-                Ser la <strong>primera red dental privada de España</strong> con un espacio de datos clínico propio
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2 }}
-              viewport={{ once: true }}
-              className="bg-white rounded-2xl p-8 shadow-xl border-2 border-purple-200 hover:shadow-2xl transition-all"
-            >
-              <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg">
-                <Target className="w-9 h-9 text-white" />
-              </div>
-              <div className="flex items-start gap-3 mb-3">
-                <CheckCircle className="w-7 h-7 text-green-600 flex-shrink-0 mt-1" />
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900">Ventaja competitiva clara</h3>
-                </div>
-              </div>
-              <p className="text-gray-600 leading-relaxed">
-                Diferenciación absoluta frente a otras cadenas dentales y clínicas independientes
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.3 }}
-              viewport={{ once: true }}
-              className="bg-white rounded-2xl p-8 shadow-xl border-2 border-green-200 hover:shadow-2xl transition-all"
-            >
-              <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg">
-                <Users className="w-9 h-9 text-white" />
-              </div>
-              <div className="flex items-start gap-3 mb-3">
-                <CheckCircle className="w-7 h-7 text-green-600 flex-shrink-0 mt-1" />
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900">Mayor calidad asistencial</h3>
-                </div>
-              </div>
-              <p className="text-gray-600 leading-relaxed">
-                Protocolos estandarizados y mejor experiencia del paciente en toda la red
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.4 }}
-              viewport={{ once: true }}
-              className="bg-white rounded-2xl p-8 shadow-xl border-2 border-teal-200 hover:shadow-2xl transition-all"
-            >
-              <div className="w-16 h-16 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg">
-                <BarChart3 className="w-9 h-9 text-white" />
-              </div>
-              <div className="flex items-start gap-3 mb-3">
-                <CheckCircle className="w-7 h-7 text-green-600 flex-shrink-0 mt-1" />
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900">Capacidad de investigación</h3>
-                </div>
-              </div>
-              <p className="text-gray-600 leading-relaxed">
-                Datos anonimizados para investigación clínica propia y mejora continua basada en evidencia
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.5 }}
-              viewport={{ once: true }}
-              className="bg-white rounded-2xl p-8 shadow-xl border-2 border-orange-200 hover:shadow-2xl transition-all"
-            >
-              <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg">
-                <TrendingUp className="w-9 h-9 text-white" />
-              </div>
-              <div className="flex items-start gap-3 mb-3">
-                <CheckCircle className="w-7 h-7 text-green-600 flex-shrink-0 mt-1" />
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900">Ahorro operativo significativo</h3>
-                </div>
-              </div>
-              <p className="text-gray-600 leading-relaxed">
-                Reducción del 50-70% en carga administrativa y optimización de recursos en todas las clínicas
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.6 }}
-              viewport={{ once: true }}
-              className="bg-white rounded-2xl p-8 shadow-xl border-2 border-indigo-200 hover:shadow-2xl transition-all"
-            >
-              <div className="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg">
-                <Sparkles className="w-9 h-9 text-white" />
-              </div>
-              <div className="flex items-start gap-3 mb-3">
-                <CheckCircle className="w-7 h-7 text-green-600 flex-shrink-0 mt-1" />
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900">Proyecto 100% financiado</h3>
-                </div>
-              </div>
-              <p className="text-gray-600 leading-relaxed">
-                <strong>30.000€ por clínica</strong> totalmente cubiertos por la subvención KTED, sin inversión de BQDC
-              </p>
-            </motion.div>
-          </div>
-
-          {/* CTA Destacado */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7 }}
-            viewport={{ once: true }}
-            className="bg-gradient-to-br from-blue-600 via-indigo-700 to-purple-800 rounded-3xl p-10 lg:p-16 text-white text-center shadow-2xl relative overflow-hidden"
-          >
-            <div className="absolute top-0 right-0 w-96 h-96 bg-white opacity-5 rounded-full -mr-48 -mt-48"></div>
-            <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-400 opacity-10 rounded-full blur-3xl -ml-48 -mb-48"></div>
-            
-            <div className="relative">
-              <Rocket className="w-20 h-20 mx-auto mb-6" />
-              <h3 className="text-3xl lg:text-5xl font-extrabold mb-6 leading-tight">
-                BQDC puede convertirse en la referencia
-                <span className="block text-blue-300 mt-2">del sector dental privado en España</span>
-              </h3>
-              <p className="text-xl lg:text-2xl text-blue-100 max-w-4xl mx-auto mb-8 leading-relaxed">
-                Si BQDC decide liderar este proyecto, será pionera en <strong className="text-white">digitalización e inteligencia artificial</strong> en odontología privada
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => setIsContactModalOpen(true)}
-                  className="px-12 py-6 bg-white text-indigo-700 rounded-2xl font-bold text-xl shadow-2xl hover:shadow-3xl transition-all duration-300 inline-flex items-center gap-3 group"
-                >
-                  Solicitar información para BQDC
-                  <ArrowRight className="w-7 h-7 group-hover:translate-x-2 transition-transform" />
-                </motion.button>
-
-                <motion.a
-                  href="https://calendly.com/nexgent-demo/subvencion-kted-2025"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-12 py-6 bg-indigo-500 text-white rounded-2xl font-bold text-xl border-2 border-white/30 hover:bg-indigo-400 transition-all duration-300 flex items-center gap-2 cursor-pointer"
-                >
-                  <Calendar className="w-7 h-7" />
-                  Agendar reunión con BQDC
-                </motion.a>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* FOOTER */}
-      <footer className="bg-gray-900 text-gray-400 py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <div className="flex items-center justify-center gap-8 mb-6">
-              <div className="bg-white rounded-xl p-3">
-                <img 
-                  src="/images/LOGO.png" 
-                  alt="Nexgent Logo" 
-                  className="h-12 w-auto object-contain"
-                />
-              </div>
-              <div className="text-2xl font-bold text-gray-600">+</div>
-              <div className="bg-white rounded-xl p-3">
-                <img 
-                  src="/images/logo_ACCURO-843x800.avif" 
-                  alt="ACCURO Logo" 
-                  className="h-12 w-auto object-contain"
-                />
-              </div>
-            </div>
-            <p className="text-lg mb-2">
-              <span className="text-white font-bold">Nexgent</span> <span className="text-gray-500">+</span> <span className="text-white font-bold">ACCURO</span>
-            </p>
-            <p className="text-sm mb-1">
-              Propuesta exclusiva BQDC · Subvención KTED 2025
-            </p>
-            <p className="text-xs text-gray-500 mt-3">
-              Espacio de Datos Dental + IA para toda la red BQDC
-            </p>
-          </div>
-          
-          <div className="border-t border-gray-800 pt-6 text-center text-sm">
-            <button 
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50">
+      {/* Header Fixed */}
+      <header className="bg-white border-b border-gray-200 shadow-sm sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <div className="flex items-center justify-between mb-4">
+            {/* Botón volver */}
+            <button
               onClick={onBack}
-              className="text-gray-400 hover:text-primary-400 transition-colors"
+              className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors duration-300 group"
             >
-              ← Volver a selección de propuestas
+              <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
+              <span className="font-semibold">Volver</span>
             </button>
+
+            {/* Logos */}
+            <div className="flex items-center gap-4">
+              <img src="/images/LOGO.png" alt="Nexgent" className="h-10 w-auto" />
+              <span className="text-gray-400">+</span>
+              <img src="/images/logo_ACCURO-843x800.avif" alt="ACCURO" className="h-10 w-auto" />
+            </div>
+
+            {/* Badge BQDC */}
+            <div className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-full font-bold text-sm">
+              <Building2 className="w-4 h-4" />
+              BQDC
+            </div>
+          </div>
+
+          {/* Progress Bar */}
+          <div className="flex items-center gap-2">
+            {steps.map((step, index) => (
+              <button
+                key={index}
+                onClick={() => goToStep(index)}
+                className={`flex-1 h-2 rounded-full transition-all duration-300 ${
+                  index === currentStep
+                    ? 'bg-gradient-to-r from-blue-600 to-purple-600 scale-105'
+                    : index < currentStep
+                    ? 'bg-green-500 hover:bg-green-600'
+                    : 'bg-gray-200 hover:bg-gray-300'
+                }`}
+                title={step.title}
+              />
+            ))}
+          </div>
+
+          {/* Step indicator */}
+          <div className="mt-3 text-center">
+            <div className="inline-flex items-center gap-2 bg-gray-100 px-4 py-2 rounded-full">
+              <span className="text-sm font-semibold text-gray-600">
+                Paso {currentStep + 1} de {totalSteps}:
+              </span>
+              <span className="text-sm font-bold text-gray-900">{steps[currentStep].title}</span>
+            </div>
           </div>
         </div>
-      </footer>
+      </header>
+
+      {/* Content Area */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <AnimatePresence mode="wait">
+          {currentStep === 0 && <Step1Vision key="step1" />}
+          {currentStep === 1 && <Step2Situation key="step2" />}
+          {currentStep === 2 && <Step3DataSpace key="step3" />}
+          {currentStep === 3 && <Step4AI key="step4" />}
+          {currentStep === 4 && <Step5Impact key="step5" />}
+          {currentStep === 5 && <Step6NextSteps key="step6" onOpenContact={() => setIsContactModalOpen(true)} />}
+        </AnimatePresence>
+      </div>
+
+      {/* Navigation Footer */}
+      <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-lg">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <div className="flex items-center justify-between">
+            <button
+              onClick={prevStep}
+              disabled={currentStep === 0}
+              className={`flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
+                currentStep === 0
+                  ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
+                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+              }`}
+            >
+              <ArrowLeft className="w-5 h-5" />
+              Anterior
+            </button>
+
+            <div className="text-center">
+              <div className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+                {currentStep + 1} / {totalSteps}
+              </div>
+            </div>
+
+            {currentStep < totalSteps - 1 ? (
+              <button
+                onClick={nextStep}
+                className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold hover:shadow-lg transition-all duration-300 group"
+              >
+                Siguiente
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </button>
+            ) : (
+              <button
+                onClick={() => setIsContactModalOpen(true)}
+                className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-xl font-semibold hover:shadow-lg transition-all duration-300 group"
+              >
+                <CheckCircle className="w-5 h-5" />
+                Contactar
+              </button>
+            )}
+          </div>
+        </div>
+      </div>
 
       {/* Contact Modal */}
-      <ContactModal 
-        isOpen={isContactModalOpen} 
-        onClose={() => setIsContactModalOpen(false)} 
-      />
+      <ContactModal isOpen={isContactModalOpen} onClose={() => setIsContactModalOpen(false)} />
     </div>
   );
 }
 
+// ============= STEP 1: VISIÓN ESTRATÉGICA =============
+function Step1Vision() {
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: 50 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: -50 }}
+      transition={{ duration: 0.3 }}
+      className="pb-24"
+    >
+      <div className="text-center mb-12">
+        <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-full mb-6 shadow-lg">
+          <Rocket className="w-6 h-6" />
+          <span className="font-bold">Visión Estratégica</span>
+        </div>
+        <h1 className="text-5xl lg:text-6xl font-extrabold text-gray-900 mb-6">
+          BQDC: Liderando el futuro
+          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mt-2">
+            de la odontología digital
+          </span>
+        </h1>
+        <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          Una oportunidad única para convertir a BQDC en la referencia nacional en digitalización e inteligencia artificial del sector dental privado
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="bg-gradient-to-br from-blue-500 to-indigo-600 rounded-3xl p-8 text-white shadow-xl"
+        >
+          <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-6">
+            <Award className="w-9 h-9" />
+          </div>
+          <h3 className="text-2xl font-bold mb-3">Primera red dental</h3>
+          <p className="text-blue-100 leading-relaxed">
+            Con un espacio de datos clínico común en toda España. Pioneros absolutos en el sector privado.
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="bg-gradient-to-br from-purple-500 to-pink-600 rounded-3xl p-8 text-white shadow-xl"
+        >
+          <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-6">
+            <Target className="w-9 h-9" />
+          </div>
+          <h3 className="text-2xl font-bold mb-3">Diferenciación total</h3>
+          <p className="text-purple-100 leading-relaxed">
+            Ventaja competitiva insuperable frente a otras cadenas dentales y clínicas independientes.
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
+          className="bg-gradient-to-br from-green-500 to-emerald-600 rounded-3xl p-8 text-white shadow-xl"
+        >
+          <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-6">
+            <Sparkles className="w-9 h-9" />
+          </div>
+          <h3 className="text-2xl font-bold mb-3">100% financiado</h3>
+          <p className="text-green-100 leading-relaxed">
+            30.000€ por clínica cubiertos por subvención. Transformación digital sin inversión de BQDC.
+          </p>
+        </motion.div>
+      </div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.5 }}
+        className="bg-white rounded-3xl p-10 shadow-xl border-2 border-gray-100"
+      >
+        <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">¿Qué significa esto para BQDC?</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="flex items-start gap-4">
+            <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
+              <CheckCircle className="w-7 h-7 text-blue-600" />
+            </div>
+            <div>
+              <h4 className="font-bold text-gray-900 mb-2">Posicionamiento estratégico</h4>
+              <p className="text-gray-600">BQDC se convierte en la cadena dental más avanzada tecnológicamente de España</p>
+            </div>
+          </div>
+
+          <div className="flex items-start gap-4">
+            <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center flex-shrink-0">
+              <CheckCircle className="w-7 h-7 text-purple-600" />
+            </div>
+            <div>
+              <h4 className="font-bold text-gray-900 mb-2">Atracción de talento</h4>
+              <p className="text-gray-600">Dentistas quieren trabajar en una red innovadora con herramientas de última generación</p>
+            </div>
+          </div>
+
+          <div className="flex items-start gap-4">
+            <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
+              <CheckCircle className="w-7 h-7 text-green-600" />
+            </div>
+            <div>
+              <h4 className="font-bold text-gray-900 mb-2">Captación de pacientes</h4>
+              <p className="text-gray-600">Argumento de venta único: "Tu historial te sigue en cualquier clínica BQDC"</p>
+            </div>
+          </div>
+
+          <div className="flex items-start gap-4">
+            <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center flex-shrink-0">
+              <CheckCircle className="w-7 h-7 text-orange-600" />
+            </div>
+            <div>
+              <h4 className="font-bold text-gray-900 mb-2">Preparación futuro</h4>
+              <p className="text-gray-600">Adelantarse al Espacio Europeo de Datos de Salud (EHDS) antes que nadie</p>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+}
+
+// ============= STEP 2: SITUACIÓN ACTUAL =============
+function Step2Situation() {
+  const problems = [
+    {
+      icon: Building2,
+      title: 'Clínicas desconectadas',
+      description: 'Cada clínica BQDC funciona como una isla digital independiente',
+      impact: 'Alto',
+    },
+    {
+      icon: FileText,
+      title: 'Duplicación de trabajo',
+      description: 'Pruebas y formularios se repiten cuando un paciente cambia de clínica',
+      impact: 'Alto',
+    },
+    {
+      icon: Users,
+      title: 'Sin historial unificado',
+      description: 'No existe continuidad del historial clínico entre clínicas de la red',
+      impact: 'Crítico',
+    },
+    {
+      icon: Clock,
+      title: 'Carga administrativa alta',
+      description: 'Tareas manuales repetitivas en cada centro sin estandarización',
+      impact: 'Alto',
+    },
+    {
+      icon: BarChart3,
+      title: 'Datos sin aprovechar',
+      description: 'Información valiosa dispersa que no se utiliza para mejorar la red',
+      impact: 'Medio',
+    },
+    {
+      icon: Shield,
+      title: 'Calidad desigual',
+      description: 'Falta de protocolos comunes y estándares homogéneos entre centros',
+      impact: 'Alto',
+    },
+  ];
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: 50 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: -50 }}
+      transition={{ duration: 0.3 }}
+      className="pb-24"
+    >
+      <div className="text-center mb-12">
+        <div className="inline-flex items-center gap-2 bg-red-100 text-red-700 px-6 py-3 rounded-full mb-6 font-bold border-2 border-red-200">
+          <AlertCircle className="w-6 h-6" />
+          Situación Actual
+        </div>
+        <h1 className="text-5xl lg:text-6xl font-extrabold text-gray-900 mb-6">
+          Los retos de BQDC hoy
+        </h1>
+        <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          Desafíos operativos que están frenando el potencial completo de la red
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        {problems.map((problem, index) => {
+          const Icon = problem.icon;
+          return (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: index * 0.1 }}
+              className="bg-white rounded-2xl p-6 shadow-lg border-2 border-red-100 hover:shadow-xl transition-all"
+            >
+              <div className="flex items-start justify-between mb-4">
+                <div className="w-14 h-14 bg-red-100 rounded-xl flex items-center justify-center">
+                  <Icon className="w-8 h-8 text-red-600" />
+                </div>
+                <span className={`px-3 py-1 rounded-full text-xs font-bold ${
+                  problem.impact === 'Crítico' ? 'bg-red-200 text-red-800' :
+                  problem.impact === 'Alto' ? 'bg-orange-200 text-orange-800' :
+                  'bg-yellow-200 text-yellow-800'
+                }`}>
+                  {problem.impact}
+                </span>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">{problem.title}</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">{problem.description}</p>
+            </motion.div>
+          );
+        })}
+      </div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.7 }}
+        className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-10 text-white shadow-2xl"
+      >
+        <div className="flex items-center gap-4 mb-6">
+          <TrendingUp className="w-12 h-12 text-yellow-400" />
+          <h2 className="text-3xl font-bold">El coste de la situación actual</h2>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div>
+            <div className="text-4xl font-bold text-yellow-400 mb-2">~40%</div>
+            <p className="text-gray-300">del tiempo del personal en tareas administrativas repetitivas</p>
+          </div>
+          <div>
+            <div className="text-4xl font-bold text-red-400 mb-2">15-20%</div>
+            <p className="text-gray-300">de pruebas diagnósticas duplicadas entre clínicas</p>
+          </div>
+          <div>
+            <div className="text-4xl font-bold text-orange-400 mb-2">0%</div>
+            <p className="text-gray-300">de aprovechamiento de datos para mejora de la red</p>
+          </div>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+}
+
+// ============= STEP 3: ESPACIO DE DATOS =============
+function Step3DataSpace() {
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: 50 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: -50 }}
+      transition={{ duration: 0.3 }}
+      className="pb-24"
+    >
+      <div className="text-center mb-12">
+        <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-6 py-3 rounded-full mb-6 font-bold border-2 border-blue-200">
+          <Database className="w-6 h-6" />
+          Infraestructura Digital
+        </div>
+        <h1 className="text-5xl lg:text-6xl font-extrabold text-gray-900 mb-6">
+          Espacio de Datos Dental BQDC
+        </h1>
+        <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          La columna vertebral digital que conecta todas las clínicas de la red
+        </p>
+      </div>
+
+      {/* Diagrama Visual */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 0.2 }}
+        className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-10 mb-12 border-2 border-blue-200"
+      >
+        <div className="flex flex-col items-center">
+          {/* Centro: Espacio de Datos */}
+          <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-3xl p-8 shadow-2xl mb-8 relative">
+            <div className="absolute -top-3 -right-3 w-20 h-20 bg-green-500 rounded-full flex items-center justify-center shadow-lg">
+              <CheckCircle className="w-10 h-10 text-white" />
+            </div>
+            <Database className="w-16 h-16 text-white mx-auto mb-4" />
+            <h3 className="text-2xl font-bold text-white text-center mb-2">Espacio de Datos BQDC</h3>
+            <p className="text-blue-100 text-center">Datos clínicos unificados y seguros</p>
+          </div>
+
+          {/* Clínicas conectadas */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full">
+            {[1, 2, 3, 4, 5, 6, 7, 8].map((clinic) => (
+              <motion.div
+                key={clinic}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 + clinic * 0.05 }}
+                className="bg-white rounded-xl p-4 shadow-md border-2 border-gray-200 text-center"
+              >
+                <Building2 className="w-8 h-8 text-blue-600 mx-auto mb-2" />
+                <p className="text-sm font-semibold text-gray-700">Clínica {clinic}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </motion.div>
+
+      {/* Beneficios */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.4 }}
+          className="bg-white rounded-2xl p-8 shadow-xl"
+        >
+          <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+            <Users className="w-8 h-8 text-green-600" />
+            Para los pacientes
+          </h3>
+          <div className="space-y-4">
+            <div className="flex items-start gap-3">
+              <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" />
+              <p className="text-gray-700"><strong>Historia portable:</strong> Pueden ir a cualquier clínica BQDC con su historial completo</p>
+            </div>
+            <div className="flex items-start gap-3">
+              <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" />
+              <p className="text-gray-700"><strong>Sin repetir pruebas:</strong> Radiografías, análisis, etc. disponibles en toda la red</p>
+            </div>
+            <div className="flex items-start gap-3">
+              <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" />
+              <p className="text-gray-700"><strong>Continuidad real:</strong> Atención integrada sin importar la clínica</p>
+            </div>
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.5 }}
+          className="bg-white rounded-2xl p-8 shadow-xl"
+        >
+          <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+            <Building2 className="w-8 h-8 text-blue-600" />
+            Para BQDC
+          </h3>
+          <div className="space-y-4">
+            <div className="flex items-start gap-3">
+              <CheckCircle className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5" />
+              <p className="text-gray-700"><strong>Visión completa:</strong> Datos agregados de toda la red para decisiones estratégicas</p>
+            </div>
+            <div className="flex items-start gap-3">
+              <CheckCircle className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5" />
+              <p className="text-gray-700"><strong>Protocolos homogéneos:</strong> Estandarización de calidad en todas las clínicas</p>
+            </div>
+            <div className="flex items-start gap-3">
+              <CheckCircle className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5" />
+              <p className="text-gray-700"><strong>Base para investigación:</strong> Datos anónimos para estudios clínicos propios</p>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </motion.div>
+  );
+}
+
+// ============= STEP 4: IA =============
+function Step4AI() {
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: 50 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: -50 }}
+      transition={{ duration: 0.3 }}
+      className="pb-24"
+    >
+      <div className="text-center mb-12">
+        <div className="inline-flex items-center gap-2 bg-purple-100 text-purple-700 px-6 py-3 rounded-full mb-6 font-bold border-2 border-purple-200">
+          <Bot className="w-6 h-6" />
+          Inteligencia Artificial
+        </div>
+        <h1 className="text-5xl lg:text-6xl font-extrabold text-gray-900 mb-6">
+          IA sobre el Espacio de Datos
+        </h1>
+        <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          La inteligencia que multiplica el valor de los datos compartidos
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {/* IA Clínica */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="bg-gradient-to-br from-blue-500 to-indigo-600 rounded-3xl p-8 text-white shadow-2xl"
+        >
+          <div className="flex items-center gap-4 mb-6">
+            <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center">
+              <Sparkles className="w-9 h-9" />
+            </div>
+            <div>
+              <h3 className="text-3xl font-bold">IA Clínica</h3>
+              <p className="text-blue-200">Soporte a decisiones médicas</p>
+            </div>
+          </div>
+
+          <div className="space-y-4 mb-6">
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+              <h4 className="font-bold text-lg mb-2">🎯 Pre-diagnósticos inteligentes</h4>
+              <p className="text-blue-100 text-sm">Análisis de patrones en toda la red BQDC para alertas preventivas tempranas</p>
+            </div>
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+              <h4 className="font-bold text-lg mb-2">🔍 Soporte a decisiones</h4>
+              <p className="text-blue-100 text-sm">Recomendaciones basadas en casos similares de otras clínicas BQDC</p>
+            </div>
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+              <h4 className="font-bold text-lg mb-2">📊 Análisis de patrones</h4>
+              <p className="text-blue-100 text-sm">Insights sobre tratamientos, efectividad y resultados en toda la red</p>
+            </div>
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+              <h4 className="font-bold text-lg mb-2">✅ Protocolos estandarizados</h4>
+              <p className="text-blue-100 text-sm">Homogeneización de calidad asistencial en todas las clínicas</p>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            <span className="px-3 py-1 bg-green-500/30 rounded-full text-xs font-bold border border-green-400/30">Mejor diagnóstico</span>
+            <span className="px-3 py-1 bg-yellow-500/30 rounded-full text-xs font-bold border border-yellow-400/30">Prevención activa</span>
+            <span className="px-3 py-1 bg-purple-500/30 rounded-full text-xs font-bold border border-purple-400/30">Calidad superior</span>
+          </div>
+        </motion.div>
+
+        {/* IA Administrativa */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="bg-gradient-to-br from-purple-500 to-pink-600 rounded-3xl p-8 text-white shadow-2xl"
+        >
+          <div className="flex items-center gap-4 mb-6">
+            <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center">
+              <Zap className="w-9 h-9" />
+            </div>
+            <div>
+              <h3 className="text-3xl font-bold">IA Administrativa</h3>
+              <p className="text-purple-200">Automatización operativa</p>
+            </div>
+          </div>
+
+          <div className="space-y-4 mb-6">
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+              <h4 className="font-bold text-lg mb-2">💬 Atención 24/7</h4>
+              <p className="text-purple-100 text-sm">WhatsApp, web, chat: respuesta instantánea a pacientes en cualquier momento</p>
+            </div>
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+              <h4 className="font-bold text-lg mb-2">📅 Gestión de citas</h4>
+              <p className="text-purple-100 text-sm">Reservas, cambios, recordatorios automáticos. Reducción drástica de no-shows</p>
+            </div>
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+              <h4 className="font-bold text-lg mb-2">🔄 Seguimiento post-tratamiento</h4>
+              <p className="text-purple-100 text-sm">Comunicaciones personalizadas automáticas para cada paciente</p>
+            </div>
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+              <h4 className="font-bold text-lg mb-2">⭐ Reseñas automáticas</h4>
+              <p className="text-purple-100 text-sm">Solicitud inteligente en el momento perfecto para maximizar reseñas positivas</p>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            <span className="px-3 py-1 bg-orange-500/30 rounded-full text-xs font-bold border border-orange-400/30">-50% carga admin</span>
+            <span className="px-3 py-1 bg-pink-500/30 rounded-full text-xs font-bold border border-pink-400/30">Mejor experiencia</span>
+            <span className="px-3 py-1 bg-green-500/30 rounded-full text-xs font-bold border border-green-400/30">+Ingresos</span>
+          </div>
+        </motion.div>
+      </div>
+    </motion.div>
+  );
+}
+
+// ============= STEP 5: IMPACTO =============
+function Step5Impact() {
+  const impacts = [
+    {
+      icon: Award,
+      title: 'Primera red dental de España',
+      description: 'Con espacio de datos clínico propio. Referente nacional indiscutible.',
+      color: 'from-blue-500 to-indigo-600',
+    },
+    {
+      icon: Target,
+      title: 'Ventaja competitiva insuperable',
+      description: 'Diferenciación total imposible de copiar por la competencia a corto plazo.',
+      color: 'from-purple-500 to-pink-600',
+    },
+    {
+      icon: Users,
+      title: 'Calidad homogénea superior',
+      description: 'Protocolos estandarizados y mejor experiencia del paciente en toda la red.',
+      color: 'from-green-500 to-emerald-600',
+    },
+    {
+      icon: BarChart3,
+      title: 'Investigación clínica propia',
+      description: 'Datos anonimizados para estudios y mejora continua basada en evidencia real.',
+      color: 'from-teal-500 to-cyan-600',
+    },
+    {
+      icon: TrendingUp,
+      title: 'Ahorro operativo del 50-70%',
+      description: 'En carga administrativa. Optimización masiva de recursos en todas las clínicas.',
+      color: 'from-orange-500 to-red-600',
+    },
+    {
+      icon: Sparkles,
+      title: 'Transformación sin inversión',
+      description: '30.000€ por clínica totalmente cubiertos. Coste 0 para BQDC.',
+      color: 'from-indigo-500 to-purple-600',
+    },
+  ];
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: 50 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: -50 }}
+      transition={{ duration: 0.3 }}
+      className="pb-24"
+    >
+      <div className="text-center mb-12">
+        <div className="inline-flex items-center gap-2 bg-gradient-to-r from-green-600 to-emerald-600 text-white px-6 py-3 rounded-full mb-6 font-bold shadow-lg">
+          <Award className="w-6 h-6" />
+          Impacto Real
+        </div>
+        <h1 className="text-5xl lg:text-6xl font-extrabold text-gray-900 mb-6">
+          Qué gana BQDC
+        </h1>
+        <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          Transformación estratégica completa de la organización
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        {impacts.map((impact, index) => {
+          const Icon = impact.icon;
+          return (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: index * 0.1 }}
+              className="group relative overflow-hidden bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all cursor-pointer"
+            >
+              <div className={`absolute inset-0 bg-gradient-to-br ${impact.color} opacity-0 group-hover:opacity-10 transition-opacity`} />
+              <div className={`w-16 h-16 bg-gradient-to-br ${impact.color} rounded-2xl flex items-center justify-center mb-4 shadow-lg`}>
+                <Icon className="w-9 h-9 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">{impact.title}</h3>
+              <p className="text-gray-600 leading-relaxed">{impact.description}</p>
+              <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                <CheckCircle className="w-8 h-8 text-green-500" />
+              </div>
+            </motion.div>
+          );
+        })}
+      </div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.7 }}
+        className="bg-gradient-to-br from-gray-900 via-blue-900 to-indigo-900 rounded-3xl p-10 lg:p-16 text-white text-center shadow-2xl relative overflow-hidden"
+      >
+        <div className="absolute top-0 right-0 w-96 h-96 bg-white opacity-5 rounded-full blur-3xl" />
+        <div className="relative">
+          <Rocket className="w-20 h-20 mx-auto mb-6" />
+          <h2 className="text-4xl lg:text-5xl font-extrabold mb-6">
+            BQDC: referente nacional
+            <span className="block text-blue-300 mt-2">en odontología digital</span>
+          </h2>
+          <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
+            Liderar este proyecto convierte a BQDC en <strong className="text-white">pionera absoluta</strong> en digitalización e IA del sector dental privado español
+          </p>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+}
+
+// ============= STEP 6: PRÓXIMOS PASOS =============
+function Step6NextSteps({ onOpenContact }: { onOpenContact: () => void }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: 50 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: -50 }}
+      transition={{ duration: 0.3 }}
+      className="pb-24"
+    >
+      <div className="text-center mb-12">
+        <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-full mb-6 font-bold shadow-lg">
+          <Rocket className="w-6 h-6" />
+          Próximos Pasos
+        </div>
+        <h1 className="text-5xl lg:text-6xl font-extrabold text-gray-900 mb-6">
+          Cómo empezar
+        </h1>
+        <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          El camino para convertir a BQDC en la red dental más avanzada de España
+        </p>
+      </div>
+
+      <div className="space-y-6 mb-12">
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.2 }}
+          className="bg-gradient-to-r from-blue-500 to-indigo-600 rounded-2xl p-8 text-white shadow-xl flex items-start gap-6"
+        >
+          <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center flex-shrink-0">
+            <span className="text-3xl font-bold">1</span>
+          </div>
+          <div>
+            <h3 className="text-2xl font-bold mb-3">Reunión de alineación</h3>
+            <p className="text-blue-100 leading-relaxed text-lg">
+              Sesión con presidente y gerente BQDC para validar la visión estratégica y resolver dudas
+            </p>
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.3 }}
+          className="bg-gradient-to-r from-purple-500 to-pink-600 rounded-2xl p-8 text-white shadow-xl flex items-start gap-6"
+        >
+          <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center flex-shrink-0">
+            <span className="text-3xl font-bold">2</span>
+          </div>
+          <div>
+            <h3 className="text-2xl font-bold mb-3">Confirmación de clínicas</h3>
+            <p className="text-purple-100 leading-relaxed text-lg">
+              BQDC indica qué clínicas de la red participarán en el proyecto inicial
+            </p>
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.4 }}
+          className="bg-gradient-to-r from-green-500 to-emerald-600 rounded-2xl p-8 text-white shadow-xl flex items-start gap-6"
+        >
+          <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center flex-shrink-0">
+            <span className="text-3xl font-bold">3</span>
+          </div>
+          <div>
+            <h3 className="text-2xl font-bold mb-3">ACCURO gestiona la subvención</h3>
+            <p className="text-green-100 leading-relaxed text-lg">
+              Todo el papeleo, documentación y trámites de KTED corre de cuenta de ACCURO
+            </p>
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.5 }}
+          className="bg-gradient-to-r from-orange-500 to-red-600 rounded-2xl p-8 text-white shadow-xl flex items-start gap-6"
+        >
+          <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center flex-shrink-0">
+            <span className="text-3xl font-bold">4</span>
+          </div>
+          <div>
+            <h3 className="text-2xl font-bold mb-3">Nexgent desarrolla la IA</h3>
+            <p className="text-orange-100 leading-relaxed text-lg">
+              Diseño, configuración e implementación del Espacio de Datos + IA en todas las clínicas BQDC
+            </p>
+          </div>
+        </motion.div>
+      </div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.6 }}
+        className="bg-white rounded-3xl p-10 shadow-2xl border-2 border-gray-100 text-center"
+      >
+        <Sparkles className="w-16 h-16 text-yellow-500 mx-auto mb-6" />
+        <h2 className="text-3xl font-bold text-gray-900 mb-4">¿Listo para dar el salto?</h2>
+        <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+          Agendemos una reunión para discutir los detalles y dar el primer paso hacia la transformación digital de BQDC
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <button
+            onClick={onOpenContact}
+            className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center gap-2 group"
+          >
+            <MessageCircle className="w-6 h-6" />
+            Solicitar información
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          </button>
+
+          <a
+            href="https://calendly.com/nexgent-demo/subvencion-kted-2025"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-8 py-4 bg-green-600 text-white rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center gap-2"
+          >
+            <Calendar className="w-6 h-6" />
+            Agendar reunión BQDC
+          </a>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+}
