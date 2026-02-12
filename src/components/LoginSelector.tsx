@@ -50,7 +50,7 @@ export default function LoginSelector({ onSelectClinica, onSelectBQDC }: LoginSe
             transition={{ delay: 0.2, duration: 0.6 }}
             whileHover={{ scale: 1.02, y: -5 }}
             onClick={onSelectClinica}
-            className="bg-white rounded-3xl p-8 lg:p-10 cursor-pointer group hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-blue-500"
+            className="bg-white rounded-3xl p-8 lg:p-10 cursor-pointer group hover:shadow-2xl transition-all duration-300 border-2 border-blue-500"
           >
             <div className="mb-6">
               <div className="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">

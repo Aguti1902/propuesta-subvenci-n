@@ -499,41 +499,6 @@ export default function BQDCAssociationPage({ onBack }: BQDCAssociationPageProps
         </div>
       </section>
 
-      {/* PRÓXIMOS PASOS */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-600 px-4 py-2 rounded-full mb-6 font-semibold">
-              <Rocket className="w-5 h-5" />
-              Próximos Pasos
-            </div>
-            <h2 className="text-4xl lg:text-5xl font-extrabold text-black mb-4">Cómo empezar</h2>
-            <p className="text-xl text-gray-500 max-w-3xl mx-auto">El camino para convertir a BQDC en la red dental más avanzada de España</p>
-          </motion.div>
-
-          <div className="space-y-6 mb-12">
-            {[
-              { num: '1', title: 'Reunión estratégica', desc: 'Sesión con la dirección de BQDC para alinear la visión, definir objetivos y priorizar funcionalidades' },
-              { num: '2', title: 'Piloto en clínicas seleccionadas', desc: 'Implementación inicial en 2-3 clínicas de la red para validar la solución y ajustar antes de escalar' },
-              { num: '3', title: 'Despliegue progresivo', desc: 'Extensión gradual a todas las clínicas de la red con formación del equipo y soporte continuo' },
-              { num: '4', title: 'Activación del espacio de datos', desc: 'Conexión de los datos de todas las clínicas para habilitar la inteligencia transversal de red' },
-            ].map((step, index) => (
-              <motion.div key={index} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ delay: index * 0.1 }} viewport={{ once: true }}
-                className="bg-white rounded-2xl p-6 border border-gray-200 flex items-start gap-6 hover:border-blue-300 transition-all duration-300"
-              >
-                <div className="w-14 h-14 bg-blue-600 rounded-2xl flex items-center justify-center flex-shrink-0 text-white text-2xl font-bold">
-                  {step.num}
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-black mb-2">{step.title}</h3>
-                  <p className="text-gray-500 leading-relaxed">{step.desc}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* POR QUÉ NEXGENT */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
