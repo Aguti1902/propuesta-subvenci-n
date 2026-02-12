@@ -8,7 +8,7 @@ interface LoginSelectorProps {
 
 export default function LoginSelector({ onSelectClinica, onSelectBQDC }: LoginSelectorProps) {
   return (
-    <div className="min-h-screen bg-black flex items-center justify-center p-4">
+    <div className="min-h-screen bg-white flex items-center justify-center p-4">
       <div className="max-w-6xl w-full">
         {/* Header */}
         <motion.div
@@ -33,10 +33,10 @@ export default function LoginSelector({ onSelectClinica, onSelectBQDC }: LoginSe
             <span className="text-sm font-semibold text-white">Inteligencia Artificial para el Sector Dental</span>
           </div>
 
-          <h1 className="text-4xl lg:text-6xl font-extrabold text-white mb-4 tracking-tight">
+          <h1 className="text-4xl lg:text-6xl font-extrabold text-black mb-4 tracking-tight">
             Elige tu propuesta
           </h1>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-500 max-w-2xl mx-auto">
             Descubre todo lo que la IA puede hacer por tu clínica dental o por tu red de clínicas
           </p>
         </motion.div>
@@ -130,10 +130,10 @@ export default function LoginSelector({ onSelectClinica, onSelectBQDC }: LoginSe
           transition={{ delay: 0.4, duration: 0.6 }}
           className="mt-12 text-center"
         >
-          <p className="text-gray-500 text-sm">
-            Propuestas de Inteligencia Artificial por <span className="font-bold text-white">Nexgent</span>
+          <p className="text-gray-400 text-sm">
+            Propuestas de Inteligencia Artificial por <span className="font-bold text-black">Nexgent</span>
           </p>
-          <a href="https://www.nexgent.io" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-400 text-xs mt-2 inline-block transition-colors">
+          <a href="https://www.nexgent.io" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-600 text-xs mt-2 inline-block transition-colors">
             www.nexgent.io
           </a>
         </motion.div>

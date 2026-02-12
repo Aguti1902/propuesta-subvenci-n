@@ -70,7 +70,7 @@ export default function ClinicaDentalPage({ onBack }: ClinicaDentalPageProps) {
   return (
     <div className="min-h-screen bg-white">
       {/* HERO SECTION */}
-      <section className="relative overflow-hidden bg-black text-white">
+      <section className="relative overflow-hidden bg-white border-b border-gray-100">
         {/* Botón Volver */}
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
           <motion.button
@@ -78,7 +78,7 @@ export default function ClinicaDentalPage({ onBack }: ClinicaDentalPageProps) {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
             onClick={onBack}
-            className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors duration-300 group"
+            className="flex items-center gap-2 text-gray-400 hover:text-black transition-colors duration-300 group"
           >
             <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
             <span className="font-semibold">Volver</span>
@@ -99,28 +99,26 @@ export default function ClinicaDentalPage({ onBack }: ClinicaDentalPageProps) {
               transition={{ delay: 0.1, duration: 0.6 }}
               className="flex items-center justify-center mb-10"
             >
-              <div className="bg-white rounded-2xl p-4">
-                <img src="/images/LOGO.png" alt="Nexgent Logo" className="h-14 w-auto object-contain" />
-              </div>
+              <img src="/images/LOGO.png" alt="Nexgent Logo" className="h-14 w-auto object-contain" />
             </motion.div>
 
             <motion.div
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.2, duration: 0.5 }}
-              className="inline-flex items-center gap-2 bg-blue-600 px-4 py-2 rounded-full mb-8"
+              className="inline-flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-full mb-8"
             >
               <Building2 className="w-4 h-4" />
               <span className="text-sm font-semibold">Propuesta para Clínica Dental</span>
             </motion.div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-extrabold mb-6 leading-tight tracking-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-extrabold text-black mb-6 leading-tight tracking-tight">
               Inteligencia Artificial
-              <span className="block text-blue-500 mt-2">para tu Clínica Dental</span>
+              <span className="block text-blue-600 mt-2">para tu Clínica Dental</span>
             </h1>
 
-            <p className="text-xl lg:text-2xl text-gray-300 mb-16 leading-relaxed max-w-3xl mx-auto">
-              Automatiza la atención al paciente, optimiza tu agenda, mejora tu reputación online y libera a tu equipo para lo que realmente importa: <strong className="text-white">cuidar sonrisas</strong>.
+            <p className="text-xl lg:text-2xl text-gray-500 mb-16 leading-relaxed max-w-3xl mx-auto">
+              Automatiza la atención al paciente, optimiza tu agenda, mejora tu reputación online y libera a tu equipo para lo que realmente importa: <strong className="text-black">cuidar sonrisas</strong>.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
@@ -134,10 +132,10 @@ export default function ClinicaDentalPage({ onBack }: ClinicaDentalPageProps) {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4 + index * 0.1 }}
-                  className="border border-gray-700 p-6 rounded-2xl"
+                  className="border border-gray-200 p-6 rounded-2xl"
                 >
-                  <div className="text-4xl font-bold text-blue-500 mb-2">{stat.value}</div>
-                  <div className="text-gray-400">{stat.label}</div>
+                  <div className="text-4xl font-bold text-blue-600 mb-2">{stat.value}</div>
+                  <div className="text-gray-500">{stat.label}</div>
                 </motion.div>
               ))}
             </div>
@@ -229,15 +227,15 @@ export default function ClinicaDentalPage({ onBack }: ClinicaDentalPageProps) {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Análisis de imágenes */}
             <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}
-              className="bg-black rounded-3xl p-8 text-white"
+              className="bg-white rounded-3xl p-8 border-2 border-gray-200"
             >
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-14 h-14 bg-blue-600 rounded-2xl flex items-center justify-center">
-                  <Image className="w-8 h-8" />
+                  <Image className="w-8 h-8 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold">Análisis de imágenes</h3>
-                  <p className="text-gray-400">Soporte al diagnóstico radiológico</p>
+                  <h3 className="text-2xl font-bold text-black">Análisis de imágenes</h3>
+                  <p className="text-gray-500">Soporte al diagnóstico radiológico</p>
                 </div>
               </div>
               <div className="space-y-3">
@@ -246,28 +244,28 @@ export default function ClinicaDentalPage({ onBack }: ClinicaDentalPageProps) {
                   { title: 'CBCT y modelos 3D', desc: 'Análisis volumétrico para planificación de implantes, endodoncia y cirugía oral' },
                   { title: 'Fotografía intraoral', desc: 'Análisis de color, forma y posición dental para planificación estética' },
                 ].map((item, idx) => (
-                  <div key={idx} className="bg-white/5 rounded-xl p-4 border border-white/10">
-                    <h4 className="font-bold mb-1">{item.title}</h4>
-                    <p className="text-gray-400 text-sm">{item.desc}</p>
+                  <div key={idx} className="bg-gray-50 rounded-xl p-4 border border-gray-100">
+                    <h4 className="font-bold text-black mb-1">{item.title}</h4>
+                    <p className="text-gray-500 text-sm">{item.desc}</p>
                   </div>
                 ))}
-                <div className="mt-4 p-3 bg-blue-600/20 rounded-xl border border-blue-500/30">
-                  <p className="text-sm text-blue-300">La IA sugiere, el profesional decide. Siempre como herramienta de apoyo.</p>
+                <div className="mt-4 p-3 bg-blue-50 rounded-xl border border-blue-200">
+                  <p className="text-sm text-blue-600">La IA sugiere, el profesional decide. Siempre como herramienta de apoyo.</p>
                 </div>
               </div>
             </motion.div>
 
             {/* Documentación clínica */}
             <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}
-              className="bg-black rounded-3xl p-8 text-white"
+              className="bg-white rounded-3xl p-8 border-2 border-gray-200"
             >
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-14 h-14 bg-blue-600 rounded-2xl flex items-center justify-center">
-                  <FileText className="w-8 h-8" />
+                  <FileText className="w-8 h-8 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold">Documentación clínica</h3>
-                  <p className="text-gray-400">Automatización administrativa clínica</p>
+                  <h3 className="text-2xl font-bold text-black">Documentación clínica</h3>
+                  <p className="text-gray-500">Automatización administrativa clínica</p>
                 </div>
               </div>
               <div className="space-y-3">
@@ -276,14 +274,14 @@ export default function ClinicaDentalPage({ onBack }: ClinicaDentalPageProps) {
                   { title: 'Presupuestos automáticos', desc: 'Genera presupuestos detallados a partir del plan de tratamiento con un clic' },
                   { title: 'Consentimientos informados', desc: 'Generación personalizada de documentos legales adaptados a cada tratamiento y paciente' },
                 ].map((item, idx) => (
-                  <div key={idx} className="bg-white/5 rounded-xl p-4 border border-white/10">
-                    <h4 className="font-bold mb-1">{item.title}</h4>
-                    <p className="text-gray-400 text-sm">{item.desc}</p>
+                  <div key={idx} className="bg-gray-50 rounded-xl p-4 border border-gray-100">
+                    <h4 className="font-bold text-black mb-1">{item.title}</h4>
+                    <p className="text-gray-500 text-sm">{item.desc}</p>
                   </div>
                 ))}
                 <div className="mt-4 flex flex-wrap gap-2">
-                  <span className="px-3 py-1 bg-blue-600/20 rounded-full text-xs font-bold text-blue-300 border border-blue-500/30">-70% tiempo en documentación</span>
-                  <span className="px-3 py-1 bg-blue-600/20 rounded-full text-xs font-bold text-blue-300 border border-blue-500/30">Menos errores</span>
+                  <span className="px-3 py-1 bg-blue-50 rounded-full text-xs font-bold text-blue-600 border border-blue-200">-70% tiempo en documentación</span>
+                  <span className="px-3 py-1 bg-blue-50 rounded-full text-xs font-bold text-blue-600 border border-blue-200">Menos errores</span>
                 </div>
               </div>
             </motion.div>
@@ -487,15 +485,15 @@ export default function ClinicaDentalPage({ onBack }: ClinicaDentalPageProps) {
       </section>
 
       {/* IMPACTO Y RESULTADOS */}
-      <section className="py-20 bg-black text-white">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 bg-blue-600 px-4 py-2 rounded-full mb-6 font-semibold">
+            <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-600 px-4 py-2 rounded-full mb-6 font-semibold">
               <TrendingUp className="w-5 h-5" />
               Impacto Real
             </div>
-            <h2 className="text-4xl lg:text-5xl font-extrabold mb-4">Resultados que transforman tu clínica</h2>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">Métricas reales que nuestros clientes experimentan con la implementación de IA</p>
+            <h2 className="text-4xl lg:text-5xl font-extrabold text-black mb-4">Resultados que transforman tu clínica</h2>
+            <p className="text-xl text-gray-500 max-w-3xl mx-auto">Métricas reales que nuestros clientes experimentan con la implementación de IA</p>
           </motion.div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
@@ -512,24 +510,116 @@ export default function ClinicaDentalPage({ onBack }: ClinicaDentalPageProps) {
               const Icon = stat.icon;
               return (
                 <motion.div key={index} initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ delay: index * 0.05, duration: 0.4 }} viewport={{ once: true }}
-                  className="border border-gray-700 rounded-2xl p-6 text-center hover:border-blue-500 transition-all duration-300"
+                  className="border border-gray-200 rounded-2xl p-6 text-center hover:border-blue-300 transition-all duration-300"
                 >
-                  <Icon className="w-7 h-7 mx-auto mb-3 text-blue-500" />
-                  <div className="text-3xl lg:text-4xl font-extrabold text-blue-500 mb-2">{stat.value}</div>
-                  <p className="text-sm text-gray-400">{stat.label}</p>
+                  <Icon className="w-7 h-7 mx-auto mb-3 text-blue-600" />
+                  <div className="text-3xl lg:text-4xl font-extrabold text-blue-600 mb-2">{stat.value}</div>
+                  <p className="text-sm text-gray-500">{stat.label}</p>
                 </motion.div>
               );
             })}
           </div>
 
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }} viewport={{ once: true }}
-            className="border border-gray-700 rounded-3xl p-8 lg:p-12 text-center"
+            className="border border-gray-200 rounded-3xl p-8 lg:p-12 text-center bg-gray-50"
           >
-            <Sparkles className="w-14 h-14 mx-auto mb-6 text-blue-500" />
-            <h3 className="text-3xl lg:text-4xl font-extrabold mb-4">Tu clínica, pero más inteligente</h3>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-              No se trata de sustituir a las personas, sino de potenciarlas. La IA se encarga de lo repetitivo para que tu equipo haga lo que mejor sabe hacer: <strong className="text-white">cuidar a los pacientes</strong>.
+            <Sparkles className="w-14 h-14 mx-auto mb-6 text-blue-600" />
+            <h3 className="text-3xl lg:text-4xl font-extrabold text-black mb-4">Tu clínica, pero más inteligente</h3>
+            <p className="text-xl text-gray-500 max-w-3xl mx-auto leading-relaxed">
+              No se trata de sustituir a las personas, sino de potenciarlas. La IA se encarga de lo repetitivo para que tu equipo haga lo que mejor sabe hacer: <strong className="text-black">cuidar a los pacientes</strong>.
             </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* INVERSIÓN Y SUBVENCIÓN */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-600 px-4 py-2 rounded-full mb-6 font-semibold">
+              <Sparkles className="w-5 h-5" />
+              Inversión
+            </div>
+            <h2 className="text-4xl lg:text-5xl font-extrabold text-black mb-4">Subvención de 15.000€ por clínica</h2>
+            <p className="text-xl text-gray-500 max-w-3xl mx-auto">Gracias a la subvención, el desarrollo de tu agente de IA queda cubierto</p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            {/* Desarrollo */}
+            <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}
+              className="bg-white rounded-3xl p-8 border-2 border-blue-200"
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center">
+                  <Rocket className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-black">Desarrollo del Agente IA</h3>
+                  <p className="text-sm text-gray-500">Cubierto por la subvención</p>
+                </div>
+              </div>
+              <div className="text-5xl font-extrabold text-blue-600 mb-4">10.000€</div>
+              <p className="text-gray-500 mb-6">De los 15.000€ de subvención, 10.000€ se destinan al desarrollo completo de tu agente de IA personalizado.</p>
+              <div className="space-y-3">
+                {['Diseño y configuración personalizada', 'Integración con todos los canales', 'Conexión con tu software dental', 'Puesta en marcha y formación', 'Pruebas y ajustes iniciales'].map((item, idx) => (
+                  <div key={idx} className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700 text-sm">{item}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-6 p-4 bg-blue-50 rounded-xl border border-blue-200">
+                <p className="text-center font-bold text-blue-600">100% cubierto por la subvención</p>
+              </div>
+            </motion.div>
+
+            {/* Mensualidad */}
+            <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}
+              className="bg-white rounded-3xl p-8 border-2 border-gray-200"
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center">
+                  <Calendar className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-black">Servicio mensual</h3>
+                  <p className="text-sm text-gray-500">Mantenimiento y soporte continuo</p>
+                </div>
+              </div>
+              <div className="flex items-baseline gap-2 mb-4">
+                <span className="text-5xl font-extrabold text-black">495€</span>
+                <span className="text-2xl text-gray-400 font-medium">/mes</span>
+              </div>
+              <p className="text-gray-500 mb-6">Por cada clínica. Incluye todo lo necesario para mantener tu agente de IA funcionando y mejorando.</p>
+              <div className="space-y-3">
+                {['Soporte técnico continuo', 'Actualizaciones y mejoras', 'Ajustes y optimizaciones', 'Monitorización y mantenimiento', 'Nuevas funcionalidades'].map((item, idx) => (
+                  <div key={idx} className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700 text-sm">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}
+            className="bg-blue-600 rounded-3xl p-8 text-white text-center"
+          >
+            <h3 className="text-2xl font-bold mb-3">Resumen de la inversión</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+              <div>
+                <div className="text-3xl font-bold mb-1">15.000€</div>
+                <p className="text-blue-200 text-sm">Subvención total por clínica</p>
+              </div>
+              <div>
+                <div className="text-3xl font-bold mb-1">10.000€</div>
+                <p className="text-blue-200 text-sm">Para desarrollo de tu IA</p>
+              </div>
+              <div>
+                <div className="text-3xl font-bold mb-1">495€/mes</div>
+                <p className="text-blue-200 text-sm">Servicio mensual por clínica</p>
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -580,9 +670,9 @@ export default function ClinicaDentalPage({ onBack }: ClinicaDentalPageProps) {
             </motion.div>
 
             <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}
-              className="bg-black rounded-3xl p-8 text-white"
+              className="bg-gray-50 rounded-3xl p-8 border border-gray-200"
             >
-              <h3 className="text-2xl font-bold mb-6">Proceso de implementación</h3>
+              <h3 className="text-2xl font-bold text-black mb-6">Proceso de implementación</h3>
               <div className="space-y-6">
                 {[
                   { step: '1', title: 'Análisis de necesidades', desc: 'Entendemos tu clínica, tus procesos y tus objetivos' },
@@ -594,12 +684,12 @@ export default function ClinicaDentalPage({ onBack }: ClinicaDentalPageProps) {
                   <motion.div key={index} initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }} transition={{ delay: index * 0.1, duration: 0.4 }} viewport={{ once: true }}
                     className="flex items-start gap-4"
                   >
-                    <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-sm">
+                    <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-sm text-white">
                       {item.step}
                     </div>
                     <div>
-                      <h4 className="font-bold text-lg">{item.title}</h4>
-                      <p className="text-gray-400 text-sm">{item.desc}</p>
+                      <h4 className="font-bold text-black text-lg">{item.title}</h4>
+                      <p className="text-gray-500 text-sm">{item.desc}</p>
                     </div>
                   </motion.div>
                 ))}
@@ -621,21 +711,19 @@ export default function ClinicaDentalPage({ onBack }: ClinicaDentalPageProps) {
       </section>
 
       {/* FOOTER */}
-      <footer className="bg-black text-gray-400 py-12">
+      <footer className="bg-white border-t border-gray-200 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <div className="flex items-center justify-center mb-6">
-              <div className="bg-white rounded-xl p-3">
-                <img src="/images/LOGO.png" alt="Nexgent Logo" className="h-10 w-auto object-contain" />
-              </div>
+              <img src="/images/LOGO.png" alt="Nexgent Logo" className="h-10 w-auto object-contain" />
             </div>
-            <p className="text-lg mb-2"><span className="text-white font-bold">Nexgent</span></p>
-            <p className="text-sm text-gray-500">Inteligencia Artificial para Clínicas Dentales</p>
-            <p className="text-xs text-gray-600 mt-3">info@nexgent.io</p>
+            <p className="text-lg mb-2"><span className="text-black font-bold">Nexgent</span></p>
+            <p className="text-sm text-gray-400">Inteligencia Artificial para Clínicas Dentales</p>
+            <p className="text-xs text-gray-400 mt-3">info@nexgent.io</p>
           </div>
-          <div className="border-t border-gray-800 pt-6 flex flex-col md:flex-row items-center justify-between text-sm gap-4">
-            <a href="https://www.nexgent.io" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-blue-400 transition-colors">www.nexgent.io</a>
-            <button onClick={onBack} className="text-gray-500 hover:text-blue-400 transition-colors">← Volver a selección de propuestas</button>
+          <div className="border-t border-gray-100 pt-6 flex flex-col md:flex-row items-center justify-between text-sm gap-4">
+            <a href="https://www.nexgent.io" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-600 transition-colors">www.nexgent.io</a>
+            <button onClick={onBack} className="text-gray-400 hover:text-blue-600 transition-colors">← Volver a selección de propuestas</button>
           </div>
         </div>
       </footer>

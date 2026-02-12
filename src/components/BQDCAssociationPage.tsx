@@ -18,7 +18,6 @@ import {
   Rocket,
   Calendar,
   MessageCircle,
-  Newspaper,
   Brain,
   Network,
   PieChart,
@@ -29,7 +28,6 @@ import {
   Activity,
   Lightbulb,
   GraduationCap,
-  BookOpen,
   LineChart,
   Globe,
 } from 'lucide-react';
@@ -55,10 +53,10 @@ export default function BQDCAssociationPage({ onBack }: BQDCAssociationPageProps
   return (
     <div className="min-h-screen bg-white">
       {/* HERO */}
-      <section className="relative overflow-hidden bg-black text-white">
+      <section className="relative overflow-hidden bg-white border-b border-gray-100">
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
           <motion.button initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }} onClick={onBack}
-            className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors duration-300 group"
+            className="flex items-center gap-2 text-gray-400 hover:text-black transition-colors duration-300 group"
           >
             <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
             <span className="font-semibold">Volver</span>
@@ -68,25 +66,23 @@ export default function BQDCAssociationPage({ onBack }: BQDCAssociationPageProps
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="text-center max-w-4xl mx-auto">
             <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.6 }} className="flex items-center justify-center mb-10">
-              <div className="bg-white rounded-2xl p-4">
-                <img src="/images/LOGO.png" alt="Nexgent Logo" className="h-14 w-auto object-contain" />
-              </div>
+              <img src="/images/LOGO.png" alt="Nexgent Logo" className="h-14 w-auto object-contain" />
             </motion.div>
 
             <motion.div initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ delay: 0.2, duration: 0.5 }}
-              className="inline-flex items-center gap-2 bg-blue-600 px-4 py-2 rounded-full mb-8"
+              className="inline-flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-full mb-8"
             >
               <Network className="w-4 h-4" />
               <span className="text-sm font-semibold">Propuesta para Asociación BQDC</span>
             </motion.div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-extrabold mb-6 leading-tight tracking-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-extrabold text-black mb-6 leading-tight tracking-tight">
               BQDC + Inteligencia Artificial
-              <span className="block text-blue-500 mt-2">La red dental más avanzada</span>
+              <span className="block text-blue-600 mt-2">La red dental más avanzada</span>
             </h1>
 
-            <p className="text-xl lg:text-2xl text-gray-300 mb-16 leading-relaxed max-w-3xl mx-auto">
-              IA en cada clínica, datos conectados en toda la red y una inteligencia colectiva que convierte a BQDC en <strong className="text-white">referente nacional</strong>.
+            <p className="text-xl lg:text-2xl text-gray-500 mb-16 leading-relaxed max-w-3xl mx-auto">
+              IA en cada clínica, datos conectados en toda la red y una inteligencia colectiva que convierte a BQDC en <strong className="text-black">referente nacional</strong>.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
@@ -98,11 +94,11 @@ export default function BQDCAssociationPage({ onBack }: BQDCAssociationPageProps
                 const Icon = stat.icon;
                 return (
                   <motion.div key={index} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 + index * 0.1 }}
-                    className="border border-gray-700 p-6 rounded-2xl"
+                    className="border border-gray-200 p-6 rounded-2xl"
                   >
-                    <Icon className="w-8 h-8 text-blue-500 mx-auto mb-3" />
-                    <div className="text-lg font-bold text-white mb-1">{stat.value}</div>
-                    <div className="text-gray-400 text-sm">{stat.label}</div>
+                    <Icon className="w-8 h-8 text-blue-600 mx-auto mb-3" />
+                    <div className="text-lg font-bold text-black mb-1">{stat.value}</div>
+                    <div className="text-gray-500 text-sm">{stat.label}</div>
                   </motion.div>
                 );
               })}
@@ -157,44 +153,44 @@ export default function BQDCAssociationPage({ onBack }: BQDCAssociationPageProps
           {/* IA Clínica + Experiencia */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-12">
             <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}
-              className="bg-black rounded-3xl p-8 text-white"
+              className="bg-white rounded-3xl p-8 border-2 border-gray-200"
             >
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-14 h-14 bg-blue-600 rounded-2xl flex items-center justify-center">
-                  <Brain className="w-8 h-8" />
+                  <Brain className="w-8 h-8 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold">IA Clínica</h3>
-                  <p className="text-gray-400">Apoyo al diagnóstico</p>
+                  <h3 className="text-2xl font-bold text-black">IA Clínica</h3>
+                  <p className="text-gray-500">Apoyo al diagnóstico</p>
                 </div>
               </div>
               <div className="space-y-3">
                 {['Análisis asistido de radiografías', 'Soporte a planificación de tratamientos', 'Alertas de interacciones y contraindicaciones', 'Documentación clínica automatizada', 'Transcripción por voz de notas clínicas'].map((item, idx) => (
                   <div key={idx} className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-300 text-sm">{item}</span>
+                    <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-600 text-sm">{item}</span>
                   </div>
                 ))}
               </div>
             </motion.div>
 
             <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}
-              className="bg-black rounded-3xl p-8 text-white"
+              className="bg-white rounded-3xl p-8 border-2 border-gray-200"
             >
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-14 h-14 bg-blue-600 rounded-2xl flex items-center justify-center">
-                  <Heart className="w-8 h-8" />
+                  <Heart className="w-8 h-8 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold">Experiencia del Paciente</h3>
-                  <p className="text-gray-400">Fidelización inteligente</p>
+                  <h3 className="text-2xl font-bold text-black">Experiencia del Paciente</h3>
+                  <p className="text-gray-500">Fidelización inteligente</p>
                 </div>
               </div>
               <div className="space-y-3">
                 {['Seguimiento post-tratamiento personalizado', 'Recordatorios de revisiones periódicas', 'Encuestas de satisfacción automatizadas', 'Detección de pacientes insatisfechos', 'Programa de fidelización inteligente'].map((item, idx) => (
                   <div key={idx} className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-300 text-sm">{item}</span>
+                    <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-600 text-sm">{item}</span>
                   </div>
                 ))}
               </div>
@@ -203,9 +199,9 @@ export default function BQDCAssociationPage({ onBack }: BQDCAssociationPageProps
 
           {/* Impacto por clínica */}
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}
-            className="bg-black rounded-3xl p-10 text-white text-center"
+            className="bg-blue-600 rounded-3xl p-10 text-white text-center"
           >
-            <Zap className="w-12 h-12 mx-auto mb-4 text-blue-500" />
+            <Zap className="w-12 h-12 mx-auto mb-4" />
             <h2 className="text-2xl font-bold mb-6">Impacto por clínica</h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {[
@@ -215,8 +211,8 @@ export default function BQDCAssociationPage({ onBack }: BQDCAssociationPageProps
                 { value: '-35%', label: 'no-shows' },
               ].map((stat, idx) => (
                 <div key={idx}>
-                  <div className="text-3xl font-bold text-blue-500 mb-1">{stat.value}</div>
-                  <p className="text-gray-400 text-sm">{stat.label}</p>
+                  <div className="text-3xl font-bold mb-1">{stat.value}</div>
+                  <p className="text-blue-200 text-sm">{stat.label}</p>
                 </div>
               ))}
             </div>
@@ -241,13 +237,13 @@ export default function BQDCAssociationPage({ onBack }: BQDCAssociationPageProps
             className="bg-gray-50 rounded-3xl p-10 mb-12 border border-gray-200"
           >
             <div className="flex flex-col items-center">
-              <div className="bg-black rounded-3xl p-8 mb-8 relative">
+              <div className="bg-blue-600 rounded-3xl p-8 mb-8 relative">
                 <div className="absolute -top-3 -right-3 w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center">
                   <CheckCircle className="w-8 h-8 text-white" />
                 </div>
-                <Database className="w-14 h-14 text-blue-500 mx-auto mb-3" />
+                <Database className="w-14 h-14 text-white mx-auto mb-3" />
                 <h3 className="text-xl font-bold text-white text-center mb-1">Espacio de Datos BQDC</h3>
-                <p className="text-gray-400 text-center text-sm">Datos clínicos unificados y seguros</p>
+                <p className="text-blue-100 text-center text-sm">Datos clínicos unificados y seguros</p>
               </div>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3 w-full max-w-3xl">
                 {[1, 2, 3, 4, 5, 6, 7, 8].map((clinic) => (
@@ -315,10 +311,10 @@ export default function BQDCAssociationPage({ onBack }: BQDCAssociationPageProps
             </motion.div>
 
             <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}
-              className="bg-black rounded-2xl p-8 text-white"
+              className="bg-white rounded-2xl p-8 border-2 border-gray-200"
             >
-              <h3 className="text-2xl font-bold mb-6 flex items-center gap-3">
-                <Shield className="w-7 h-7 text-blue-500" />
+              <h3 className="text-2xl font-bold text-black mb-6 flex items-center gap-3">
+                <Shield className="w-7 h-7 text-blue-600" />
                 Seguridad y privacidad
               </h3>
               <div className="space-y-4">
@@ -329,8 +325,8 @@ export default function BQDCAssociationPage({ onBack }: BQDCAssociationPageProps
                   { bold: 'Control total', text: 'del paciente sobre sus datos' },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" />
-                    <p className="text-gray-300"><strong className="text-white">{item.bold}</strong> {item.text}</p>
+                    <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <p className="text-gray-600"><strong className="text-black">{item.bold}</strong> {item.text}</p>
                   </div>
                 ))}
               </div>
@@ -353,15 +349,15 @@ export default function BQDCAssociationPage({ onBack }: BQDCAssociationPageProps
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}
-              className="bg-black rounded-3xl p-8 text-white"
+              className="bg-white rounded-3xl p-8 border-2 border-gray-200"
             >
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-14 h-14 bg-blue-600 rounded-2xl flex items-center justify-center">
-                  <Sparkles className="w-8 h-8" />
+                  <Sparkles className="w-8 h-8 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold">IA Clínica de Red</h3>
-                  <p className="text-gray-400">Inteligencia colectiva para el diagnóstico</p>
+                  <h3 className="text-2xl font-bold text-black">IA Clínica de Red</h3>
+                  <p className="text-gray-500">Inteligencia colectiva para el diagnóstico</p>
                 </div>
               </div>
               <div className="space-y-3">
@@ -371,24 +367,24 @@ export default function BQDCAssociationPage({ onBack }: BQDCAssociationPageProps
                   { title: 'Protocolos optimizados con datos', desc: 'Identificación de mejores prácticas clínicas basada en evidencia real de toda la red' },
                   { title: 'Investigación clínica propia', desc: 'Datos anonimizados para estudios, publicaciones y avance del conocimiento odontológico' },
                 ].map((item, idx) => (
-                  <div key={idx} className="bg-white/5 rounded-xl p-4 border border-white/10">
-                    <h4 className="font-bold mb-1">{item.title}</h4>
-                    <p className="text-gray-400 text-sm">{item.desc}</p>
+                  <div key={idx} className="bg-gray-50 rounded-xl p-4 border border-gray-100">
+                    <h4 className="font-bold text-black mb-1">{item.title}</h4>
+                    <p className="text-gray-500 text-sm">{item.desc}</p>
                   </div>
                 ))}
               </div>
             </motion.div>
 
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }} viewport={{ once: true }}
-              className="bg-black rounded-3xl p-8 text-white"
+              className="bg-white rounded-3xl p-8 border-2 border-gray-200"
             >
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-14 h-14 bg-blue-600 rounded-2xl flex items-center justify-center">
-                  <Zap className="w-8 h-8" />
+                  <Zap className="w-8 h-8 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold">IA Operativa de Red</h3>
-                  <p className="text-gray-400">Gestión inteligente centralizada</p>
+                  <h3 className="text-2xl font-bold text-black">IA Operativa de Red</h3>
+                  <p className="text-gray-500">Gestión inteligente centralizada</p>
                 </div>
               </div>
               <div className="space-y-3">
@@ -398,9 +394,9 @@ export default function BQDCAssociationPage({ onBack }: BQDCAssociationPageProps
                   { title: 'Formación continua con IA', desc: 'Asistente de formación para nuevos empleados y actualización de protocolos en toda la red' },
                   { title: 'Comunicación interna inteligente', desc: 'Asistente IA para comunicación entre clínicas, compartir conocimiento y resolver dudas' },
                 ].map((item, idx) => (
-                  <div key={idx} className="bg-white/5 rounded-xl p-4 border border-white/10">
-                    <h4 className="font-bold mb-1">{item.title}</h4>
-                    <p className="text-gray-400 text-sm">{item.desc}</p>
+                  <div key={idx} className="bg-gray-50 rounded-xl p-4 border border-gray-100">
+                    <h4 className="font-bold text-black mb-1">{item.title}</h4>
+                    <p className="text-gray-500 text-sm">{item.desc}</p>
                   </div>
                 ))}
               </div>
@@ -503,84 +499,6 @@ export default function BQDCAssociationPage({ onBack }: BQDCAssociationPageProps
         </div>
       </section>
 
-      {/* IMPACTO Y DIFERENCIACIÓN */}
-      <section className="py-20 bg-black text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 bg-blue-600 px-4 py-2 rounded-full mb-6 font-semibold">
-              <Award className="w-5 h-5" />
-              Impacto y Diferenciación
-            </div>
-            <h2 className="text-4xl lg:text-5xl font-extrabold mb-4">BQDC como referente nacional</h2>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">Una ventaja competitiva insuperable en el sector dental privado</p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            {[
-              { icon: Award, title: 'Primera red dental con IA', description: 'Referente nacional indiscutible en innovación tecnológica dental.' },
-              { icon: Target, title: 'Ventaja competitiva', description: 'Diferenciación total imposible de copiar a corto plazo por la competencia.' },
-              { icon: Users, title: 'Atracción de talento', description: 'Los mejores profesionales quieren trabajar en la red dental más avanzada.' },
-              { icon: Heart, title: 'Captación pacientes premium', description: 'Pacientes tech-savvy que valoran innovación y continuidad asistencial.' },
-              { icon: TrendingUp, title: 'Ahorro operativo masivo', description: 'Reducción del 50-70% en carga administrativa en toda la red.' },
-              { icon: BookOpen, title: 'Investigación y publicaciones', description: 'Datos para estudios propios, ponencias y liderazgo de opinión.' },
-            ].map((impact, index) => {
-              const Icon = impact.icon;
-              return (
-                <motion.div key={index} initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ delay: index * 0.1 }} viewport={{ once: true }}
-                  className="border border-gray-700 rounded-2xl p-6 hover:border-blue-500 transition-all duration-300"
-                >
-                  <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mb-4">
-                    <Icon className="w-6 h-6 text-white" />
-                  </div>
-                  <h3 className="text-lg font-bold mb-2">{impact.title}</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">{impact.description}</p>
-                </motion.div>
-              );
-            })}
-          </div>
-
-          {/* Titulares */}
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}
-            className="border border-gray-700 rounded-3xl p-10 mb-12"
-          >
-            <div className="flex items-center gap-4 mb-8">
-              <Newspaper className="w-10 h-10 text-blue-500" />
-              <h2 className="text-2xl font-bold">Posibles titulares</h2>
-            </div>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-              {[
-                { media: 'PRENSA DENTAL', text: '"BQDC implanta IA en toda su red de clínicas: primera cadena dental en dar el paso"' },
-                { media: 'MEDIOS ECONÓMICOS', text: '"La revolución digital llega al sector dental privado de la mano de BQDC"' },
-                { media: 'TECNOLOGÍA', text: '"Cómo una red de clínicas dentales está usando IA para transformar la atención al paciente"' },
-                { media: 'INNOVACIÓN', text: '"BQDC: el historial dental que viaja contigo entre clínicas gracias a la IA"' },
-              ].map((headline, index) => (
-                <div key={index} className="bg-white/5 rounded-xl p-5 border border-white/10">
-                  <div className="text-xs font-bold text-blue-500 mb-2">{headline.media}</div>
-                  <p className="text-lg font-bold leading-tight">{headline.text}</p>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Métricas */}
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6"
-          >
-            {[
-              { value: '-60%', label: 'Carga administrativa en toda la red' },
-              { value: '+300%', label: 'Reseñas positivas en Google' },
-              { value: '#1', label: 'Posicionamiento en innovación dental' },
-              { value: '24/7', label: 'Atención al paciente en toda la red' },
-            ].map((stat, idx) => (
-              <div key={idx} className="text-center border border-gray-700 rounded-2xl p-6">
-                <div className="text-4xl font-extrabold text-blue-500 mb-2">{stat.value}</div>
-                <p className="text-gray-400 text-sm">{stat.label}</p>
-              </div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
       {/* PRÓXIMOS PASOS */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -662,9 +580,9 @@ export default function BQDCAssociationPage({ onBack }: BQDCAssociationPageProps
             </motion.div>
 
             <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}
-              className="bg-black rounded-3xl p-8 text-white"
+              className="bg-gray-50 rounded-3xl p-8 border border-gray-200"
             >
-              <h3 className="text-2xl font-bold mb-6">Proceso para BQDC</h3>
+              <h3 className="text-2xl font-bold text-black mb-6">Proceso para BQDC</h3>
               <div className="space-y-6">
                 {[
                   { step: '1', title: 'Análisis estratégico', desc: 'Entendemos BQDC, sus clínicas y sus objetivos' },
@@ -674,10 +592,10 @@ export default function BQDCAssociationPage({ onBack }: BQDCAssociationPageProps
                   { step: '5', title: 'Inteligencia de red', desc: 'Activación del espacio de datos y la IA transversal' },
                 ].map((item, index) => (
                   <div key={index} className="flex items-start gap-4">
-                    <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-sm">{item.step}</div>
+                    <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-sm text-white">{item.step}</div>
                     <div>
-                      <h4 className="font-bold text-lg">{item.title}</h4>
-                      <p className="text-gray-400 text-sm">{item.desc}</p>
+                      <h4 className="font-bold text-black text-lg">{item.title}</h4>
+                      <p className="text-gray-500 text-sm">{item.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -699,21 +617,19 @@ export default function BQDCAssociationPage({ onBack }: BQDCAssociationPageProps
       </section>
 
       {/* FOOTER */}
-      <footer className="bg-black text-gray-400 py-12">
+      <footer className="bg-white border-t border-gray-200 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <div className="flex items-center justify-center mb-6">
-              <div className="bg-white rounded-xl p-3">
-                <img src="/images/LOGO.png" alt="Nexgent Logo" className="h-10 w-auto object-contain" />
-              </div>
+              <img src="/images/LOGO.png" alt="Nexgent Logo" className="h-10 w-auto object-contain" />
             </div>
-            <p className="text-lg mb-2"><span className="text-white font-bold">Nexgent</span></p>
-            <p className="text-sm text-gray-500">Inteligencia Artificial para BQDC</p>
-            <p className="text-xs text-gray-600 mt-3">info@nexgent.io</p>
+            <p className="text-lg mb-2"><span className="text-black font-bold">Nexgent</span></p>
+            <p className="text-sm text-gray-400">Inteligencia Artificial para BQDC</p>
+            <p className="text-xs text-gray-400 mt-3">info@nexgent.io</p>
           </div>
-          <div className="border-t border-gray-800 pt-6 flex flex-col md:flex-row items-center justify-between text-sm gap-4">
-            <a href="https://www.nexgent.io" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-blue-400 transition-colors">www.nexgent.io</a>
-            <button onClick={onBack} className="text-gray-500 hover:text-blue-400 transition-colors">← Volver a selección de propuestas</button>
+          <div className="border-t border-gray-100 pt-6 flex flex-col md:flex-row items-center justify-between text-sm gap-4">
+            <a href="https://www.nexgent.io" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-600 transition-colors">www.nexgent.io</a>
+            <button onClick={onBack} className="text-gray-400 hover:text-blue-600 transition-colors">← Volver a selección de propuestas</button>
           </div>
         </div>
       </footer>
