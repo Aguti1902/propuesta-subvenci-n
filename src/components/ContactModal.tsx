@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Mail, Building2, Send, CheckCircle, Phone } from 'lucide-react';
+import { X, Mail, Send, CheckCircle, Phone, User } from 'lucide-react';
 import { useState, FormEvent } from 'react';
 import emailjs from '@emailjs/browser';
 
@@ -10,7 +10,7 @@ interface ContactModalProps {
 
 export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
   const [formData, setFormData] = useState({
-    associationName: '',
+    name: '',
     email: '',
     phone: '',
   });
@@ -30,7 +30,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
       const publicKey = 'etF2nODXHXiaWXxIR';
 
       const templateParams = {
-        association_name: formData.associationName,
+        association_name: formData.name,
         user_email: formData.email,
         user_phone: formData.phone,
         to_email: 'info@nexgent.io',
@@ -42,7 +42,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
       setTimeout(() => {
         onClose();
         setIsSuccess(false);
-        setFormData({ associationName: '', email: '', phone: '' });
+        setFormData({ name: '', email: '', phone: '' });
       }, 3000);
     } catch (err) {
       console.error('Error al enviar email:', err);
@@ -56,7 +56,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
     if (!isSubmitting) {
       onClose();
       setError('');
-      setFormData({ associationName: '', email: '', phone: '' });
+      setFormData({ name: '', email: '', phone: '' });
     }
   };
 
@@ -124,21 +124,21 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                   </motion.div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-5">
-                    {/* Nombre de la asociación */}
+                    {/* Nombre */}
                     <div>
-                      <label htmlFor="associationName" className="block text-sm font-semibold text-gray-700 mb-2">
-                        Nombre de la asociación *
+                      <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
+                        Nombre / Empresa *
                       </label>
                       <div className="relative">
-                        <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                        <User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                         <input
                           type="text"
-                          id="associationName"
+                          id="name"
                           required
-                          value={formData.associationName}
-                          onChange={(e) => setFormData({ ...formData, associationName: e.target.value })}
+                          value={formData.name}
+                          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                           className="w-full pl-11 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:border-primary-500 focus:ring-2 focus:ring-primary-200 outline-none transition-all"
-                          placeholder="Ej: Asociación de Clínicas de Madrid"
+                          placeholder="Ej: Clínica Dental Sonríe"
                           disabled={isSubmitting}
                         />
                       </div>
@@ -158,7 +158,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                           className="w-full pl-11 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:border-primary-500 focus:ring-2 focus:ring-primary-200 outline-none transition-all"
-                          placeholder="info@tuasociacion.com"
+                          placeholder="info@tuclinica.com"
                           disabled={isSubmitting}
                         />
                       </div>
@@ -227,4 +227,3 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
     </AnimatePresence>
   );
 }
-

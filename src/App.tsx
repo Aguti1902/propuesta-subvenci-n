@@ -1,15 +1,15 @@
 import { useState } from 'react'
 import LoginSelector from './components/LoginSelector'
-import KTEDPitchPage from './components/KTEDPitchPage'
-import BQDCPitchPage from './components/BQDCPitchPage'
+import ClinicaDentalPage from './components/ClinicaDentalPage'
+import BQDCAssociationPage from './components/BQDCAssociationPage'
 
-type ViewType = 'selector' | 'generic' | 'bqdc'
+type ViewType = 'selector' | 'clinica' | 'bqdc'
 
 function App() {
   const [currentView, setCurrentView] = useState<ViewType>('selector')
 
-  const handleSelectGeneric = () => {
-    setCurrentView('generic')
+  const handleSelectClinica = () => {
+    setCurrentView('clinica')
   }
 
   const handleSelectBQDC = () => {
@@ -20,17 +20,17 @@ function App() {
     setCurrentView('selector')
   }
 
-  if (currentView === 'generic') {
-    return <KTEDPitchPage onBack={handleBack} />
+  if (currentView === 'clinica') {
+    return <ClinicaDentalPage onBack={handleBack} />
   }
 
   if (currentView === 'bqdc') {
-    return <BQDCPitchPage onBack={handleBack} />
+    return <BQDCAssociationPage onBack={handleBack} />
   }
 
   return (
     <LoginSelector 
-      onSelectGeneric={handleSelectGeneric}
+      onSelectClinica={handleSelectClinica}
       onSelectBQDC={handleSelectBQDC}
     />
   )
