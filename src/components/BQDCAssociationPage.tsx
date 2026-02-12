@@ -473,6 +473,8 @@ export default function BQDCAssociationPage({ onBack }: BQDCAssociationPageProps
               { icon: Globe, title: 'Comunicación de marca unificada', description: 'Gestión centralizada de la comunicación y marketing de toda la red BQDC.', items: ['Campañas de marketing coordinadas', 'Contenido de redes sociales unificado', 'Gestión de crisis comunicacional', 'Newsletter y comunicados'] },
               { icon: Shield, title: 'Compliance y calidad', description: 'Monitorización automática del cumplimiento normativo y estándares de calidad.', items: ['Auditorías automáticas', 'Alertas de desviaciones', 'Informes regulatorios', 'Gestión de incidencias'] },
               { icon: Search, title: 'Business Intelligence dental', description: 'Análisis avanzado de datos para decisiones estratégicas de la dirección.', items: ['Análisis de mercado', 'Predicción de tendencias', 'Optimización de portfolio', 'Rentabilidad por tratamiento'] },
+              { icon: Network, title: 'Redistribución inteligente de pacientes', description: 'Optimización de derivaciones entre clínicas según capacidad, especialización y proximidad.', items: ['Derivación automática según carga', 'Matching paciente-especialista', 'Optimización de tiempos de espera', 'Balance de ocupación entre centros'] },
+              { icon: BarChart3, title: 'Compras centralizadas con IA', description: 'Gestión inteligente de adquisiciones para toda la red con optimización de costes.', items: ['Predicción de demanda consolidada', 'Negociación de volumen automática', 'Distribución óptima entre clínicas', 'Alertas de stock centralizado'] },
             ].map((feature, index) => {
               const Icon = feature.icon;
               return (

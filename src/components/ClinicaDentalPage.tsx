@@ -423,6 +423,9 @@ export default function ClinicaDentalPage({ onBack }: ClinicaDentalPageProps) {
               { icon: FileCheck, title: 'Automatización administrativa', description: 'Facturación, informes de gestión, recordatorios de cobro e integración con contabilidad. Todo automático.' },
               { icon: Mic, title: 'Asistente interno para el equipo', description: 'Consultas rápidas sobre protocolos, precios, disponibilidad. El equipo pregunta al agente y obtiene respuestas al instante.' },
               { icon: TrendingUp, title: 'Análisis predictivo', description: 'Predicción de demanda, identificación de pacientes en riesgo de abandono y detección de tendencias estacionales.' },
+              { icon: PieChart, title: 'Gestión de financiación y planes de pago', description: 'Propuestas automáticas de financiación para tratamientos. Gestión de cuotas, recordatorios de pago y seguimiento.' },
+              { icon: Building2, title: 'Coordinación con laboratorios dentales', description: 'Comunicación automatizada con laboratorios para prótesis, ortodoncias y trabajos protésicos. Seguimiento de plazos.' },
+              { icon: Layers, title: 'Gestión de inventario inteligente', description: 'Predicción de necesidades de materiales y stock. Alertas automáticas de reposición basadas en tu consumo histórico.' },
             ].map((feature, index) => {
               const Icon = feature.icon;
               return (
