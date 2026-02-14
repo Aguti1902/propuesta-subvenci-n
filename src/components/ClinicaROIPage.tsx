@@ -81,9 +81,14 @@ export default function ClinicaROIPage({ onBack }: ClinicaROIPageProps) {
               <span className="block text-blue-600 mt-2">en menos de 2 meses</span>
             </h1>
 
-            <p className="text-xl text-gray-500 mb-12 max-w-3xl mx-auto leading-relaxed">
-              Datos reales de cómo la IA genera más valor del que cuesta, más allá de lo que ya hace Gesden G5
+            <p className="text-xl text-gray-500 mb-8 max-w-3xl mx-auto leading-relaxed">
+              Datos de cómo la IA genera más valor del que cuesta, más allá de lo que ya hace tu software actual
             </p>
+
+            <div className="inline-flex items-center gap-3 bg-blue-600 text-white px-6 py-3 rounded-full mb-12 border-2 border-blue-700">
+              <Sparkles className="w-6 h-6" />
+              <span className="font-bold text-lg">REGALO: 2 primeros meses gratis para testear</span>
+            </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
@@ -271,22 +276,24 @@ export default function ClinicaROIPage({ onBack }: ClinicaROIPageProps) {
               </div>
 
               <div className="bg-blue-50 rounded-xl p-5 border border-blue-200">
-                <div className="flex justify-between items-center mb-3">
-                  <span className="text-gray-700 font-semibold">Ahorro por clínica:</span>
-                  <span className="text-2xl font-extrabold text-blue-600">{ahorro}€/mes</span>
-                </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-gray-700 font-semibold">Ahorro total BQDC ({numClinicas} clínicas):</span>
-                  <span className="text-2xl font-extrabold text-blue-600">{ahorro * numClinicas}€/mes</span>
+                  <span className="text-gray-700 font-semibold">Ahorro por clínica vs precio base:</span>
+                  <span className="text-2xl font-extrabold text-blue-600">{ahorro}€/mes</span>
                 </div>
               </div>
             </div>
 
             <div className="text-center">
               <p className="text-blue-100 text-sm mb-2">Los 10.000€ de desarrollo por clínica siguen cubiertos por la subvención en todos los casos</p>
-              <div className="inline-flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full border border-white/20 mt-4">
-                <CheckCircle className="w-5 h-5" />
-                <span className="text-sm font-semibold">Cuantas más clínicas, mayor descuento</span>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-2xl mx-auto mt-4">
+                <div className="inline-flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full border border-white/20">
+                  <CheckCircle className="w-5 h-5" />
+                  <span className="text-sm font-semibold">Cuantas más clínicas, mayor descuento</span>
+                </div>
+                <div className="inline-flex items-center gap-2 bg-white/20 px-4 py-2 rounded-full border-2 border-white/40">
+                  <Sparkles className="w-5 h-5" />
+                  <span className="text-sm font-semibold">2 MESES GRATIS para testear</span>
+                </div>
               </div>
             </div>
           </motion.div>
@@ -591,12 +598,22 @@ export default function ClinicaROIPage({ onBack }: ClinicaROIPageProps) {
               </div>
             </div>
 
-            <div className="bg-blue-600 rounded-2xl p-6 text-white text-center">
-              <div className="flex items-center justify-center gap-3 mb-2">
-                <TrendingUp className="w-8 h-8" />
-                <div className="text-4xl font-extrabold">ROI: 520%</div>
+            <div className="space-y-4">
+              <div className="bg-blue-600 rounded-2xl p-6 text-white text-center">
+                <div className="flex items-center justify-center gap-3 mb-2">
+                  <TrendingUp className="w-8 h-8" />
+                  <div className="text-4xl font-extrabold">ROI: 520%</div>
+                </div>
+                <p className="text-blue-100">Por cada euro invertido, recuperas 5.20€</p>
               </div>
-              <p className="text-blue-100">Por cada euro invertido, recuperas 5.20€</p>
+              
+              <div className="bg-blue-50 rounded-2xl p-6 border-2 border-blue-300 text-center">
+                <div className="flex items-center justify-center gap-3 mb-2">
+                  <Sparkles className="w-8 h-8 text-blue-600" />
+                  <div className="text-2xl font-extrabold text-black">2 MESES GRATIS</div>
+                </div>
+                <p className="text-gray-700">Regalamos los primeros 2 meses de servicio para que puedas testearlo sin coste, hacer ajustes y validar resultados antes de empezar a pagar.</p>
+              </div>
             </div>
           </motion.div>
         </div>
@@ -967,19 +984,24 @@ export default function ClinicaROIPage({ onBack }: ClinicaROIPageProps) {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
             {[
-              { titulo: 'Periodo de prueba inicial', desc: 'Los primeros 2 meses son de ajuste y optimización. Si no ves resultados tangibles, trabajamos hasta que los veas.' },
-              { titulo: 'Compromiso de ROI', desc: 'Si tras 3 meses no has recuperado al menos el 50% de la inversión mensual en ahorros medibles, ajustamos sin coste.' },
+              { titulo: '2 MESES GRATIS DE SERVICIO', desc: 'Regalamos los primeros 2 meses del servicio mensual (640€ de valor). Puedes testear, ajustar y validar resultados sin pagar nada. Empiezas a pagar solo cuando estés convencido.', destacado: true },
+              { titulo: 'Periodo de ajuste y optimización', desc: 'Durante los primeros meses trabajamos contigo en ajustes continuos. Si no ves resultados tangibles, seguimos optimizando sin coste adicional.' },
+              { titulo: 'Compromiso de ROI', desc: 'Si tras 4 meses (2 gratis + 2 pagando) no has recuperado al menos el 50% de la inversión en ahorros medibles, ajustamos o devolvemos.' },
               { titulo: 'Integración garantizada', desc: 'Garantizamos integración perfecta con tu software actual (Gesden G5, etc.). Si hay problemas técnicos, los resolvemos sin coste.' },
               { titulo: 'Soporte ilimitado', desc: 'Acceso directo al equipo técnico sin límite de consultas. Respondemos en menos de 2h en horario laboral.' },
               { titulo: 'Sin permanencia', desc: 'Contrato mensual sin compromiso de permanencia. Si decides cancelar, no hay penalización.' },
               { titulo: 'Formación incluida', desc: 'Formación completa a todo el equipo hasta que se sientan cómodos. Sessions adicionales sin coste si es necesario.' },
             ].map((garantia, index) => (
               <motion.div key={index} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.1 }} viewport={{ once: true }}
-                className="bg-gray-50 rounded-2xl p-6 border border-gray-200"
+                className={garantia.destacado ? "bg-blue-50 rounded-2xl p-6 border-2 border-blue-600" : "bg-gray-50 rounded-2xl p-6 border border-gray-200"}
               >
                 <div className="flex items-start gap-3 mb-3">
-                  <CheckCircle className="w-6 h-6 text-blue-600 flex-shrink-0" />
-                  <h4 className="font-bold text-black text-lg">{garantia.titulo}</h4>
+                  {garantia.destacado ? (
+                    <Sparkles className="w-6 h-6 text-blue-600 flex-shrink-0" />
+                  ) : (
+                    <CheckCircle className="w-6 h-6 text-blue-600 flex-shrink-0" />
+                  )}
+                  <h4 className={`font-bold text-lg ${garantia.destacado ? 'text-blue-600' : 'text-black'}`}>{garantia.titulo}</h4>
                 </div>
                 <p className="text-gray-600 text-sm leading-relaxed">{garantia.desc}</p>
               </motion.div>
