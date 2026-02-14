@@ -330,7 +330,7 @@ export default function ClinicaROIPage({ onBack }: ClinicaROIPageProps) {
                     { func: 'Marketing automatizado', gesden: '❌', nexgent: '✅ Campañas, redes sociales, remarketing', key: true },
                     { func: 'Transcripción de notas por voz', gesden: '❌', nexgent: '✅ Automática y estructurada', key: true },
                     { func: 'Análisis de radiografías', gesden: '❌', nexgent: '✅ Detección asistida de patologías', key: true },
-                    { func: 'Triaje de urgencias', gesden: '❌', nexgent: '✅ Clasificación automática', key: true },
+                    { func: 'Clasificación de consultas', gesden: '❌', nexgent: '✅ Clasificación automática por tipo', key: true },
                     { func: 'Presupuestos automáticos', gesden: '✅ Manual', nexgent: '✅ Generación con un clic', key: true },
                     { func: 'Analytics y predicción', gesden: '❌', nexgent: '✅ Análisis predictivo de demanda', key: true },
                     { func: 'Multiidioma automático', gesden: '❌', nexgent: '✅ Sin necesidad de personal bilingüe', key: true },
@@ -771,11 +771,11 @@ export default function ClinicaROIPage({ onBack }: ClinicaROIPageProps) {
           <div className="space-y-8">
             {[
               {
-                hora: '22:30 (Fuera de horario)',
-                escenario: 'Paciente con dolor de muelas',
-                sinIA: 'Llama, nadie responde. Se va a urgencias o a otra clínica que tenga guardia. Cliente perdido.',
-                conIA: 'La IA responde al instante, evalúa la urgencia, ofrece cita para primera hora de mañana. Paciente tranquilo y fidelizado.',
-                valor: 'Cliente captado + tratamiento estimado ~200€',
+                hora: '20:30 (Fuera de horario)',
+                escenario: 'Paciente quiere información sobre blanqueamiento dental',
+                sinIA: 'Envía WhatsApp, nadie responde hasta mañana. Mientras tanto busca en Google, encuentra otra clínica que responde. Cliente perdido.',
+                conIA: 'La IA responde al instante, explica opciones (LED, férulas...), precios orientativos, duración. Agenda cita de valoración.',
+                valor: 'Cliente captado + tratamiento ~300-400€',
               },
               {
                 hora: '10:15 (Durante consulta)',
