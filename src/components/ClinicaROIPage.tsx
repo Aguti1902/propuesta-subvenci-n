@@ -5,7 +5,6 @@ import {
   CheckCircle,
   TrendingUp,
   Users,
-  Clock,
   Euro,
   Calculator,
   Target,
@@ -21,6 +20,7 @@ import {
   FileText,
   Shield,
   Rocket,
+  Brain,
 } from 'lucide-react';
 import ContactModal from './ContactModal';
 
@@ -161,10 +161,11 @@ export default function ClinicaROIPage({ onBack }: ClinicaROIPageProps) {
               <div className="text-5xl font-extrabold mb-6">2.450€/mes</div>
               <div className="space-y-4">
                 {[
-                  { concepto: 'Ahorro en tiempo del equipo', valor: '~800€', detalle: '20h/mes ahorradas en atención telefónica y admin (40€/h carga)' },
+                  { concepto: 'Ahorro en documentación clínica', valor: '~650€', detalle: '15h/mes ahorradas en notas, presupuestos y consentimientos (40€/h)' },
+                  { concepto: 'Ahorro en atención telefónica/chat', valor: '~500€', detalle: '12h/mes ahorradas en consultas repetitivas (40€/h)' },
                   { concepto: 'Reducción de no-shows', valor: '~600€', detalle: '8 citas/mes recuperadas × 75€ ticket medio' },
-                  { concepto: 'Nuevas citas por atención 24/7', valor: '~750€', detalle: '10 citas/mes que antes se perdían fuera de horario' },
-                  { concepto: 'Más reseñas = más pacientes nuevos', valor: '~300€', detalle: '2 pacientes nuevos/mes adicionales por mejor reputación' },
+                  { concepto: 'Nuevas citas por atención 24/7', valor: '~450€', detalle: '6 citas/mes que antes se perdían fuera de horario' },
+                  { concepto: 'Optimización de agenda con IA', valor: '~250€', detalle: 'Mejor llenado de huecos y reagendamiento eficiente' },
                 ].map((item, idx) => (
                   <div key={idx} className="bg-white/10 rounded-xl p-4 border border-white/20">
                     <div className="flex justify-between items-start mb-1">
@@ -177,10 +178,10 @@ export default function ClinicaROIPage({ onBack }: ClinicaROIPageProps) {
               </div>
               <div className="mt-6 p-4 bg-white/20 rounded-xl border border-white/30">
                 <div className="flex justify-between items-center">
-                  <span className="font-bold">ROI mensual:</span>
+                  <span className="font-bold">ROI mensual estimado:</span>
                   <span className="text-2xl font-extrabold">+1.955€</span>
                 </div>
-                <p className="text-blue-100 text-xs mt-2">Beneficio neto: casi 5x la inversión</p>
+                <p className="text-blue-100 text-xs mt-2">Beneficio neto: casi 5x la inversión (atención + clínica + operaciones)</p>
               </div>
             </motion.div>
           </div>
@@ -367,28 +368,28 @@ export default function ClinicaROIPage({ onBack }: ClinicaROIPageProps) {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {[
               {
-                titulo: 'Atención telefónica y WhatsApp',
-                antes: { icon: Phone, stat: '35h/mes', desc: 'Personal atendiendo llamadas y WhatsApp repetitivos', color: 'text-gray-600' },
-                despues: { icon: MessageSquare, stat: '8h/mes', desc: 'Solo consultas complejas que la IA escala', color: 'text-blue-600' },
-                ahorro: '27 horas/mes = 1.080€',
+                titulo: 'Documentación clínica (notas, presupuestos)',
+                antes: { icon: FileText, stat: '18h/mes', desc: 'Escribir notas clínicas, generar presupuestos manualmente', color: 'text-gray-600' },
+                despues: { icon: Zap, stat: '5h/mes', desc: 'Transcripción por voz + presupuestos automáticos', color: 'text-blue-600' },
+                ahorro: '13 horas/mes = 650€',
               },
               {
-                titulo: 'Gestión de citas y recordatorios',
-                antes: { icon: Calendar, stat: '15h/mes', desc: 'Gestión manual de cambios, cancelaciones, confirmaciones', color: 'text-gray-600' },
-                despues: { icon: Zap, stat: '2h/mes', desc: 'IA gestiona el 90% automáticamente', color: 'text-blue-600' },
-                ahorro: '13 horas/mes = 520€',
+                titulo: 'Atención telefónica y consultas',
+                antes: { icon: Phone, stat: '25h/mes', desc: 'Personal atendiendo consultas repetitivas', color: 'text-gray-600' },
+                despues: { icon: MessageSquare, stat: '8h/mes', desc: 'IA resuelve 85% de consultas automáticamente', color: 'text-blue-600' },
+                ahorro: '17 horas/mes = 680€',
               },
               {
-                titulo: 'Solicitud de reseñas',
-                antes: { icon: Star, stat: '2-3/mes', desc: 'Pocas reseñas porque nadie las pide', color: 'text-gray-600' },
-                despues: { icon: TrendingUp, stat: '12-15/mes', desc: 'IA las solicita en el momento perfecto', color: 'text-blue-600' },
-                ahorro: '+300% reseñas = mejor posicionamiento',
+                titulo: 'Gestión de citas y agenda',
+                antes: { icon: Calendar, stat: '12h/mes', desc: 'Reservas, cambios, confirmaciones manuales', color: 'text-gray-600' },
+                despues: { icon: CheckCircle, stat: '3h/mes', desc: 'IA gestiona 90% + optimiza huecos', color: 'text-blue-600' },
+                ahorro: '9 horas/mes + mejor ocupación',
               },
               {
-                titulo: 'No-shows (pacientes que no vienen)',
-                antes: { icon: AlertCircle, stat: '12-15/mes', desc: 'Huecos en agenda = ingresos perdidos', color: 'text-gray-600' },
-                despues: { icon: CheckCircle, stat: '5-7/mes', desc: 'Recordatorios inteligentes reducen no-shows', color: 'text-blue-600' },
-                ahorro: '8 citas/mes recuperadas = 600€',
+                titulo: 'Análisis de radiografías y soporte diagnóstico',
+                antes: { icon: AlertCircle, stat: 'Manual', desc: 'Análisis 100% manual, sin segunda opinión', color: 'text-gray-600' },
+                despues: { icon: Brain, stat: 'Asistido', desc: 'IA sugiere hallazgos, reduce errores diagnósticos', color: 'text-blue-600' },
+                ahorro: 'Mayor precisión + confianza',
               },
             ].map((caso, index) => {
               const IconAntes = caso.antes.icon;
@@ -442,8 +443,8 @@ export default function ClinicaROIPage({ onBack }: ClinicaROIPageProps) {
               <Zap className="w-5 h-5" />
               Integración Perfecta
             </div>
-            <h2 className="text-4xl lg:text-5xl font-extrabold text-black mb-4">Se integra con Gesden G5 sin cambiar nada</h2>
-            <p className="text-xl text-gray-500 max-w-3xl mx-auto">La IA lee y escribe en Gesden. Tu equipo sigue trabajando igual, pero potenciado.</p>
+            <h2 className="text-4xl lg:text-5xl font-extrabold text-black mb-4">Se integra con tu software actual sin cambiar nada</h2>
+            <p className="text-xl text-gray-500 max-w-3xl mx-auto">La IA se conecta a tu software de gestión (Gesden G5, Dentidesk, Clinic Cloud...). Tu equipo sigue trabajando igual, pero potenciado.</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
@@ -496,14 +497,14 @@ export default function ClinicaROIPage({ onBack }: ClinicaROIPageProps) {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
             {[
-              { value: '~85%', label: 'Consultas resueltas por IA', desc: 'Estimado sin intervención humana', icon: MessageSquare },
-              { value: '~60%', label: 'Reducción tiempo admin', desc: 'Estimado liberado para pacientes', icon: Clock },
-              { value: '+300%', label: 'Mejora en reseñas', desc: 'Estimado en 3 meses', icon: Star },
-              { value: '~40%', label: 'Reducción de no-shows', desc: 'Por recordatorios inteligentes', icon: AlertCircle },
-              { value: '+20%', label: 'Nuevos clientes', desc: 'Por atención 24/7', icon: Users },
+              { value: '~85%', label: 'Consultas automáticas', desc: 'Sin intervención humana', icon: MessageSquare },
+              { value: '-70%', label: 'Tiempo en documentación', desc: 'Transcripción por voz, presupuestos auto', icon: FileText },
+              { value: '~40%', label: 'Reducción de no-shows', desc: 'Recordatorios inteligentes', icon: AlertCircle },
+              { value: '+300%', label: 'Mejora en reseñas', desc: 'Solicitud automática', icon: Star },
+              { value: '+20%', label: 'Más ocupación agenda', desc: 'Optimización IA + atención 24/7', icon: Calendar },
               { value: '<2min', label: 'Tiempo de respuesta', desc: 'Vs varias horas antes', icon: Zap },
-              { value: '+15-20%', label: 'Aumento facturación', desc: 'Estimado: más citas + menos huecos', icon: TrendingUp },
-              { value: '4-5x', label: 'ROI esperado 3 meses', desc: 'Retorno sobre inversión', icon: Calculator },
+              { value: '~50%', label: 'Reducción errores admin', desc: 'Automatización de procesos', icon: Shield },
+              { value: '4-5x', label: 'ROI estimado 3 meses', desc: 'Retorno sobre inversión', icon: Calculator },
             ].map((stat, index) => {
               const Icon = stat.icon;
               return (
