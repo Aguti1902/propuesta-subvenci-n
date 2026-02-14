@@ -602,8 +602,337 @@ export default function ClinicaROIPage({ onBack }: ClinicaROIPageProps) {
         </div>
       </section>
 
-      {/* POR QUÉ AHORA */}
+      {/* ANÁLISIS DE COSTE DE OPORTUNIDAD */}
       <section className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-600 px-4 py-2 rounded-full mb-6 font-semibold">
+              <AlertCircle className="w-5 h-5" />
+              Coste de NO tener IA
+            </div>
+            <h2 className="text-4xl lg:text-5xl font-extrabold text-black mb-4">Lo que estás perdiendo cada mes sin IA</h2>
+            <p className="text-xl text-gray-500 max-w-3xl mx-auto">Estos son ingresos y eficiencias que se pierden ahora mismo</p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { titulo: 'Consultas fuera de horario', valor: '~15-20/mes', perdida: '~450€/mes', desc: 'Pacientes potenciales que llaman por la tarde/noche y no obtienen respuesta. Se van a la competencia.' },
+              { titulo: 'Tiempo en tareas repetitivas', valor: '~30h/mes', perdida: '~1.200€/mes', desc: 'Tu equipo gasta tiempo en consultas básicas, presupuestos manuales, confirmaciones que la IA haría.' },
+              { titulo: 'No-shows no recuperados', valor: '~12/mes', perdida: '~900€/mes', desc: 'Huecos en agenda que se podrían llenar si tuvieras recordatorios inteligentes y reagendamiento automático.' },
+              { titulo: 'Pacientes que NO dejan reseña', valor: '~20/mes', perdida: 'Posicionamiento', desc: 'Pacientes satisfechos que nunca dejan reseña porque nadie se lo pide. Pierdes visibilidad en Google.' },
+              { titulo: 'Errores en documentación', valor: '~5-8/mes', perdida: 'Riesgo legal', desc: 'Presupuestos con errores, consentimientos incompletos, notas mal estructuradas. La IA lo estandariza.' },
+              { titulo: 'Pacientes inactivos sin contactar', valor: '~25/mes', perdida: '~600€/mes', desc: 'Pacientes que necesitan revisión pero nadie les hace seguimiento. Ingresos recurrentes perdidos.' },
+            ].map((item, index) => (
+              <motion.div key={index} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.1 }} viewport={{ once: true }}
+                className="bg-gray-50 rounded-2xl p-6 border border-gray-200"
+              >
+                <h4 className="text-lg font-bold text-black mb-3">{item.titulo}</h4>
+                <div className="flex items-baseline gap-2 mb-2">
+                  <span className="text-2xl font-extrabold text-blue-600">{item.valor}</span>
+                  <span className="text-sm text-gray-500">→ {item.perdida}</span>
+                </div>
+                <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.6 }} viewport={{ once: true }}
+            className="mt-12 bg-blue-600 rounded-3xl p-8 text-white text-center"
+          >
+            <h3 className="text-2xl font-bold mb-3">Coste de oportunidad total</h3>
+            <div className="text-5xl font-extrabold mb-2">~3.150€/mes</div>
+            <p className="text-blue-100 text-lg">Esto es lo que pierdes cada mes sin IA. La inversión de 495€/mes recupera gran parte de esto.</p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* DESGLOSE DETALLADO POR ÁREA */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl font-extrabold text-black mb-4">Desglose detallado del valor por área</h2>
+            <p className="text-xl text-gray-500 max-w-3xl mx-auto">Cómo la IA genera valor específico en cada departamento de tu clínica</p>
+          </motion.div>
+
+          <div className="space-y-6">
+            {[
+              {
+                area: 'Recepción y Atención al Paciente',
+                icon: MessageSquare,
+                ahorroTiempo: '17h/mes',
+                ahorroEuros: '680€',
+                tareas: [
+                  'Responder consultas básicas por WhatsApp/teléfono (horarios, precios, ubicación)',
+                  'Gestionar reservas, cambios y cancelaciones de citas',
+                  'Enviar confirmaciones y recordatorios personalizados',
+                  'Atender consultas fuera de horario (tardes, fines de semana)',
+                  'Triaje inicial de urgencias y derivación apropiada',
+                ],
+              },
+              {
+                area: 'Clínica y Diagnóstico',
+                icon: Brain,
+                ahorroTiempo: '8h/mes',
+                ahorroEuros: '~400€',
+                tareas: [
+                  'Pre-análisis de radiografías para detección de hallazgos',
+                  'Sugerencias de planes de tratamiento basados en evidencia',
+                  'Alertas de interacciones medicamentosas y contraindicaciones',
+                  'Acceso rápido a protocolos y guías clínicas actualizadas',
+                  'Segunda opinión automática en casos complejos',
+                ],
+              },
+              {
+                area: 'Documentación y Administración',
+                icon: FileText,
+                ahorroTiempo: '13h/mes',
+                ahorroEuros: '650€',
+                tareas: [
+                  'Transcripción automática de notas clínicas por voz',
+                  'Generación de presupuestos detallados en segundos',
+                  'Creación de consentimientos informados personalizados',
+                  'Automatización de facturación y recordatorios de cobro',
+                  'Informes de gestión y KPIs actualizados en tiempo real',
+                ],
+              },
+              {
+                area: 'Marketing y Crecimiento',
+                icon: TrendingUp,
+                ahorroTiempo: '10h/mes',
+                ahorroEuros: '~720€',
+                tareas: [
+                  'Solicitud automática de reseñas en el momento perfecto',
+                  'Generación de contenido para redes sociales',
+                  'Campañas de remarketing a pacientes inactivos',
+                  'Segmentación inteligente para ofertas personalizadas',
+                  'Análisis de competencia y tendencias del mercado',
+                ],
+              },
+            ].map((area, index) => {
+              const Icon = area.icon;
+              return (
+                <motion.div key={index} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ delay: index * 0.15 }} viewport={{ once: true }}
+                  className="bg-white rounded-2xl p-8 border-2 border-gray-200"
+                >
+                  <div className="flex items-start justify-between mb-6">
+                    <div className="flex items-center gap-4">
+                      <div className="w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center">
+                        <Icon className="w-7 h-7 text-white" />
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-bold text-black">{area.area}</h3>
+                        <p className="text-sm text-gray-500">Ahorro estimado: {area.ahorroTiempo} → {area.ahorroEuros}/mes</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    {area.tareas.map((tarea, idx) => (
+                      <div key={idx} className="flex items-start gap-2">
+                        <CheckCircle className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                        <span className="text-gray-700 text-sm">{tarea}</span>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.6 }} viewport={{ once: true }}
+            className="mt-12 bg-blue-600 rounded-3xl p-8 text-white text-center"
+          >
+            <h3 className="text-2xl font-bold mb-3">Total estimado</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+              <div>
+                <div className="text-4xl font-extrabold mb-1">~48h/mes</div>
+                <p className="text-blue-100">Tiempo ahorrado al equipo</p>
+              </div>
+              <div>
+                <div className="text-4xl font-extrabold mb-1">~2.450€/mes</div>
+                <p className="text-blue-100">Valor generado estimado</p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* CASOS DE USO ESPECÍFICOS DEL DÍA A DÍA */}
+      <section className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-600 px-4 py-2 rounded-full mb-6 font-semibold">
+              <Sparkles className="w-5 h-5" />
+              Ejemplos Concretos
+            </div>
+            <h2 className="text-4xl lg:text-5xl font-extrabold text-black mb-4">Un día típico con IA</h2>
+            <p className="text-xl text-gray-500 max-w-3xl mx-auto">Escenarios reales de cómo funciona la IA en el día a día de tu clínica</p>
+          </motion.div>
+
+          <div className="space-y-8">
+            {[
+              {
+                hora: '22:30 (Fuera de horario)',
+                escenario: 'Paciente con dolor de muelas',
+                sinIA: 'Llama, nadie responde. Se va a urgencias o a otra clínica que tenga guardia. Cliente perdido.',
+                conIA: 'La IA responde al instante, evalúa la urgencia, ofrece cita para primera hora de mañana. Paciente tranquilo y fidelizado.',
+                valor: 'Cliente captado + tratamiento estimado ~200€',
+              },
+              {
+                hora: '10:15 (Durante consulta)',
+                escenario: 'Dentista necesita presupuesto para implante',
+                sinIA: 'Para la consulta 5min, busca en Gesden los precios, calcula manualmente, genera documento. Paciente espera.',
+                conIA: 'Dicta por voz "presupuesto implante molar zona 46". IA genera presupuesto detallado en 30 segundos mientras explica al paciente.',
+                valor: 'Ahorro de 4.5min × 15 veces/mes = 1h ahorrada',
+              },
+              {
+                hora: '11:00 (Recepción saturada)',
+                escenario: 'Llaman 3 pacientes a la vez para cambiar cita',
+                sinIA: 'Recepción atiende uno por uno. Los otros esperan o cuelgan frustrados. Proceso manual en Gesden para cada cambio.',
+                conIA: 'Los 3 pueden cambiar cita simultáneamente por WhatsApp. IA consulta disponibilidad en Gesden y reagenda al instante.',
+                valor: 'Ahorro 15min por cambio × 40 cambios/mes = 10h',
+              },
+              {
+                hora: '14:30 (Revisión de radiografía)',
+                escenario: 'Análisis de panorámica de nuevo paciente',
+                sinIA: 'Dentista analiza manualmente. Riesgo de pasar por alto hallazgos sutiles si hay prisa.',
+                conIA: 'IA hace pre-análisis, destaca áreas sospechosas, sugiere zonas a revisar. Dentista confirma. Mayor precisión.',
+                valor: 'Detección temprana + confianza diagnóstica',
+              },
+              {
+                hora: '19:00 (Fin del día)',
+                escenario: 'Paciente terminó tratamiento hace 3 días',
+                sinIA: 'Nadie hace seguimiento. Si hay complicación, el paciente se queja o va a otro lado. Reseña negativa potencial.',
+                conIA: 'IA envía mensaje automático: "¿Cómo te encuentras? ¿Algún dolor?". Detecta problemas temprano. Paciente se siente cuidado.',
+                valor: 'Prevención de reseñas negativas + fidelización',
+              },
+              {
+                hora: 'Domingo 15:00',
+                escenario: 'Paciente nuevo quiere información sobre ortodoncia invisible',
+                sinIA: 'Nadie disponible. Paciente busca en Google, encuentra otra clínica que sí responde. Cliente perdido para siempre.',
+                conIA: 'IA responde al instante, explica opciones, precios orientativos, ventajas. Agenda cita para valoración. Cliente captado.',
+                valor: 'Tratamiento de ortodoncia ~3.000€',
+              },
+            ].map((ejemplo, index) => (
+              <motion.div key={index} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.1 }} viewport={{ once: true }}
+                className="bg-gray-50 rounded-2xl p-6 border border-gray-200"
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-bold">{ejemplo.hora}</div>
+                  <h4 className="font-bold text-black">{ejemplo.escenario}</h4>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                  <div className="bg-white rounded-xl p-4 border border-gray-200">
+                    <p className="text-xs font-bold text-gray-400 uppercase mb-2">Sin IA</p>
+                    <p className="text-gray-700 text-sm">{ejemplo.sinIA}</p>
+                  </div>
+                  <div className="bg-blue-50 rounded-xl p-4 border border-blue-200">
+                    <p className="text-xs font-bold text-blue-600 uppercase mb-2">Con IA de Nexgent</p>
+                    <p className="text-gray-900 text-sm">{ejemplo.conIA}</p>
+                  </div>
+                </div>
+                <div className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-semibold">
+                  💰 Valor: {ejemplo.valor}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ANÁLISIS DE RIESGO Y GARANTÍAS */}
+      <section className="py-20 bg-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-600 px-4 py-2 rounded-full mb-6 font-semibold">
+              <Shield className="w-5 h-5" />
+              Mitigación de Riesgo
+            </div>
+            <h2 className="text-4xl lg:text-5xl font-extrabold text-black mb-4">¿Qué pasa si no funciona como esperamos?</h2>
+            <p className="text-xl text-gray-500 max-w-3xl mx-auto">Garantías y compromisos de Nexgent</p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+            {[
+              { titulo: 'Periodo de prueba inicial', desc: 'Los primeros 2 meses son de ajuste y optimización. Si no ves resultados tangibles, trabajamos hasta que los veas.' },
+              { titulo: 'Compromiso de ROI', desc: 'Si tras 3 meses no has recuperado al menos el 50% de la inversión mensual en ahorros medibles, ajustamos sin coste.' },
+              { titulo: 'Integración garantizada', desc: 'Garantizamos integración perfecta con tu software actual (Gesden G5, etc.). Si hay problemas técnicos, los resolvemos sin coste.' },
+              { titulo: 'Soporte ilimitado', desc: 'Acceso directo al equipo técnico sin límite de consultas. Respondemos en menos de 2h en horario laboral.' },
+              { titulo: 'Sin permanencia', desc: 'Contrato mensual sin compromiso de permanencia. Si decides cancelar, no hay penalización.' },
+              { titulo: 'Formación incluida', desc: 'Formación completa a todo el equipo hasta que se sientan cómodos. Sessions adicionales sin coste si es necesario.' },
+            ].map((garantia, index) => (
+              <motion.div key={index} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.1 }} viewport={{ once: true }}
+                className="bg-gray-50 rounded-2xl p-6 border border-gray-200"
+              >
+                <div className="flex items-start gap-3 mb-3">
+                  <CheckCircle className="w-6 h-6 text-blue-600 flex-shrink-0" />
+                  <h4 className="font-bold text-black text-lg">{garantia.titulo}</h4>
+                </div>
+                <p className="text-gray-600 text-sm leading-relaxed">{garantia.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}
+            className="bg-blue-600 rounded-3xl p-8 text-white text-center"
+          >
+            <Rocket className="w-14 h-14 mx-auto mb-4" />
+            <h3 className="text-2xl font-bold mb-3">Nuestro compromiso</h3>
+            <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
+              No cobramos si no generas valor. Estamos tan seguros del impacto que <strong className="text-white">garantizamos resultados medibles en 3 meses</strong> o seguimos trabajando hasta conseguirlos.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* COMPARATIVA GRANULAR CON SOFTWARE ACTUAL */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl font-extrabold text-black mb-4">Lo que tu software NO puede hacer</h2>
+            <p className="text-xl text-gray-500 max-w-3xl mx-auto">Limitaciones de los software tradicionales que la IA resuelve</p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {[
+              { limitacion: 'No atiende fuera de horario', solucionIA: 'Atención 24/7 automática en WhatsApp, web, redes sociales', impacto: '+6-10 citas/mes captadas' },
+              { limitacion: 'No hace seguimiento proactivo', solucionIA: 'Seguimiento post-tratamiento, recordatorios de revisión, detección de pacientes inactivos', impacto: '+15-20% recurrencia' },
+              { limitacion: 'No pide reseñas', solucionIA: 'Solicitud automática en el momento perfecto, gestión de feedback negativo antes de Google', impacto: '+300% reseñas' },
+              { limitacion: 'Transcripción manual de notas', solucionIA: 'Dicta por voz y la IA estructura las notas en formato estándar directamente en el sistema', impacto: '-70% tiempo documentación' },
+              { limitacion: 'No analiza imágenes', solucionIA: 'Pre-análisis de radiografías, detección asistida de caries y patologías, alertas automáticas', impacto: 'Mayor precisión diagnóstica' },
+              { limitacion: 'No optimiza la agenda', solucionIA: 'IA sugiere reagendamiento óptimo, rellena huecos, predice cancelaciones y busca sustitutos', impacto: '+15-20% ocupación' },
+              { limitacion: 'Multiidioma requiere personal', solucionIA: 'Atención automática en 50+ idiomas sin necesidad de personal bilingüe', impacto: 'Acceso a pacientes internacionales' },
+              { limitacion: 'No detecta patrones', solucionIA: 'Análisis predictivo: tendencias, pacientes en riesgo de abandono, estacionalidad, oportunidades', impacto: 'Decisiones basadas en datos' },
+            ].map((item, index) => (
+              <motion.div key={index} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.08 }} viewport={{ once: true }}
+                className="bg-white rounded-2xl p-6 border border-gray-200"
+              >
+                <div className="flex items-start gap-3 mb-3">
+                  <div className="w-8 h-8 bg-gray-200 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <span className="text-xl">❌</span>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-gray-900 text-sm mb-1">{item.limitacion}</h4>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3 mb-3 pl-11">
+                  <div className="flex-1">
+                    <div className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                      <p className="text-gray-700 text-sm">{item.solucionIA}</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="bg-blue-50 rounded-lg p-3 mt-3">
+                  <p className="text-blue-600 font-semibold text-sm">→ {item.impacto}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* POR QUÉ AHORA */}
+      <section className="py-20 bg-gray-50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}
             className="text-center mb-12"
