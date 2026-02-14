@@ -602,8 +602,122 @@ export default function ClinicaROIPage({ onBack }: ClinicaROIPageProps) {
         </div>
       </section>
 
-      {/* ANÁLISIS DE COSTE DE OPORTUNIDAD */}
+      {/* RECUPERACIÓN DE PACIENTES INACTIVOS */}
       <section className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-600 px-4 py-2 rounded-full mb-6 font-semibold">
+              <Users className="w-5 h-5" />
+              Recuperación de Pacientes
+            </div>
+            <h2 className="text-4xl lg:text-5xl font-extrabold text-black mb-4">El ingreso invisible que estás perdiendo</h2>
+            <p className="text-xl text-gray-500 max-w-3xl mx-auto">
+              Pacientes que deberían volver cada 6-12 meses pero no lo hacen porque nadie les contacta
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            {/* El problema */}
+            <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}
+              className="bg-gray-50 rounded-3xl p-8 border-2 border-gray-200"
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 bg-gray-400 rounded-xl flex items-center justify-center">
+                  <AlertCircle className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-black">Sin seguimiento automático</h3>
+              </div>
+              <div className="space-y-4 mb-6">
+                <div className="bg-white rounded-xl p-4 border border-gray-200">
+                  <div className="text-3xl font-extrabold text-gray-900 mb-2">~35%</div>
+                  <p className="text-gray-600 text-sm">de pacientes NO vuelven a revisión si nadie les contacta</p>
+                </div>
+                <div className="bg-white rounded-xl p-4 border border-gray-200">
+                  <div className="text-3xl font-extrabold text-gray-900 mb-2">~40-50</div>
+                  <p className="text-gray-600 text-sm">pacientes inactivos por clínica cada mes</p>
+                </div>
+                <div className="bg-white rounded-xl p-4 border border-gray-200">
+                  <div className="text-3xl font-extrabold text-gray-900 mb-2">150-300€</div>
+                  <p className="text-gray-600 text-sm">ticket medio por paciente que vuelve</p>
+                </div>
+              </div>
+              <div className="bg-red-50 rounded-xl p-4 border border-red-200">
+                <p className="text-red-700 font-bold text-lg text-center">
+                  Pérdida estimada: ~1.500-2.000€/mes
+                </p>
+              </div>
+            </motion.div>
+
+            {/* La solución con IA */}
+            <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}
+              className="bg-blue-600 rounded-3xl p-8 text-white"
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+                  <Sparkles className="w-6 h-6" />
+                </div>
+                <h3 className="text-2xl font-bold">Con IA de Nexgent</h3>
+              </div>
+              <div className="space-y-4 mb-6">
+                <div className="bg-white/10 rounded-xl p-4 border border-white/20">
+                  <h4 className="font-bold mb-2">Recordatorios automáticos inteligentes</h4>
+                  <p className="text-blue-100 text-sm">A los 5 meses: "Hola María, ya es momento de tu revisión. ¿Te va bien el martes a las 11h?"</p>
+                </div>
+                <div className="bg-white/10 rounded-xl p-4 border border-white/20">
+                  <h4 className="font-bold mb-2">Segmentación por tipo de paciente</h4>
+                  <p className="text-blue-100 text-sm">Ortodoncia: contacto cada 4-6 semanas. Implantes: seguimiento cada 6 meses. Personalizado por tratamiento.</p>
+                </div>
+                <div className="bg-white/10 rounded-xl p-4 border border-white/20">
+                  <h4 className="font-bold mb-2">Detección de pacientes en riesgo</h4>
+                  <p className="text-blue-100 text-sm">IA identifica automáticamente quién no ha vuelto en 6+ meses y les contacta proactivamente.</p>
+                </div>
+                <div className="bg-white/10 rounded-xl p-4 border border-white/20">
+                  <h4 className="font-bold mb-2">Ofertas personalizadas</h4>
+                  <p className="text-blue-100 text-sm">Si detecta resistencia, ofrece descuento en limpieza o promoción de blanqueamiento para traerles de vuelta.</p>
+                </div>
+              </div>
+              <div className="bg-white/20 rounded-xl p-4 border border-white/30">
+                <div className="text-3xl font-extrabold mb-2">~65-70%</div>
+                <p className="text-blue-100">de pacientes inactivos recuperados con seguimiento automático</p>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Cálculo del impacto */}
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}
+            className="bg-white rounded-3xl p-8 border-2 border-blue-200"
+          >
+            <h3 className="text-2xl font-bold text-black mb-6 text-center">Impacto económico de recuperar pacientes inactivos</h3>
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
+              <div>
+                <div className="text-sm text-gray-500 mb-2">Pacientes inactivos/mes</div>
+                <div className="text-3xl font-extrabold text-gray-900">~45</div>
+              </div>
+              <div>
+                <div className="text-sm text-gray-500 mb-2">Tasa de recuperación con IA</div>
+                <div className="text-3xl font-extrabold text-blue-600">~65%</div>
+              </div>
+              <div>
+                <div className="text-sm text-gray-500 mb-2">Pacientes recuperados/mes</div>
+                <div className="text-3xl font-extrabold text-blue-600">~29</div>
+              </div>
+              <div className="bg-blue-600 text-white rounded-2xl p-4">
+                <div className="text-sm text-blue-100 mb-2">Ingresos recuperados</div>
+                <div className="text-3xl font-extrabold">~5.800€</div>
+                <p className="text-xs text-blue-200 mt-1">29 × 200€ ticket medio</p>
+              </div>
+            </div>
+            <div className="mt-8 bg-blue-50 rounded-xl p-6 border border-blue-200 text-center">
+              <p className="text-gray-700 text-lg">
+                <strong className="text-blue-600">Solo con recuperación de pacientes inactivos</strong>, la IA genera casi <strong className="text-black">20x su coste mensual</strong> (5.800€ vs 320€)
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ANÁLISIS DE COSTE DE OPORTUNIDAD */}
+      <section className="py-20 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="text-center mb-16">
             <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-600 px-4 py-2 rounded-full mb-6 font-semibold">
