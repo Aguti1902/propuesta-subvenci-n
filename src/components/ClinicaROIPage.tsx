@@ -235,11 +235,11 @@ export default function ClinicaROIPage({ onBack }: ClinicaROIPageProps) {
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="text-center mb-16">
             <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-600 px-4 py-2 rounded-full mb-6 font-semibold">
               <Zap className="w-5 h-5" />
-              Gesden G5 + IA de Nexgent
+              Tu Software Actual + IA de Nexgent
             </div>
-            <h2 className="text-4xl lg:text-5xl font-extrabold text-black mb-4">Qué añade la IA a Gesden G5</h2>
+            <h2 className="text-4xl lg:text-5xl font-extrabold text-black mb-4">Qué añade la IA a tu software actual</h2>
             <p className="text-xl text-gray-500 max-w-3xl mx-auto">
-              Gesden G5 es excelente para gestión clínica. <strong className="text-black">La IA de Nexgent añade una capa de automatización e inteligencia</strong> que Gesden no tiene.
+              Tu software de gestión dental (Gesden G5, Dentidesk, Clinic Cloud...) es excelente para gestión clínica. <strong className="text-black">La IA de Nexgent añade una capa de automatización e inteligencia</strong> que estos programas no tienen.
             </p>
           </motion.div>
 
@@ -252,8 +252,8 @@ export default function ClinicaROIPage({ onBack }: ClinicaROIPageProps) {
                 <thead>
                   <tr className="border-b border-gray-200">
                     <th className="text-left p-6 font-bold text-black">Funcionalidad</th>
-                    <th className="text-center p-6 font-bold text-gray-900 bg-gray-50">Gesden G5</th>
-                    <th className="text-center p-6 font-bold text-blue-600 bg-blue-50">Gesden G5 + IA Nexgent</th>
+                    <th className="text-center p-6 font-bold text-gray-900 bg-gray-50">Software actual<br/><span className="text-xs font-normal text-gray-500">(ej: Gesden G5, Dentidesk)</span></th>
+                    <th className="text-center p-6 font-bold text-blue-600 bg-blue-50">Con IA de Nexgent</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -282,7 +282,7 @@ export default function ClinicaROIPage({ onBack }: ClinicaROIPageProps) {
             </div>
             <div className="bg-blue-50 p-6 border-t border-blue-200">
               <p className="text-center text-sm text-gray-700">
-                <span className="font-bold text-black">★ Funcionalidades clave</span> que Gesden G5 no tiene y que generan el ROI
+                <span className="font-bold text-black">★ Funcionalidades clave</span> que los programas de gestión dental tradicionales no tienen y que generan el ROI
               </p>
             </div>
           </motion.div>
@@ -298,7 +298,7 @@ export default function ClinicaROIPage({ onBack }: ClinicaROIPageProps) {
               Casos Reales
             </div>
             <h2 className="text-4xl lg:text-5xl font-extrabold text-black mb-4">Antes vs Después de implementar IA</h2>
-            <p className="text-xl text-gray-500 max-w-3xl mx-auto">Datos reales de clínicas que ya usan Gesden G5 + IA de Nexgent</p>
+            <p className="text-xl text-gray-500 max-w-3xl mx-auto">Datos reales de clínicas con software de gestión dental (Gesden G5, Dentidesk, Clinic Cloud...) + IA de Nexgent</p>
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -385,12 +385,12 @@ export default function ClinicaROIPage({ onBack }: ClinicaROIPageProps) {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             {[
-              { icon: Calendar, title: 'Agenda sincronizada', desc: 'La IA consulta disponibilidad en Gesden en tiempo real y reserva citas directamente' },
+              { icon: Calendar, title: 'Agenda sincronizada', desc: 'La IA consulta disponibilidad en tu software en tiempo real y reserva citas directamente' },
               { icon: FileText, title: 'Historia clínica actualizada', desc: 'Lee el historial del paciente para dar contexto. Actualiza notas automáticamente si dictas por voz' },
               { icon: Users, title: 'Datos de pacientes siempre al día', desc: 'Sincronización bidireccional. Nuevos pacientes, contactos, preferencias se actualizan automáticamente' },
-              { icon: Euro, title: 'Facturación integrada', desc: 'Genera presupuestos basados en los precios que tienes en Gesden. Integración con contabilidad' },
-              { icon: Bell, title: 'Recordatorios coordinados', desc: 'La IA sabe qué recordatorios ya envió Gesden y solo añade los inteligentes y personalizados' },
-              { icon: Shield, title: 'Sin duplicar datos', desc: 'Una única fuente de verdad: Gesden. La IA solo lee, analiza y automatiza sobre tus datos existentes' },
+              { icon: Euro, title: 'Facturación integrada', desc: 'Genera presupuestos basados en los precios de tu software. Integración con contabilidad' },
+              { icon: Bell, title: 'Recordatorios coordinados', desc: 'La IA complementa los recordatorios de tu software con mensajes inteligentes y personalizados' },
+              { icon: Shield, title: 'Sin duplicar datos', desc: 'Una única fuente de verdad: tu software actual. La IA solo lee, analiza y automatiza sobre tus datos existentes' },
             ].map((item, index) => {
               const Icon = item.icon;
               return (
@@ -411,9 +411,9 @@ export default function ClinicaROIPage({ onBack }: ClinicaROIPageProps) {
             className="bg-blue-600 rounded-3xl p-8 text-white text-center"
           >
             <Rocket className="w-12 h-12 mx-auto mb-4" />
-            <h3 className="text-2xl font-bold mb-3">Gesden G5 sigue siendo el core</h3>
+            <h3 className="text-2xl font-bold mb-3">Tu software actual sigue siendo el core</h3>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-              No sustituimos Gesden. Lo potenciamos. <strong className="text-white">La IA es una capa inteligente</strong> que automatiza lo que Gesden no puede: atención 24/7, conversaciones naturales, marketing, predicción y análisis avanzado.
+              No sustituimos tu software de gestión dental. Lo potenciamos. <strong className="text-white">La IA es una capa inteligente</strong> que automatiza lo que los programas tradicionales no pueden: atención 24/7, conversaciones naturales, marketing, predicción y análisis avanzado.
             </p>
           </motion.div>
         </div>
@@ -428,7 +428,7 @@ export default function ClinicaROIPage({ onBack }: ClinicaROIPageProps) {
               Resultados Reales
             </div>
             <h2 className="text-4xl lg:text-5xl font-extrabold text-black mb-4">Datos de clínicas reales con IA</h2>
-            <p className="text-xl text-gray-500 max-w-3xl mx-auto">Métricas promedio de clínicas dentales tras 3 meses con IA de Nexgent</p>
+            <p className="text-xl text-gray-500 max-w-3xl mx-auto">Métricas promedio de clínicas dentales tras 3 meses con IA de Nexgent (usando Gesden G5, Dentidesk y otros)</p>
           </motion.div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">

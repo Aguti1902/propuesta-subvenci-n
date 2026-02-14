@@ -143,7 +143,7 @@ export default function LoginSelector({ onSelectClinica, onSelectBQDC, onSelectR
                 ROI y Valor Real
               </h2>
               <p className="text-lg text-gray-500 mb-6 leading-relaxed">
-                Justificación del precio y mejoras concretas vs Gesden G5
+                Justificación del precio y mejoras vs tu software actual
               </p>
             </div>
 
