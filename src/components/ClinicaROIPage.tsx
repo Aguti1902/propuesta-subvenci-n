@@ -20,7 +20,6 @@ import {
   Bell,
   FileText,
   Shield,
-  Award,
   Rocket,
   Settings,
 } from 'lucide-react';
@@ -32,6 +31,27 @@ interface ClinicaROIPageProps {
 
 export default function ClinicaROIPage({ onBack }: ClinicaROIPageProps) {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+  const [numClinicas, setNumClinicas] = useState(8); // BQDC tiene 8 clínicas
+
+  // Función para calcular el descuento según número de clínicas
+  const calcularPrecio = (num: number) => {
+    const precioBase = 495;
+    let descuento = 0;
+    
+    if (num >= 8) descuento = 0.35; // 35% descuento
+    else if (num === 7) descuento = 0.30;
+    else if (num === 6) descuento = 0.25;
+    else if (num === 5) descuento = 0.20;
+    else if (num === 4) descuento = 0.15;
+    else if (num === 3) descuento = 0.10;
+    else if (num === 2) descuento = 0.05;
+    else descuento = 0; // 1 clínica = sin descuento
+    
+    const precioFinal = Math.round(precioBase * (1 - descuento));
+    return { precioFinal, descuento: Math.round(descuento * 100), ahorro: precioBase - precioFinal };
+  };
+
+  const { precioFinal, descuento, ahorro } = calcularPrecio(numClinicas);
 
   return (
     <div className="min-h-screen bg-white">
@@ -196,35 +216,79 @@ export default function ClinicaROIPage({ onBack }: ClinicaROIPageProps) {
         </div>
       </section>
 
-      {/* DESCUENTO POR VOLUMEN BQDC */}
+      {/* CALCULADORA DE DESCUENTO POR VOLUMEN BQDC */}
       <section className="py-20 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}
-            className="bg-blue-600 rounded-3xl p-10 text-white text-center"
+            className="bg-blue-600 rounded-3xl p-10 lg:p-12 text-white"
           >
-            <Award className="w-14 h-14 mx-auto mb-6" />
-            <h2 className="text-3xl lg:text-4xl font-extrabold mb-4">Descuento especial para BQDC</h2>
-            <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
-              Al ser una red de clínicas, podemos ofrecer condiciones especiales por volumen
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
-              <div className="bg-white/10 rounded-2xl p-6 border border-white/20">
-                <div className="text-sm font-semibold text-blue-200 mb-2">3-5 clínicas</div>
-                <div className="text-3xl font-extrabold mb-1">450€/mes</div>
-                <p className="text-blue-100 text-xs">por clínica</p>
+            <div className="text-center mb-10">
+              <Calculator className="w-16 h-16 mx-auto mb-6" />
+              <h2 className="text-3xl lg:text-4xl font-extrabold mb-4">Calculadora de descuento BQDC</h2>
+              <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+                Al ser una red de clínicas, ofrecemos descuentos progresivos por volumen
+              </p>
+            </div>
+
+            {/* Calculadora interactiva */}
+            <div className="bg-white rounded-2xl p-8 mb-8">
+              <div className="mb-6">
+                <div className="flex justify-between items-center mb-4">
+                  <label className="text-lg font-bold text-black">¿Cuántas clínicas de BQDC entrarían?</label>
+                  <div className="text-4xl font-extrabold text-blue-600">{numClinicas}</div>
+                </div>
+                <input
+                  type="range"
+                  min="1"
+                  max="8"
+                  value={numClinicas}
+                  onChange={(e) => setNumClinicas(Number(e.target.value))}
+                  className="w-full h-3 bg-blue-100 rounded-lg appearance-none cursor-pointer accent-blue-600"
+                  style={{
+                    background: `linear-gradient(to right, #2563eb 0%, #2563eb ${((numClinicas - 1) / 7) * 100}%, #dbeafe ${((numClinicas - 1) / 7) * 100}%, #dbeafe 100%)`
+                  }}
+                />
+                <div className="flex justify-between mt-2 text-sm text-gray-400">
+                  <span>1 clínica</span>
+                  <span>8 clínicas (todas)</span>
+                </div>
               </div>
-              <div className="bg-white/10 rounded-2xl p-6 border border-white/20">
-                <div className="text-sm font-semibold text-blue-200 mb-2">6-8 clínicas</div>
-                <div className="text-3xl font-extrabold mb-1">395€/mes</div>
-                <p className="text-blue-100 text-xs">por clínica</p>
+
+              {/* Resultado del cálculo */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                <div className="bg-gray-50 rounded-xl p-5 text-center border border-gray-200">
+                  <div className="text-sm font-semibold text-gray-500 mb-2">Precio base</div>
+                  <div className="text-2xl font-extrabold text-gray-400 line-through">495€/mes</div>
+                </div>
+                <div className="bg-blue-50 rounded-xl p-5 text-center border-2 border-blue-300">
+                  <div className="text-sm font-semibold text-blue-600 mb-2">Descuento aplicado</div>
+                  <div className="text-2xl font-extrabold text-blue-600">-{descuento}%</div>
+                </div>
+                <div className="bg-blue-600 rounded-xl p-5 text-center border-2 border-blue-700">
+                  <div className="text-sm font-semibold text-blue-100 mb-2">Precio final</div>
+                  <div className="text-3xl font-extrabold text-white">{precioFinal}€/mes</div>
+                </div>
               </div>
-              <div className="bg-white/20 rounded-2xl p-6 border-2 border-white/40">
-                <div className="text-sm font-semibold text-blue-100 mb-2">Red completa BQDC</div>
-                <div className="text-3xl font-extrabold mb-1">A consultar</div>
-                <p className="text-blue-100 text-xs">Precio personalizado</p>
+
+              <div className="bg-blue-50 rounded-xl p-5 border border-blue-200">
+                <div className="flex justify-between items-center mb-3">
+                  <span className="text-gray-700 font-semibold">Ahorro por clínica:</span>
+                  <span className="text-2xl font-extrabold text-blue-600">{ahorro}€/mes</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-gray-700 font-semibold">Ahorro total BQDC ({numClinicas} clínicas):</span>
+                  <span className="text-2xl font-extrabold text-blue-600">{ahorro * numClinicas}€/mes</span>
+                </div>
               </div>
             </div>
-            <p className="text-blue-100 text-sm mt-6">Los 10.000€ de desarrollo siguen cubiertos por la subvención en todos los casos</p>
+
+            <div className="text-center">
+              <p className="text-blue-100 text-sm mb-2">Los 10.000€ de desarrollo por clínica siguen cubiertos por la subvención en todos los casos</p>
+              <div className="inline-flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full border border-white/20 mt-4">
+                <CheckCircle className="w-5 h-5" />
+                <span className="text-sm font-semibold">Cuantas más clínicas, mayor descuento</span>
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>
