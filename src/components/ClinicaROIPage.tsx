@@ -21,7 +21,6 @@ import {
   FileText,
   Shield,
   Rocket,
-  Settings,
 } from 'lucide-react';
 import ContactModal from './ContactModal';
 
@@ -31,21 +30,21 @@ interface ClinicaROIPageProps {
 
 export default function ClinicaROIPage({ onBack }: ClinicaROIPageProps) {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
-  const [numClinicas, setNumClinicas] = useState(8); // BQDC tiene 8 clínicas
+  const [numClinicas, setNumClinicas] = useState(70); // BQDC tiene +70 clínicas
 
   // Función para calcular el descuento según número de clínicas
   const calcularPrecio = (num: number) => {
     const precioBase = 495;
     let descuento = 0;
     
-    if (num >= 8) descuento = 0.35; // 35% descuento
-    else if (num === 7) descuento = 0.30;
-    else if (num === 6) descuento = 0.25;
-    else if (num === 5) descuento = 0.20;
-    else if (num === 4) descuento = 0.15;
-    else if (num === 3) descuento = 0.10;
-    else if (num === 2) descuento = 0.05;
-    else descuento = 0; // 1 clínica = sin descuento
+    if (num >= 70) descuento = 0.35; // 35% descuento para red completa
+    else if (num >= 50) descuento = 0.30;
+    else if (num >= 30) descuento = 0.25;
+    else if (num >= 20) descuento = 0.20;
+    else if (num >= 15) descuento = 0.15;
+    else if (num >= 10) descuento = 0.10;
+    else if (num >= 5) descuento = 0.05;
+    else descuento = 0; // Menos de 5 clínicas = sin descuento
     
     const precioFinal = Math.round(precioBase * (1 - descuento));
     return { precioFinal, descuento: Math.round(descuento * 100), ahorro: precioBase - precioFinal };
@@ -240,17 +239,17 @@ export default function ClinicaROIPage({ onBack }: ClinicaROIPageProps) {
                 <input
                   type="range"
                   min="1"
-                  max="8"
+                  max="70"
                   value={numClinicas}
                   onChange={(e) => setNumClinicas(Number(e.target.value))}
                   className="w-full h-3 bg-blue-100 rounded-lg appearance-none cursor-pointer accent-blue-600"
                   style={{
-                    background: `linear-gradient(to right, #2563eb 0%, #2563eb ${((numClinicas - 1) / 7) * 100}%, #dbeafe ${((numClinicas - 1) / 7) * 100}%, #dbeafe 100%)`
+                    background: `linear-gradient(to right, #2563eb 0%, #2563eb ${((numClinicas - 1) / 69) * 100}%, #dbeafe ${((numClinicas - 1) / 69) * 100}%, #dbeafe 100%)`
                   }}
                 />
                 <div className="flex justify-between mt-2 text-sm text-gray-400">
                   <span>1 clínica</span>
-                  <span>8 clínicas (todas)</span>
+                  <span>70+ clínicas (red completa BQDC)</span>
                 </div>
               </div>
 
@@ -440,7 +439,7 @@ export default function ClinicaROIPage({ onBack }: ClinicaROIPageProps) {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="text-center mb-16">
             <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-600 px-4 py-2 rounded-full mb-6 font-semibold">
-              <Settings className="w-5 h-5" />
+              <Zap className="w-5 h-5" />
               Integración Perfecta
             </div>
             <h2 className="text-4xl lg:text-5xl font-extrabold text-black mb-4">Se integra con Gesden G5 sin cambiar nada</h2>
