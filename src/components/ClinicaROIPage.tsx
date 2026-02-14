@@ -561,13 +561,13 @@ export default function ClinicaROIPage({ onBack }: ClinicaROIPageProps) {
                     <span className="text-gray-700">Desarrollo (subvención):</span>
                     <span className="font-bold text-blue-600">10.000€</span>
                   </div>
-                  <div className="flex justify-between items-center p-3 bg-gray-50 rounded-xl">
-                    <span className="text-gray-700">Mensualidad estándar:</span>
-                    <span className="font-bold text-gray-900">495€/mes</span>
-                  </div>
+                <div className="flex justify-between items-center p-3 bg-gray-50 rounded-xl">
+                  <span className="text-gray-700">Mensualidad (precio estándar):</span>
+                  <span className="font-bold text-gray-400 line-through">495€/mes</span>
+                </div>
                   <div className="flex justify-between items-center p-3 bg-blue-50 rounded-xl border border-blue-200">
-                    <span className="text-gray-700">Con descuento BQDC (6-8 clínicas):</span>
-                    <span className="font-bold text-blue-600">395€/mes</span>
+                    <span className="text-gray-700">Con descuento BQDC (red completa):</span>
+                    <span className="font-bold text-blue-600">320€/mes</span>
                   </div>
                 </div>
               </div>
