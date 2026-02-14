@@ -1030,7 +1030,7 @@ export default function ClinicaROIPage({ onBack }: ClinicaROIPageProps) {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
-              { limitacion: 'No atiende fuera de horario', solucionIA: 'Atención 24/7 automática en WhatsApp, web, redes sociales', impacto: '+6-10 citas/mes captadas' },
+              { limitacion: 'No atiende fuera de horario', solucionIA: 'Atención 24/7 automática en WhatsApp, web y teléfono', impacto: '+6-10 citas/mes captadas' },
               { limitacion: 'No hace seguimiento proactivo', solucionIA: 'Seguimiento post-tratamiento, recordatorios de revisión, detección de pacientes inactivos', impacto: '+15-20% recurrencia' },
               { limitacion: 'No pide reseñas', solucionIA: 'Solicitud automática en el momento perfecto, gestión de feedback negativo antes de Google', impacto: '+300% reseñas' },
               { limitacion: 'Transcripción manual de notas', solucionIA: 'Dicta por voz y la IA estructura las notas en formato estándar directamente en el sistema', impacto: '-70% tiempo documentación' },
