@@ -361,7 +361,7 @@ export default function ClinicaROIPage({ onBack }: ClinicaROIPageProps) {
               Casos Reales
             </div>
             <h2 className="text-4xl lg:text-5xl font-extrabold text-black mb-4">Antes vs Después de implementar IA</h2>
-            <p className="text-xl text-gray-500 max-w-3xl mx-auto">Datos reales de clínicas con software de gestión dental (Gesden G5, Dentidesk, Clinic Cloud...) + IA de Nexgent</p>
+            <p className="text-xl text-gray-500 max-w-3xl mx-auto">Escenarios estimados basados en implementaciones similares en otros sectores</p>
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -490,20 +490,20 @@ export default function ClinicaROIPage({ onBack }: ClinicaROIPageProps) {
               <Target className="w-5 h-5" />
               Resultados Reales
             </div>
-            <h2 className="text-4xl lg:text-5xl font-extrabold text-black mb-4">Datos de clínicas reales con IA</h2>
-            <p className="text-xl text-gray-500 max-w-3xl mx-auto">Métricas promedio de clínicas dentales tras 3 meses con IA de Nexgent (usando Gesden G5, Dentidesk y otros)</p>
+            <h2 className="text-4xl lg:text-5xl font-extrabold text-black mb-4">Resultados esperados con IA</h2>
+            <p className="text-xl text-gray-500 max-w-3xl mx-auto">Métricas promedio de empresas similares tras 3 meses con IA de Nexgent</p>
           </motion.div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
             {[
-              { value: '87%', label: 'Consultas resueltas por IA', desc: 'Sin intervención humana', icon: MessageSquare },
-              { value: '-62%', label: 'Tiempo en tareas admin', desc: 'Liberado para pacientes', icon: Clock },
-              { value: '+340%', label: 'Reseñas en Google', desc: 'En 3 meses', icon: Star },
-              { value: '-41%', label: 'Tasa de no-shows', desc: 'Por recordatorios inteligentes', icon: AlertCircle },
-              { value: '+23%', label: 'Nuevos pacientes', desc: 'Por atención 24/7', icon: Users },
-              { value: '1.8min', label: 'Tiempo medio de respuesta', desc: 'Vs 4-6h antes', icon: Zap },
-              { value: '+18%', label: 'Facturación total', desc: 'Más citas + menos huecos', icon: TrendingUp },
-              { value: '4.2x', label: 'ROI en 3 meses', desc: 'Retorno sobre inversión', icon: Calculator },
+              { value: '~85%', label: 'Consultas resueltas por IA', desc: 'Estimado sin intervención humana', icon: MessageSquare },
+              { value: '~60%', label: 'Reducción tiempo admin', desc: 'Estimado liberado para pacientes', icon: Clock },
+              { value: '+300%', label: 'Mejora en reseñas', desc: 'Estimado en 3 meses', icon: Star },
+              { value: '~40%', label: 'Reducción de no-shows', desc: 'Por recordatorios inteligentes', icon: AlertCircle },
+              { value: '+20%', label: 'Nuevos clientes', desc: 'Por atención 24/7', icon: Users },
+              { value: '<2min', label: 'Tiempo de respuesta', desc: 'Vs varias horas antes', icon: Zap },
+              { value: '+15-20%', label: 'Aumento facturación', desc: 'Estimado: más citas + menos huecos', icon: TrendingUp },
+              { value: '4-5x', label: 'ROI esperado 3 meses', desc: 'Retorno sobre inversión', icon: Calculator },
             ].map((stat, index) => {
               const Icon = stat.icon;
               return (
