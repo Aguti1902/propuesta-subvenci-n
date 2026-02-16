@@ -138,7 +138,7 @@ export default function ProcesoProyectoPage({ onBack }: ProcesoProyectoPageProps
                 <div className="bg-white/10 rounded-xl p-4 border border-white/20">
                   <div className="flex justify-between items-center">
                     <span className="text-blue-100 font-semibold">2 meses gratis servicio:</span>
-                    <span className="text-2xl font-bold">640€</span>
+                    <span className="text-2xl font-bold">598€</span>
                   </div>
                 </div>
                 <div className="bg-white/20 rounded-xl p-5 border-2 border-white/40">
@@ -838,7 +838,7 @@ export default function ProcesoProyectoPage({ onBack }: ProcesoProyectoPageProps
                 <div className="bg-white/20 rounded-xl p-4 border-2 border-white/40">
                   <div className="text-sm text-blue-100 mb-1">Regalo de Nexgent</div>
                   <div className="text-2xl font-bold">2 meses gratis</div>
-                  <p className="text-xs text-blue-200 mt-1">640€ de valor</p>
+                  <p className="text-xs text-blue-200 mt-1">598€ de valor</p>
                 </div>
                 <div className="bg-white/10 rounded-xl p-4 border border-white/20">
                   <div className="text-sm text-blue-100 mb-1">Fases de despliegue</div>
