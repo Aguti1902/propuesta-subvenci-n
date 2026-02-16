@@ -729,6 +729,7 @@ export default function ProcesoProyectoPage({ onBack }: ProcesoProyectoPageProps
                 ],
                 responsable: 'Primeras clínicas + Nexgent',
                 destacado: true,
+                color: 'bg-blue-600',
               },
               {
                 paso: '5',
