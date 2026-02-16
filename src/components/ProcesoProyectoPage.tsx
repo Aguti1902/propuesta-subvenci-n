@@ -16,6 +16,8 @@ import {
   Sparkles,
   ArrowRight,
   Database,
+  TrendingUp,
+  Clock,
 } from 'lucide-react';
 import ContactModal from './ContactModal';
 
@@ -62,8 +64,205 @@ export default function ProcesoProyectoPage({ onBack }: ProcesoProyectoPageProps
         </div>
       </section>
 
-      {/* FINANCIACIÓN DETALLADA */}
+      {/* COSTE/OPORTUNIDAD - BENEFICIO ECONÓMICO CLARO */}
       <section className="py-20 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-600 px-4 py-2 rounded-full mb-6 font-semibold">
+              <TrendingUp className="w-5 h-5" />
+              Análisis Económico
+            </div>
+            <h2 className="text-4xl lg:text-5xl font-extrabold text-black mb-4">Por qué este proyecto es rentable para tu clínica</h2>
+            <p className="text-xl text-gray-500 max-w-3xl mx-auto">Análisis claro de coste vs beneficio</p>
+          </motion.div>
+
+          {/* Comparativa visual */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            {/* LO QUE INVIERTES */}
+            <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}
+              className="bg-white rounded-3xl p-8 border-2 border-gray-200"
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 bg-gray-600 rounded-xl flex items-center justify-center">
+                  <Euro className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-black">Lo que inviertes</h3>
+              </div>
+              
+              <div className="space-y-4">
+                <div className="bg-gray-50 rounded-xl p-4 border border-gray-200">
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-700 font-semibold">Adelanto (antes 7 marzo):</span>
+                    <span className="text-2xl font-bold text-gray-900">2.000€</span>
+                  </div>
+                </div>
+                <div className="bg-gray-50 rounded-xl p-4 border border-gray-200">
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-700 font-semibold">Pago final (mes 6):</span>
+                    <span className="text-2xl font-bold text-gray-900">8.000€</span>
+                  </div>
+                </div>
+                <div className="bg-gray-100 rounded-xl p-5 border-2 border-gray-300">
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-900 font-bold text-lg">Total invertido:</span>
+                    <span className="text-3xl font-extrabold text-gray-900">10.000€</span>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* LO QUE RECIBES */}
+            <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}
+              className="bg-blue-600 rounded-3xl p-8 text-white"
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+                  <TrendingUp className="w-6 h-6" />
+                </div>
+                <h3 className="text-2xl font-bold">Lo que recibes</h3>
+              </div>
+              
+              <div className="space-y-4">
+                <div className="bg-white/10 rounded-xl p-4 border border-white/20">
+                  <div className="flex justify-between items-center">
+                    <span className="text-blue-100 font-semibold">Subvención (mes 6):</span>
+                    <span className="text-2xl font-bold">10.000€</span>
+                  </div>
+                </div>
+                <div className="bg-white/10 rounded-xl p-4 border border-white/20">
+                  <div className="flex justify-between items-center">
+                    <span className="text-blue-100 font-semibold">Agente IA completo:</span>
+                    <span className="text-2xl font-bold">Incluido</span>
+                  </div>
+                </div>
+                <div className="bg-white/10 rounded-xl p-4 border border-white/20">
+                  <div className="flex justify-between items-center">
+                    <span className="text-blue-100 font-semibold">2 meses gratis servicio:</span>
+                    <span className="text-2xl font-bold">640€</span>
+                  </div>
+                </div>
+                <div className="bg-white/20 rounded-xl p-5 border-2 border-white/40">
+                  <div className="flex justify-between items-center">
+                    <span className="font-bold text-lg">Inversión neta:</span>
+                    <span className="text-4xl font-extrabold">0€</span>
+                  </div>
+                  <p className="text-blue-100 text-xs mt-2 text-center">10.000€ invertidos = 10.000€ recuperados</p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Beneficio económico MENSUAL */}
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}
+            className="bg-white rounded-3xl p-10 border-2 border-blue-200"
+          >
+            <h3 className="text-3xl font-bold text-black mb-8 text-center">Beneficio económico mensual estimado</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+              {/* Ingresos */}
+              <div>
+                <h4 className="font-bold text-black mb-4 text-lg flex items-center gap-2">
+                  <TrendingUp className="w-6 h-6 text-blue-600" />
+                  Nuevos ingresos/mes
+                </h4>
+                <div className="space-y-3">
+                  {[
+                    { concepto: 'Pacientes inactivos recuperados', valor: '~5.800€', detalle: '29 pacientes × 200€' },
+                    { concepto: 'Nuevas citas por atención 24/7', valor: '~450€', detalle: '6 citas × 75€' },
+                    { concepto: 'Reducción de no-shows', valor: '~600€', detalle: '8 citas recuperadas × 75€' },
+                    { concepto: 'Mejor ocupación de agenda', valor: '~350€', detalle: 'Optimización de huecos' },
+                  ].map((item, idx) => (
+                    <div key={idx} className="bg-blue-50 rounded-xl p-4 border border-blue-200">
+                      <div className="flex justify-between items-start mb-1">
+                        <span className="text-gray-700 text-sm font-semibold">{item.concepto}</span>
+                        <span className="text-xl font-bold text-blue-600">{item.valor}</span>
+                      </div>
+                      <p className="text-gray-500 text-xs">{item.detalle}</p>
+                    </div>
+                  ))}
+                  <div className="bg-blue-600 text-white rounded-xl p-4">
+                    <div className="flex justify-between items-center">
+                      <span className="font-bold">Subtotal ingresos:</span>
+                      <span className="text-2xl font-extrabold">~7.200€/mes</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Ahorros */}
+              <div>
+                <h4 className="font-bold text-black mb-4 text-lg flex items-center gap-2">
+                  <Clock className="w-6 h-6 text-blue-600" />
+                  Ahorros operativos/mes
+                </h4>
+                <div className="space-y-3">
+                  {[
+                    { concepto: 'Ahorro en documentación', valor: '~650€', detalle: '13h × 50€/h' },
+                    { concepto: 'Ahorro en atención telefónica', valor: '~680€', detalle: '17h × 40€/h' },
+                    { concepto: 'Ahorro en gestión de citas', valor: '~360€', detalle: '9h × 40€/h' },
+                    { concepto: 'Reducción de errores admin', valor: '~200€', detalle: 'Menos tiempo corrigiendo' },
+                  ].map((item, idx) => (
+                    <div key={idx} className="bg-gray-50 rounded-xl p-4 border border-gray-200">
+                      <div className="flex justify-between items-start mb-1">
+                        <span className="text-gray-700 text-sm font-semibold">{item.concepto}</span>
+                        <span className="text-xl font-bold text-blue-600">{item.valor}</span>
+                      </div>
+                      <p className="text-gray-500 text-xs">{item.detalle}</p>
+                    </div>
+                  ))}
+                  <div className="bg-gray-200 rounded-xl p-4">
+                    <div className="flex justify-between items-center">
+                      <span className="font-bold text-gray-900">Subtotal ahorros:</span>
+                      <span className="text-2xl font-extrabold text-gray-900">~1.890€/mes</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* TOTAL */}
+            <div className="bg-blue-600 rounded-2xl p-8 text-white text-center">
+              <h4 className="text-xl font-bold mb-4">Beneficio total estimado por clínica</h4>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                <div>
+                  <div className="text-sm text-blue-100 mb-1">Nuevos ingresos</div>
+                  <div className="text-3xl font-extrabold">7.200€/mes</div>
+                </div>
+                <div>
+                  <div className="text-sm text-blue-100 mb-1">Ahorros operativos</div>
+                  <div className="text-3xl font-extrabold">1.890€/mes</div>
+                </div>
+                <div className="bg-white/20 rounded-xl p-4">
+                  <div className="text-sm text-blue-100 mb-1">TOTAL BENEFICIO</div>
+                  <div className="text-4xl font-extrabold">9.090€/mes</div>
+                </div>
+              </div>
+              <div className="border-t border-white/20 pt-6">
+                <div className="flex justify-between items-center max-w-2xl mx-auto">
+                  <span className="text-lg font-semibold">Coste mensual (con descuento BQDC):</span>
+                  <span className="text-2xl font-bold">-320€/mes</span>
+                </div>
+                <div className="flex justify-between items-center max-w-2xl mx-auto mt-3 pt-3 border-t border-white/20">
+                  <span className="text-xl font-bold">Beneficio NETO mensual:</span>
+                  <span className="text-5xl font-extrabold text-white">+8.770€</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-8 bg-blue-50 rounded-2xl p-6 border-2 border-blue-300 text-center">
+              <div className="text-5xl font-extrabold text-blue-600 mb-3">ROI: 2.740%</div>
+              <p className="text-gray-700 text-lg">
+                Por cada <strong className="text-blue-600">320€ que inviertes</strong>, generas <strong className="text-black">8.770€ de beneficio</strong>
+              </p>
+              <p className="text-gray-500 text-sm mt-2">
+                El proyecto se paga solo en menos de 2 semanas de operación
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* FINANCIACIÓN DETALLADA */}
+      <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="text-center mb-16">
             <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-600 px-4 py-2 rounded-full mb-6 font-semibold">
@@ -86,7 +285,7 @@ export default function ProcesoProyectoPage({ onBack }: ProcesoProyectoPageProps
                 <div className="bg-blue-600 rounded-2xl p-6 text-white mb-4">
                   <div className="text-sm font-semibold text-blue-100 mb-2">Adelanto de la clínica</div>
                   <div className="text-5xl font-extrabold mb-2">2.000€</div>
-                  <p className="text-blue-100 text-sm">Antes del 1 de marzo</p>
+                  <p className="text-blue-100 text-sm">Antes del 7 de marzo</p>
                 </div>
                 <div className="bg-gray-50 rounded-xl p-4 border border-gray-200">
                   <p className="text-gray-700 text-sm font-semibold">Para arrancar el desarrollo</p>
@@ -154,7 +353,7 @@ export default function ProcesoProyectoPage({ onBack }: ProcesoProyectoPageProps
               {[
                 { momento: 'Antes del 7 marzo 2026', concepto: 'Adelanto inicial', cantidad: '2.000€', quien: 'Paga la clínica', color: 'bg-blue-600 text-white' },
                 { momento: 'Septiembre 2026 (estimado)', concepto: 'Llega la subvención', cantidad: '10.000€', quien: 'Recibe la clínica', color: 'bg-green-600 text-white' },
-                { momento: 'Tras recibir subvención', concepto: 'Pago final', cantidad: '8.000€', quien: 'Paga la clínica', color: 'bg-gray-900 text-white' },
+                { momento: 'Tras recibir subvención', concepto: 'Pago final', cantidad: '8.000€', quien: 'Paga la clínica', color: 'bg-blue-600 text-white' },
               ].map((pago, index) => (
                 <div key={index} className={`${pago.color} rounded-2xl p-5 flex items-center justify-between`}>
                   <div className="flex items-center gap-4">
@@ -293,7 +492,7 @@ export default function ProcesoProyectoPage({ onBack }: ProcesoProyectoPageProps
                   fase: 'Fase 1: Arranque',
                   duracion: 'Semanas 1-2',
                   hitos: [
-                    'Pago inicial de 2.000€ por clínica (antes 7 marzo)',
+                    'Pago inicial de 2.000€ por clínica (antes del 7 marzo)',
                     'Kickoff con dirección BQDC',
                     'Análisis de requisitos de cada clínica',
                     'Configuración de infraestructura técnica',
