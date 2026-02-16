@@ -592,10 +592,10 @@ export default function ClinicaDentalPage({ onBack }: ClinicaDentalPageProps) {
               <div className="mb-4">
                 <div className="flex items-baseline gap-2 mb-2">
                   <span className="text-3xl font-extrabold text-gray-400 line-through">495€</span>
-                  <span className="text-5xl font-extrabold text-blue-600">320€</span>
+                  <span className="text-5xl font-extrabold text-blue-600">299€</span>
                   <span className="text-2xl text-gray-400 font-medium">/mes</span>
                 </div>
-                <p className="text-blue-600 font-semibold text-sm">Con descuento BQDC (35% off)</p>
+                <p className="text-blue-600 font-semibold text-sm">Con descuento BQDC (40% off)</p>
               </div>
               <p className="text-gray-500 mb-6">Por cada clínica de la red. Incluye todo lo necesario para mantener tu agente de IA funcionando y mejorando.</p>
               <div className="space-y-3">

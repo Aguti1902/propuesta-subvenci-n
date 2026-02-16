@@ -239,22 +239,22 @@ export default function ProcesoProyectoPage({ onBack }: ProcesoProyectoPageProps
               <div className="border-t border-white/20 pt-6">
                 <div className="flex justify-between items-center max-w-2xl mx-auto">
                   <span className="text-lg font-semibold">Coste mensual (con descuento BQDC):</span>
-                  <span className="text-2xl font-bold">-320€/mes</span>
+                  <span className="text-2xl font-bold">-299€/mes</span>
                 </div>
                 <div className="flex justify-between items-center max-w-2xl mx-auto mt-3 pt-3 border-t border-white/20">
                   <span className="text-xl font-bold">Beneficio NETO mensual:</span>
-                  <span className="text-5xl font-extrabold text-white">+4.175€</span>
+                  <span className="text-5xl font-extrabold text-white">+4.196€</span>
                 </div>
               </div>
             </div>
 
             <div className="mt-8 bg-blue-50 rounded-2xl p-6 border-2 border-blue-300 text-center">
-              <div className="text-5xl font-extrabold text-blue-600 mb-3">ROI: 1.300%</div>
+              <div className="text-5xl font-extrabold text-blue-600 mb-3">ROI: 1.400%</div>
               <p className="text-gray-700 text-lg">
-                Por cada <strong className="text-blue-600">320€ que inviertes</strong>, generas <strong className="text-black">4.175€ de beneficio</strong>
+                Por cada <strong className="text-blue-600">299€ que inviertes</strong>, generas <strong className="text-black">4.196€ de beneficio</strong>
               </p>
               <p className="text-gray-500 text-sm mt-2">
-                El proyecto se paga solo en menos de 3 días de operación
+                El proyecto se paga solo en menos de 2 días de operación
               </p>
             </div>
           </motion.div>
@@ -752,7 +752,7 @@ export default function ProcesoProyectoPage({ onBack }: ProcesoProyectoPageProps
                   'Extensión a todas las clínicas de la red',
                   'Formación individual a cada equipo',
                   'Personalización específica por centro',
-                  'Inicio del servicio mensual (320€/mes)',
+                  'Inicio del servicio mensual (299€/mes)',
                 ],
                   responsable: 'Nexgent + Todas las clínicas',
                   color: 'bg-blue-600',
@@ -830,7 +830,7 @@ export default function ProcesoProyectoPage({ onBack }: ProcesoProyectoPageProps
                 </div>
                 <div className="bg-white/10 rounded-xl p-4 border border-white/20">
                   <div className="text-sm text-blue-100 mb-1">Servicio mensual (tras 2 meses gratis)</div>
-                  <div className="text-2xl font-bold">320€/mes</div>
+                  <div className="text-2xl font-bold">299€/mes</div>
                   <p className="text-xs text-blue-200 mt-1">Con descuento red completa</p>
                 </div>
               </div>
@@ -853,7 +853,7 @@ export default function ProcesoProyectoPage({ onBack }: ProcesoProyectoPageProps
 
             <div className="mt-8 bg-white/10 rounded-xl p-6 border border-white/20 text-center">
               <p className="text-lg">
-                <strong className="text-white">Bottom line:</strong> Desarrollo completo cubierto por subvención + 2 meses gratis + servicio a 320€/mes
+                <strong className="text-white">Bottom line:</strong> Desarrollo completo cubierto por subvención + 2 meses gratis + servicio a 299€/mes
               </p>
             </div>
           </motion.div>

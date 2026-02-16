@@ -37,13 +37,13 @@ export default function ClinicaROIPage({ onBack }: ClinicaROIPageProps) {
     const precioBase = 495;
     let descuento = 0;
     
-    if (num >= 70) descuento = 0.35; // 35% descuento para red completa
-    else if (num >= 50) descuento = 0.30;
-    else if (num >= 30) descuento = 0.25;
-    else if (num >= 20) descuento = 0.20;
-    else if (num >= 15) descuento = 0.15;
-    else if (num >= 10) descuento = 0.10;
-    else if (num >= 5) descuento = 0.05;
+    if (num >= 70) descuento = 0.40; // 40% descuento para red completa (299€)
+    else if (num >= 50) descuento = 0.35;
+    else if (num >= 30) descuento = 0.30;
+    else if (num >= 20) descuento = 0.25;
+    else if (num >= 15) descuento = 0.20;
+    else if (num >= 10) descuento = 0.15;
+    else if (num >= 5) descuento = 0.10;
     else descuento = 0; // Menos de 5 clínicas = sin descuento
     
     const precioFinal = Math.round(precioBase * (1 - descuento));
@@ -93,7 +93,7 @@ export default function ClinicaROIPage({ onBack }: ClinicaROIPageProps) {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
                 { value: '4.495€', label: 'Beneficio mensual estimado', desc: 'Ingresos + ahorros' },
-                { value: '3 días', label: 'Para recuperar el coste mensual', desc: 'Beneficio neto vs 320€' },
+                { value: '2 días', label: 'Para recuperar el coste mensual', desc: 'Beneficio neto vs 299€' },
                 { value: '+12%', label: 'Aumento de facturación estimado', desc: 'Más citas y mejor ocupación' },
               ].map((stat, index) => (
                 <motion.div key={index} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 + index * 0.1 }}
@@ -117,7 +117,7 @@ export default function ClinicaROIPage({ onBack }: ClinicaROIPageProps) {
               <Euro className="w-5 h-5" />
               Justificación de la Inversión
             </div>
-            <h2 className="text-4xl lg:text-5xl font-extrabold text-black mb-4">¿Por qué 495€/mes?</h2>
+            <h2 className="text-4xl lg:text-5xl font-extrabold text-black mb-4">¿Por qué 299€/mes?</h2>
             <p className="text-xl text-gray-500 max-w-3xl mx-auto">Desglose completo del retorno de inversión mensual</p>
           </motion.div>
 
@@ -213,7 +213,7 @@ export default function ClinicaROIPage({ onBack }: ClinicaROIPageProps) {
                 <div className="absolute -top-3 -right-3 bg-blue-500 rounded-full px-3 py-1 text-xs font-bold">MEJOR OPCIÓN</div>
                 <Sparkles className="w-10 h-10 mx-auto mb-3" />
                 <h4 className="font-bold mb-2">Agente IA Nexgent</h4>
-                <div className="text-3xl font-extrabold mb-2">495€/mes</div>
+                <div className="text-3xl font-extrabold mb-2">299€/mes</div>
                 <p className="text-blue-100 text-sm">24/7, conocimiento profundo, múltiples tareas, sin límites</p>
               </div>
             </div>
@@ -292,7 +292,7 @@ export default function ClinicaROIPage({ onBack }: ClinicaROIPageProps) {
                 </div>
                 <div className="inline-flex items-center gap-2 bg-white/20 px-4 py-2 rounded-full border-2 border-white/40">
                   <Sparkles className="w-5 h-5" />
-                  <span className="text-sm font-semibold">2 MESES GRATIS para testear</span>
+                  <span className="text-sm font-semibold">2 MESES GRATIS (598€ valor)</span>
                 </div>
               </div>
             </div>
@@ -574,7 +574,7 @@ export default function ClinicaROIPage({ onBack }: ClinicaROIPageProps) {
                 </div>
                   <div className="flex justify-between items-center p-3 bg-blue-50 rounded-xl border border-blue-200">
                     <span className="text-gray-700">Con descuento BQDC (red completa):</span>
-                    <span className="font-bold text-blue-600">320€/mes</span>
+                    <span className="font-bold text-blue-600">299€/mes</span>
                   </div>
                 </div>
               </div>
@@ -592,7 +592,7 @@ export default function ClinicaROIPage({ onBack }: ClinicaROIPageProps) {
                   </div>
                 <div className="flex justify-between items-center p-3 bg-blue-600 rounded-xl text-white">
                   <span className="font-semibold">Beneficio neto mensual:</span>
-                  <span className="font-extrabold text-2xl">+4.175€</span>
+                  <span className="font-extrabold text-2xl">+4.196€</span>
                 </div>
                 </div>
               </div>
@@ -602,9 +602,9 @@ export default function ClinicaROIPage({ onBack }: ClinicaROIPageProps) {
               <div className="bg-blue-600 rounded-2xl p-6 text-white text-center">
               <div className="flex items-center justify-center gap-3 mb-2">
                 <TrendingUp className="w-8 h-8" />
-                <div className="text-4xl font-extrabold">ROI: 1.300%</div>
+                <div className="text-4xl font-extrabold">ROI: 1.400%</div>
               </div>
-              <p className="text-blue-100">Por cada euro invertido, recuperas 13€</p>
+              <p className="text-blue-100">Por cada euro invertido, recuperas 14€</p>
               </div>
               
               <div className="bg-blue-50 rounded-2xl p-6 border-2 border-blue-300 text-center">
@@ -726,7 +726,7 @@ export default function ClinicaROIPage({ onBack }: ClinicaROIPageProps) {
             </div>
             <div className="mt-8 bg-blue-50 rounded-xl p-6 border border-blue-200 text-center">
               <p className="text-gray-700 text-lg">
-                <strong className="text-blue-600">Solo con recuperación de pacientes inactivos</strong>, la IA genera casi <strong className="text-black">8x su coste mensual</strong> (2.700€ vs 320€)
+                <strong className="text-blue-600">Solo con recuperación de pacientes inactivos</strong>, la IA genera casi <strong className="text-black">9x su coste mensual</strong> (2.700€ vs 299€)
               </p>
             </div>
           </motion.div>
@@ -772,7 +772,7 @@ export default function ClinicaROIPage({ onBack }: ClinicaROIPageProps) {
           >
             <h3 className="text-2xl font-bold mb-3">Coste de oportunidad total</h3>
             <div className="text-5xl font-extrabold mb-2">~3.150€/mes</div>
-            <p className="text-blue-100 text-lg">Esto es lo que pierdes cada mes sin IA. La inversión de 320€/mes (con descuento BQDC) recupera gran parte de esto.</p>
+            <p className="text-blue-100 text-lg">Esto es lo que pierdes cada mes sin IA. La inversión de 299€/mes (con descuento BQDC) recupera gran parte de esto.</p>
           </motion.div>
         </div>
       </section>
@@ -984,7 +984,7 @@ export default function ClinicaROIPage({ onBack }: ClinicaROIPageProps) {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
             {[
-              { titulo: '2 MESES GRATIS DE SERVICIO', desc: 'Regalamos los primeros 2 meses del servicio mensual (640€ de valor). Puedes testear, ajustar y validar resultados sin pagar nada. Empiezas a pagar solo cuando estés convencido.', destacado: true },
+              { titulo: '2 MESES GRATIS DE SERVICIO', desc: 'Regalamos los primeros 2 meses del servicio mensual (598€ de valor). Puedes testear, ajustar y validar resultados sin pagar nada. Empiezas a pagar solo cuando estés convencido.', destacado: true },
               { titulo: 'Periodo de ajuste y optimización', desc: 'Durante los primeros meses trabajamos contigo en ajustes continuos. Si no ves resultados tangibles, seguimos optimizando sin coste adicional.' },
               { titulo: 'Compromiso de ROI', desc: 'Si tras 4 meses (2 gratis + 2 pagando) no has recuperado al menos el 50% de la inversión en ahorros medibles, ajustamos o devolvemos.' },
               { titulo: 'Integración garantizada', desc: 'Garantizamos integración perfecta con tu software actual (Gesden G5, etc.). Si hay problemas técnicos, los resolvemos sin coste.' },
