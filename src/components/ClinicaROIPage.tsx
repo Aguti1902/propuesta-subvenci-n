@@ -166,11 +166,11 @@ export default function ClinicaROIPage({ onBack }: ClinicaROIPageProps) {
               <div className="text-5xl font-extrabold mb-6">2.450€/mes</div>
               <div className="space-y-4">
                 {[
-                  { concepto: 'Ahorro en documentación clínica', valor: '~650€', detalle: '15h/mes ahorradas en notas, presupuestos y consentimientos (40€/h)' },
-                  { concepto: 'Ahorro en atención telefónica/chat', valor: '~500€', detalle: '12h/mes ahorradas en consultas repetitivas (40€/h)' },
-                  { concepto: 'Reducción de no-shows', valor: '~600€', detalle: '8 citas/mes recuperadas × 75€ ticket medio' },
-                  { concepto: 'Nuevas citas por atención 24/7', valor: '~450€', detalle: '6 citas/mes que antes se perdían fuera de horario' },
-                  { concepto: 'Optimización de agenda con IA', valor: '~250€', detalle: 'Mejor llenado de huecos y reagendamiento eficiente' },
+                  { concepto: 'Ahorro en documentación clínica', valor: '~320€', detalle: '8h/mes ahorradas en notas, presupuestos y consentimientos (40€/h)' },
+                  { concepto: 'Ahorro en atención telefónica/chat', valor: '~400€', detalle: '10h/mes ahorradas en consultas repetitivas (40€/h)' },
+                  { concepto: 'Reducción de no-shows', valor: '~375€', detalle: '5 citas/mes recuperadas × 75€ ticket medio' },
+                  { concepto: 'Nuevas citas por atención 24/7', valor: '~250€', detalle: '3-4 citas/mes que antes se perdían fuera de horario' },
+                  { concepto: 'Optimización de agenda con IA', valor: '~150€', detalle: 'Mejor llenado de huecos y reagendamiento eficiente' },
                 ].map((item, idx) => (
                   <div key={idx} className="bg-white/10 rounded-xl p-4 border border-white/20">
                     <div className="flex justify-between items-start mb-1">
@@ -184,9 +184,9 @@ export default function ClinicaROIPage({ onBack }: ClinicaROIPageProps) {
               <div className="mt-6 p-4 bg-white/20 rounded-xl border border-white/30">
                 <div className="flex justify-between items-center">
                   <span className="font-bold">ROI mensual estimado:</span>
-                  <span className="text-2xl font-extrabold">+1.955€</span>
+                  <span className="text-2xl font-extrabold">+1.175€</span>
                 </div>
-                <p className="text-blue-100 text-xs mt-2">Beneficio neto: casi 5x la inversión (atención + clínica + operaciones)</p>
+                <p className="text-blue-100 text-xs mt-2">Beneficio neto: 3.5x la inversión (atención + clínica + operaciones)</p>
               </div>
             </motion.div>
           </div>
@@ -694,8 +694,8 @@ export default function ClinicaROIPage({ onBack }: ClinicaROIPageProps) {
                 </div>
               </div>
               <div className="bg-white/20 rounded-xl p-4 border border-white/30">
-                <div className="text-3xl font-extrabold mb-2">~65-70%</div>
-                <p className="text-blue-100">de pacientes inactivos recuperados con seguimiento automático</p>
+                <div className="text-3xl font-extrabold mb-2">~40%</div>
+<p className="text-blue-100">de pacientes inactivos recuperados con seguimiento automático</p>
               </div>
             </motion.div>
           </div>
@@ -712,21 +712,21 @@ export default function ClinicaROIPage({ onBack }: ClinicaROIPageProps) {
               </div>
               <div>
                 <div className="text-sm text-gray-500 mb-2">Tasa de recuperación con IA</div>
-                <div className="text-3xl font-extrabold text-blue-600">~65%</div>
+                <div className="text-3xl font-extrabold text-blue-600">~40%</div>
               </div>
               <div>
                 <div className="text-sm text-gray-500 mb-2">Pacientes recuperados/mes</div>
-                <div className="text-3xl font-extrabold text-blue-600">~29</div>
+                <div className="text-3xl font-extrabold text-blue-600">~18</div>
               </div>
               <div className="bg-blue-600 text-white rounded-2xl p-4">
                 <div className="text-sm text-blue-100 mb-2">Ingresos recuperados</div>
-                <div className="text-3xl font-extrabold">~5.800€</div>
-                <p className="text-xs text-blue-200 mt-1">29 × 200€ ticket medio</p>
+                <div className="text-3xl font-extrabold">~2.700€</div>
+                <p className="text-xs text-blue-200 mt-1">18 × 150€ ticket medio</p>
               </div>
             </div>
             <div className="mt-8 bg-blue-50 rounded-xl p-6 border border-blue-200 text-center">
               <p className="text-gray-700 text-lg">
-                <strong className="text-blue-600">Solo con recuperación de pacientes inactivos</strong>, la IA genera casi <strong className="text-black">20x su coste mensual</strong> (5.800€ vs 320€)
+                <strong className="text-blue-600">Solo con recuperación de pacientes inactivos</strong>, la IA genera casi <strong className="text-black">8x su coste mensual</strong> (2.700€ vs 320€)
               </p>
             </div>
           </motion.div>

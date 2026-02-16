@@ -166,10 +166,10 @@ export default function ProcesoProyectoPage({ onBack }: ProcesoProyectoPageProps
                 </h4>
                 <div className="space-y-3">
                   {[
-                    { concepto: 'Pacientes inactivos recuperados', valor: '~5.800€', detalle: '29 pacientes × 200€' },
-                    { concepto: 'Nuevas citas por atención 24/7', valor: '~450€', detalle: '6 citas × 75€' },
-                    { concepto: 'Reducción de no-shows', valor: '~600€', detalle: '8 citas recuperadas × 75€' },
-                    { concepto: 'Mejor ocupación de agenda', valor: '~350€', detalle: 'Optimización de huecos' },
+                    { concepto: 'Pacientes inactivos recuperados', valor: '~2.700€', detalle: '18 pacientes × 150€' },
+                    { concepto: 'Nuevas citas por atención 24/7', valor: '~250€', detalle: '3-4 citas × 75€' },
+                    { concepto: 'Reducción de no-shows', valor: '~375€', detalle: '5 citas recuperadas × 75€' },
+                    { concepto: 'Mejor ocupación de agenda', valor: '~150€', detalle: 'Optimización de huecos' },
                   ].map((item, idx) => (
                     <div key={idx} className="bg-blue-50 rounded-xl p-4 border border-blue-200">
                       <div className="flex justify-between items-start mb-1">
@@ -182,7 +182,7 @@ export default function ProcesoProyectoPage({ onBack }: ProcesoProyectoPageProps
                   <div className="bg-blue-600 text-white rounded-xl p-4">
                     <div className="flex justify-between items-center">
                       <span className="font-bold">Subtotal ingresos:</span>
-                      <span className="text-2xl font-extrabold">~7.200€/mes</span>
+                      <span className="text-2xl font-extrabold">~3.475€/mes</span>
                     </div>
                   </div>
                 </div>
@@ -196,10 +196,10 @@ export default function ProcesoProyectoPage({ onBack }: ProcesoProyectoPageProps
                 </h4>
                 <div className="space-y-3">
                   {[
-                    { concepto: 'Ahorro en documentación', valor: '~650€', detalle: '13h × 50€/h' },
-                    { concepto: 'Ahorro en atención telefónica', valor: '~680€', detalle: '17h × 40€/h' },
-                    { concepto: 'Ahorro en gestión de citas', valor: '~360€', detalle: '9h × 40€/h' },
-                    { concepto: 'Reducción de errores admin', valor: '~200€', detalle: 'Menos tiempo corrigiendo' },
+                    { concepto: 'Ahorro en documentación', valor: '~320€', detalle: '8h × 40€/h' },
+                    { concepto: 'Ahorro en atención telefónica', valor: '~400€', detalle: '10h × 40€/h' },
+                    { concepto: 'Ahorro en gestión de citas', valor: '~200€', detalle: '5h × 40€/h' },
+                    { concepto: 'Reducción de errores admin', valor: '~100€', detalle: 'Menos tiempo corrigiendo' },
                   ].map((item, idx) => (
                     <div key={idx} className="bg-gray-50 rounded-xl p-4 border border-gray-200">
                       <div className="flex justify-between items-start mb-1">
@@ -212,7 +212,7 @@ export default function ProcesoProyectoPage({ onBack }: ProcesoProyectoPageProps
                   <div className="bg-gray-200 rounded-xl p-4">
                     <div className="flex justify-between items-center">
                       <span className="font-bold text-gray-900">Subtotal ahorros:</span>
-                      <span className="text-2xl font-extrabold text-gray-900">~1.890€/mes</span>
+                      <span className="text-2xl font-extrabold text-gray-900">~1.020€/mes</span>
                     </div>
                   </div>
                 </div>
@@ -225,15 +225,15 @@ export default function ProcesoProyectoPage({ onBack }: ProcesoProyectoPageProps
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
                 <div>
                   <div className="text-sm text-blue-100 mb-1">Nuevos ingresos</div>
-                  <div className="text-3xl font-extrabold">7.200€/mes</div>
+                  <div className="text-3xl font-extrabold">3.475€/mes</div>
                 </div>
                 <div>
                   <div className="text-sm text-blue-100 mb-1">Ahorros operativos</div>
-                  <div className="text-3xl font-extrabold">1.890€/mes</div>
+                  <div className="text-3xl font-extrabold">1.020€/mes</div>
                 </div>
                 <div className="bg-white/20 rounded-xl p-4">
                   <div className="text-sm text-blue-100 mb-1">TOTAL BENEFICIO</div>
-                  <div className="text-4xl font-extrabold">9.090€/mes</div>
+                  <div className="text-4xl font-extrabold">4.495€/mes</div>
                 </div>
               </div>
               <div className="border-t border-white/20 pt-6">
@@ -243,18 +243,18 @@ export default function ProcesoProyectoPage({ onBack }: ProcesoProyectoPageProps
                 </div>
                 <div className="flex justify-between items-center max-w-2xl mx-auto mt-3 pt-3 border-t border-white/20">
                   <span className="text-xl font-bold">Beneficio NETO mensual:</span>
-                  <span className="text-5xl font-extrabold text-white">+8.770€</span>
+                  <span className="text-5xl font-extrabold text-white">+4.175€</span>
                 </div>
               </div>
             </div>
 
             <div className="mt-8 bg-blue-50 rounded-2xl p-6 border-2 border-blue-300 text-center">
-              <div className="text-5xl font-extrabold text-blue-600 mb-3">ROI: 2.740%</div>
+              <div className="text-5xl font-extrabold text-blue-600 mb-3">ROI: 1.300%</div>
               <p className="text-gray-700 text-lg">
-                Por cada <strong className="text-blue-600">320€ que inviertes</strong>, generas <strong className="text-black">8.770€ de beneficio</strong>
+                Por cada <strong className="text-blue-600">320€ que inviertes</strong>, generas <strong className="text-black">4.175€ de beneficio</strong>
               </p>
               <p className="text-gray-500 text-sm mt-2">
-                El proyecto se paga solo en menos de 2 semanas de operación
+                El proyecto se paga solo en menos de 3 días de operación
               </p>
             </div>
           </motion.div>
