@@ -85,7 +85,7 @@ export default function ProcesoProyectoPage({ onBack }: ProcesoProyectoPageProps
               <div className="text-center">
                 <div className="bg-blue-600 rounded-2xl p-6 text-white mb-4">
                   <div className="text-sm font-semibold text-blue-100 mb-2">Adelanto de la clínica</div>
-                  <div className="text-5xl font-extrabold mb-2">3.000€</div>
+                  <div className="text-5xl font-extrabold mb-2">2.000€</div>
                   <p className="text-blue-100 text-sm">Antes del 1 de marzo</p>
                 </div>
                 <div className="bg-gray-50 rounded-xl p-4 border border-gray-200">
@@ -109,7 +109,7 @@ export default function ProcesoProyectoPage({ onBack }: ProcesoProyectoPageProps
               <div className="text-center">
                 <div className="bg-gray-900 rounded-2xl p-6 text-white mb-4">
                   <div className="text-sm font-semibold text-gray-300 mb-2">Pendiente de pago</div>
-                  <div className="text-5xl font-extrabold mb-2">7.000€</div>
+                  <div className="text-5xl font-extrabold mb-2">8.000€</div>
                   <p className="text-gray-300 text-sm">Tras recibir subvención</p>
                 </div>
                 <div className="bg-gray-50 rounded-xl p-4 border border-gray-200">
@@ -140,7 +140,7 @@ export default function ProcesoProyectoPage({ onBack }: ProcesoProyectoPageProps
                 </div>
               </div>
               <p className="text-gray-600 text-sm text-center mt-4">
-                La clínica adelanta 3.000€, luego paga 7.000€, pero recibe 10.000€ de la subvención = <strong className="text-blue-600">inversión neta 0€</strong>
+                La clínica adelanta 2.000€, luego paga 8.000€, pero recibe 10.000€ de la subvención = <strong className="text-blue-600">inversión neta 0€</strong>
               </p>
             </div>
           </motion.div>
@@ -152,9 +152,9 @@ export default function ProcesoProyectoPage({ onBack }: ProcesoProyectoPageProps
             <h3 className="text-2xl font-bold text-black mb-8 text-center">Timeline de pagos</h3>
             <div className="space-y-4">
               {[
-                { momento: 'Antes del 1 marzo 2026', concepto: 'Adelanto inicial', cantidad: '3.000€', quien: 'Paga la clínica', color: 'bg-blue-600 text-white' },
+                { momento: 'Antes del 1 marzo 2026', concepto: 'Adelanto inicial', cantidad: '2.000€', quien: 'Paga la clínica', color: 'bg-blue-600 text-white' },
                 { momento: 'Septiembre 2026 (estimado)', concepto: 'Llega la subvención', cantidad: '10.000€', quien: 'Recibe la clínica', color: 'bg-green-600 text-white' },
-                { momento: 'Tras recibir subvención', concepto: 'Pago final', cantidad: '7.000€', quien: 'Paga la clínica', color: 'bg-gray-900 text-white' },
+                { momento: 'Tras recibir subvención', concepto: 'Pago final', cantidad: '8.000€', quien: 'Paga la clínica', color: 'bg-gray-900 text-white' },
               ].map((pago, index) => (
                 <div key={index} className={`${pago.color} rounded-2xl p-5 flex items-center justify-between`}>
                   <div className="flex items-center gap-4">
@@ -293,7 +293,7 @@ export default function ProcesoProyectoPage({ onBack }: ProcesoProyectoPageProps
                   fase: 'Fase 1: Arranque',
                   duracion: 'Semanas 1-2',
                   hitos: [
-                    'Pago inicial de 3.000€ por clínica (antes 1 marzo)',
+                    'Pago inicial de 2.000€ por clínica (antes 1 marzo)',
                     'Kickoff con dirección BQDC',
                     'Análisis de requisitos de cada clínica',
                     'Configuración de infraestructura técnica',
@@ -495,7 +495,7 @@ export default function ProcesoProyectoPage({ onBack }: ProcesoProyectoPageProps
                 titulo: 'Pago inicial y arranque',
                 cuando: 'Antes del 1 marzo 2026',
                 acciones: [
-                  'Cada clínica paga 3.000€ de adelanto',
+                  'Cada clínica paga 2.000€ de adelanto',
                   'Kickoff técnico con equipos de las clínicas',
                   'Recopilación de datos y credenciales de acceso',
                   'Nexgent arranca el desarrollo',
@@ -538,7 +538,7 @@ export default function ProcesoProyectoPage({ onBack }: ProcesoProyectoPageProps
                 acciones: [
                   'La subvención es aprobada y desembolsada',
                   'Cada clínica recibe 10.000€',
-                  'Pago de 7.000€ pendientes a Nexgent',
+                  'Pago de 8.000€ pendientes a Nexgent',
                   'Liberación del presupuesto para escalado',
                 ],
                   responsable: 'Administración + Clínicas',
