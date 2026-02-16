@@ -1,13 +1,14 @@
 import { motion } from 'framer-motion';
-import { Building2, Network, ArrowRight, Bot, Calculator } from 'lucide-react';
+import { Building2, Network, ArrowRight, Bot, Calculator, Rocket } from 'lucide-react';
 
 interface LoginSelectorProps {
   onSelectClinica: () => void;
   onSelectBQDC: () => void;
   onSelectROI: () => void;
+  onSelectProceso: () => void;
 }
 
-export default function LoginSelector({ onSelectClinica, onSelectBQDC, onSelectROI }: LoginSelectorProps) {
+export default function LoginSelector({ onSelectClinica, onSelectBQDC, onSelectROI, onSelectProceso }: LoginSelectorProps) {
   return (
     <div className="min-h-screen bg-white flex items-center justify-center p-4">
       <div className="max-w-6xl w-full">
@@ -43,7 +44,7 @@ export default function LoginSelector({ onSelectClinica, onSelectBQDC, onSelectR
         </motion.div>
 
         {/* Cards de selección */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-6">
           {/* Card Clínica Dental */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -159,6 +160,44 @@ export default function LoginSelector({ onSelectClinica, onSelectBQDC, onSelectR
             <div className="flex items-center justify-between pt-6 border-t border-gray-200">
               <span className="text-sm font-semibold text-blue-600 uppercase tracking-wide">
                 Ver análisis completo
+              </span>
+              <ArrowRight className="w-6 h-6 text-blue-600 group-hover:translate-x-2 transition-transform duration-300" />
+            </div>
+          </motion.div>
+
+          {/* Card Proceso del Proyecto */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.35, duration: 0.6 }}
+            whileHover={{ scale: 1.02, y: -5 }}
+            onClick={onSelectProceso}
+            className="bg-white rounded-3xl p-8 lg:p-10 cursor-pointer group hover:shadow-2xl transition-all duration-300 border-2 border-gray-200 hover:border-blue-400"
+          >
+            <div className="mb-6">
+              <div className="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Rocket className="w-9 h-9 text-white" />
+              </div>
+              <h2 className="text-3xl font-extrabold text-black mb-3">
+                Proceso del Proyecto
+              </h2>
+              <p className="text-lg text-gray-500 mb-6 leading-relaxed">
+                Financiación, timeline, roadmap y proceso completo paso a paso
+              </p>
+            </div>
+
+            <div className="space-y-3 mb-8">
+              {['Desglose financiero completo', 'Timeline de 6-10 meses', 'Roadmap de desarrollo', 'Hitos de pago detallados'].map((item, idx) => (
+                <div key={idx} className="flex items-center gap-3 text-gray-600">
+                  <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex items-center justify-between pt-6 border-t border-gray-200">
+              <span className="text-sm font-semibold text-blue-600 uppercase tracking-wide">
+                Ver proceso completo
               </span>
               <ArrowRight className="w-6 h-6 text-blue-600 group-hover:translate-x-2 transition-transform duration-300" />
             </div>
