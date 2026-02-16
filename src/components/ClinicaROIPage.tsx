@@ -56,12 +56,12 @@ export default function ClinicaROIPage({ onBack }: ClinicaROIPageProps) {
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-black mb-6 leading-tight">
-              495€/mes se pagan solos
-              <span className="block text-blue-600 mt-2">en menos de 2 meses</span>
+              299€/mes generan
+              <span className="block text-blue-600 mt-2">+4.196€ de beneficio mensual</span>
             </h1>
 
             <p className="text-xl text-gray-500 mb-8 max-w-3xl mx-auto leading-relaxed">
-              Datos de cómo la IA genera más valor del que cuesta, más allá de lo que ya hace tu software actual
+              Análisis detallado de cómo la IA genera 14 veces más valor del que cuesta
             </p>
 
             <div className="inline-flex items-center gap-3 bg-blue-600 text-white px-6 py-3 rounded-full mb-12 border-2 border-blue-700">
