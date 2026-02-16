@@ -167,9 +167,9 @@ export default function ClinicaROIPage({ onBack }: ClinicaROIPageProps) {
               <div className="mt-6 p-4 bg-white/20 rounded-xl border border-white/30">
                 <div className="flex justify-between items-center">
                   <span className="font-bold">ROI mensual estimado:</span>
-                  <span className="text-2xl font-extrabold">+1.175€</span>
+                  <span className="text-2xl font-extrabold">+4.196€</span>
                 </div>
-                <p className="text-blue-100 text-xs mt-2">Beneficio neto: 3.5x la inversión (atención + clínica + operaciones)</p>
+                <p className="text-blue-100 text-xs mt-2">Beneficio neto: 14x la inversión (atención + clínica + operaciones)</p>
               </div>
             </motion.div>
           </div>
