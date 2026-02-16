@@ -152,7 +152,7 @@ export default function ProcesoProyectoPage({ onBack }: ProcesoProyectoPageProps
             <h3 className="text-2xl font-bold text-black mb-8 text-center">Timeline de pagos</h3>
             <div className="space-y-4">
               {[
-                { momento: 'Antes del 1 marzo 2026', concepto: 'Adelanto inicial', cantidad: '2.000€', quien: 'Paga la clínica', color: 'bg-blue-600 text-white' },
+                { momento: 'Antes del 7 marzo 2026', concepto: 'Adelanto inicial', cantidad: '2.000€', quien: 'Paga la clínica', color: 'bg-blue-600 text-white' },
                 { momento: 'Septiembre 2026 (estimado)', concepto: 'Llega la subvención', cantidad: '10.000€', quien: 'Recibe la clínica', color: 'bg-green-600 text-white' },
                 { momento: 'Tras recibir subvención', concepto: 'Pago final', cantidad: '8.000€', quien: 'Paga la clínica', color: 'bg-gray-900 text-white' },
               ].map((pago, index) => (
@@ -293,7 +293,7 @@ export default function ProcesoProyectoPage({ onBack }: ProcesoProyectoPageProps
                   fase: 'Fase 1: Arranque',
                   duracion: 'Semanas 1-2',
                   hitos: [
-                    'Pago inicial de 2.000€ por clínica (antes 1 marzo)',
+                    'Pago inicial de 2.000€ por clínica (antes 7 marzo)',
                     'Kickoff con dirección BQDC',
                     'Análisis de requisitos de cada clínica',
                     'Configuración de infraestructura técnica',
@@ -493,7 +493,7 @@ export default function ProcesoProyectoPage({ onBack }: ProcesoProyectoPageProps
               {
                 paso: '2',
                 titulo: 'Pago inicial y arranque',
-                cuando: 'Antes del 1 marzo 2026',
+                cuando: 'Antes del 7 marzo 2026',
                 acciones: [
                   'Cada clínica paga 2.000€ de adelanto',
                   'Kickoff técnico con equipos de las clínicas',
