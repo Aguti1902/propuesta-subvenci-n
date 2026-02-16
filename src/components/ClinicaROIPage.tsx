@@ -30,27 +30,6 @@ interface ClinicaROIPageProps {
 
 export default function ClinicaROIPage({ onBack }: ClinicaROIPageProps) {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
-  const [numClinicas, setNumClinicas] = useState(70); // BQDC tiene +70 clínicas
-
-  // Función para calcular el descuento según número de clínicas
-  const calcularPrecio = (num: number) => {
-    const precioBase = 495;
-    let descuento = 0;
-    
-    if (num >= 70) descuento = 0.40; // 40% descuento para red completa (299€)
-    else if (num >= 50) descuento = 0.35;
-    else if (num >= 30) descuento = 0.30;
-    else if (num >= 20) descuento = 0.25;
-    else if (num >= 15) descuento = 0.20;
-    else if (num >= 10) descuento = 0.15;
-    else if (num >= 5) descuento = 0.10;
-    else descuento = 0; // Menos de 5 clínicas = sin descuento
-    
-    const precioFinal = Math.round(precioBase * (1 - descuento));
-    return { precioFinal, descuento: Math.round(descuento * 100), ahorro: precioBase - precioFinal };
-  };
-
-  const { precioFinal, descuento, ahorro } = calcularPrecio(numClinicas);
 
   return (
     <div className="min-h-screen bg-white">
@@ -133,7 +112,11 @@ export default function ClinicaROIPage({ onBack }: ClinicaROIPageProps) {
                 </div>
                 <h3 className="text-2xl font-bold text-black">Inversión mensual</h3>
               </div>
-              <div className="text-5xl font-extrabold text-blue-600 mb-6">495€/mes</div>
+              <div className="mb-3">
+                <span className="text-3xl font-extrabold text-gray-400 line-through">495€/mes</span>
+              </div>
+              <div className="text-5xl font-extrabold text-blue-600 mb-6">299€/mes</div>
+              <p className="text-blue-600 font-semibold text-sm mb-6">Con descuento BQDC (40% off para red completa)</p>
               <div className="space-y-3">
                 <p className="text-gray-600 text-sm">Esto incluye:</p>
                 {[
@@ -215,85 +198,6 @@ export default function ClinicaROIPage({ onBack }: ClinicaROIPageProps) {
                 <h4 className="font-bold mb-2">Agente IA Nexgent</h4>
                 <div className="text-3xl font-extrabold mb-2">299€/mes</div>
                 <p className="text-blue-100 text-sm">24/7, conocimiento profundo, múltiples tareas, sin límites</p>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* CALCULADORA DE DESCUENTO POR VOLUMEN BQDC */}
-      <section className="py-20 bg-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}
-            className="bg-blue-600 rounded-3xl p-10 lg:p-12 text-white"
-          >
-            <div className="text-center mb-10">
-              <Calculator className="w-16 h-16 mx-auto mb-6" />
-              <h2 className="text-3xl lg:text-4xl font-extrabold mb-4">Calculadora de descuento BQDC</h2>
-              <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-                Al ser una red de clínicas, ofrecemos descuentos progresivos por volumen
-              </p>
-            </div>
-
-            {/* Calculadora interactiva */}
-            <div className="bg-white rounded-2xl p-8 mb-8">
-              <div className="mb-6">
-                <div className="flex justify-between items-center mb-4">
-                  <label className="text-lg font-bold text-black">¿Cuántas clínicas de BQDC entrarían?</label>
-                  <div className="text-4xl font-extrabold text-blue-600">{numClinicas}</div>
-                </div>
-                <input
-                  type="range"
-                  min="1"
-                  max="70"
-                  value={numClinicas}
-                  onChange={(e) => setNumClinicas(Number(e.target.value))}
-                  className="w-full h-3 bg-blue-100 rounded-lg appearance-none cursor-pointer accent-blue-600"
-                  style={{
-                    background: `linear-gradient(to right, #2563eb 0%, #2563eb ${((numClinicas - 1) / 69) * 100}%, #dbeafe ${((numClinicas - 1) / 69) * 100}%, #dbeafe 100%)`
-                  }}
-                />
-                <div className="flex justify-between mt-2 text-sm text-gray-400">
-                  <span>1 clínica</span>
-                  <span>70+ clínicas (red completa BQDC)</span>
-                </div>
-              </div>
-
-              {/* Resultado del cálculo */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-                <div className="bg-gray-50 rounded-xl p-5 text-center border border-gray-200">
-                  <div className="text-sm font-semibold text-gray-500 mb-2">Precio base</div>
-                  <div className="text-2xl font-extrabold text-gray-400 line-through">495€/mes</div>
-                </div>
-                <div className="bg-blue-50 rounded-xl p-5 text-center border-2 border-blue-300">
-                  <div className="text-sm font-semibold text-blue-600 mb-2">Descuento aplicado</div>
-                  <div className="text-2xl font-extrabold text-blue-600">-{descuento}%</div>
-                </div>
-                <div className="bg-blue-600 rounded-xl p-5 text-center border-2 border-blue-700">
-                  <div className="text-sm font-semibold text-blue-100 mb-2">Precio final</div>
-                  <div className="text-3xl font-extrabold text-white">{precioFinal}€/mes</div>
-                </div>
-              </div>
-
-              <div className="bg-blue-50 rounded-xl p-5 border border-blue-200">
-                <div className="flex justify-between items-center">
-                  <span className="text-gray-700 font-semibold">Ahorro por clínica vs precio base:</span>
-                  <span className="text-2xl font-extrabold text-blue-600">{ahorro}€/mes</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="text-center">
-              <p className="text-blue-100 text-sm mb-2">Los 10.000€ de desarrollo por clínica siguen cubiertos por la subvención en todos los casos</p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-2xl mx-auto mt-4">
-                <div className="inline-flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full border border-white/20">
-                  <CheckCircle className="w-5 h-5" />
-                  <span className="text-sm font-semibold">Cuantas más clínicas, mayor descuento</span>
-                </div>
-                <div className="inline-flex items-center gap-2 bg-white/20 px-4 py-2 rounded-full border-2 border-white/40">
-                  <Sparkles className="w-5 h-5" />
-                  <span className="text-sm font-semibold">2 MESES GRATIS (598€ valor)</span>
-                </div>
               </div>
             </div>
           </motion.div>
