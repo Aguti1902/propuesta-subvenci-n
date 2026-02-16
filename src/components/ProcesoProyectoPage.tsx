@@ -331,14 +331,14 @@ export default function ProcesoProyectoPage({ onBack }: ProcesoProyectoPageProps
                   fase: 'Fase 4: Piloto y Ajustes',
                   duracion: 'Meses 4-6',
                   hitos: [
-                    'Lanzamiento piloto en 2-3 clínicas',
+                    'Lanzamiento en primeras clínicas',
                     '2 MESES GRATIS de servicio para testear',
                     'Recopilación de feedback del equipo',
                     'Ajustes y optimizaciones',
                     'Validación de resultados',
                     'Llegada estimada de la subvención',
                   ],
-                  color: 'bg-green-600',
+                  color: 'bg-blue-600',
                 },
                 {
                   fase: 'Fase 5: Despliegue Completo',
@@ -423,7 +423,7 @@ export default function ProcesoProyectoPage({ onBack }: ProcesoProyectoPageProps
                 icon: Zap,
               },
               { 
-                hito: 'Mes 4-5: Piloto en clínicas (GRATIS)',
+                hito: 'Mes 4-5: Fase de testeo (GRATIS)',
                 entregables: ['2 meses de servicio sin coste', 'Ajustes basados en feedback', 'Optimizaciones continuas', 'Validación de métricas'],
                 icon: Award,
               },
@@ -485,7 +485,7 @@ export default function ProcesoProyectoPage({ onBack }: ProcesoProyectoPageProps
                 acciones: [
                   'BQDC confirma cuántas clínicas entran al proyecto',
                   'Firma de acuerdo de desarrollo con Nexgent',
-                  'Definición de clínicas piloto (2-3 centros)',
+                  'Definición de estrategia de despliegue',
                 ],
                 responsable: 'Dirección BQDC',
                 color: 'bg-blue-600',
@@ -522,13 +522,13 @@ export default function ProcesoProyectoPage({ onBack }: ProcesoProyectoPageProps
                 titulo: 'Piloto y testeo (GRATIS)',
                 cuando: 'Mayo - Junio 2026 (2 meses)',
                 acciones: [
-                  'Lanzamiento en 2-3 clínicas piloto',
+                  'Lanzamiento en primeras clínicas de la red',
                   '2 MESES DE SERVICIO GRATIS',
                   'Monitorización intensiva de resultados',
                   'Ajustes basados en feedback real',
                   'Validación de métricas de ROI',
                 ],
-                responsable: 'Clínicas piloto + Nexgent',
+                responsable: 'Primeras clínicas + Nexgent',
                 destacado: true,
               },
               {
@@ -641,8 +641,8 @@ export default function ProcesoProyectoPage({ onBack }: ProcesoProyectoPageProps
                   <p className="text-xs text-blue-200 mt-1">640€ de valor</p>
                 </div>
                 <div className="bg-white/10 rounded-xl p-4 border border-white/20">
-                  <div className="text-sm text-blue-100 mb-1">Clínicas piloto</div>
-                  <div className="text-2xl font-bold">2-3 centros</div>
+                  <div className="text-sm text-blue-100 mb-1">Fases de despliegue</div>
+                  <div className="text-2xl font-bold">Progresivo</div>
                 </div>
                 <div className="bg-white/10 rounded-xl p-4 border border-white/20">
                   <div className="text-sm text-blue-100 mb-1">Timeline de subvención</div>
