@@ -328,7 +328,7 @@ export default function ProcesoProyectoPage({ onBack }: ProcesoProyectoPageProps
                   color: 'bg-blue-600',
                 },
                 {
-                  fase: 'Fase 4: Piloto y Ajustes',
+                  fase: 'Fase 4: Testeo y Ajustes',
                   duracion: 'Meses 4-6',
                   hitos: [
                     'Lanzamiento en primeras clínicas',
@@ -519,7 +519,7 @@ export default function ProcesoProyectoPage({ onBack }: ProcesoProyectoPageProps
               },
               {
                 paso: '4',
-                titulo: 'Piloto y testeo (GRATIS)',
+                titulo: 'Testeo y validación (GRATIS)',
                 cuando: 'Mayo - Junio 2026 (2 meses)',
                 acciones: [
                   'Lanzamiento en primeras clínicas de la red',
