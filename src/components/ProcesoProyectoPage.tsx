@@ -543,7 +543,7 @@ export default function ProcesoProyectoPage({ onBack }: ProcesoProyectoPageProps
                   fase: 'Fase 5: Despliegue Completo',
                   duracion: 'Meses 6-8',
                   hitos: [
-                    'Pago de 7.000€ pendientes (con subvención recibida)',
+                    'Pago de 8.000€ pendientes (con subvención recibida)',
                     'Extensión a todas las clínicas BQDC',
                     'Formación completa a cada equipo',
                     'Configuración específica por centro',
@@ -628,7 +628,7 @@ export default function ProcesoProyectoPage({ onBack }: ProcesoProyectoPageProps
               },
               { 
                 hito: 'Mes 6: Recepción de subvención',
-                entregables: ['Clínica recibe 10.000€', 'Pago de 7.000€ pendientes', 'Despliegue a más clínicas', 'Formación a nuevos equipos'],
+                entregables: ['Clínica recibe 10.000€', 'Pago de 8.000€ pendientes', 'Despliegue a más clínicas', 'Formación a nuevos equipos'],
                 icon: Euro,
               },
               { 
