@@ -149,7 +149,7 @@ export default function LoginSelector({ onSelectClinica, onSelectBQDC, onSelectR
             </div>
 
             <div className="space-y-3 mb-8">
-              {['¿Por qué 495€/mes? Análisis de ROI', 'Qué añade vs Gesden G5', 'Datos reales de clientes', 'Timeline de resultados esperados'].map((item, idx) => (
+              {['Justificación del precio con descuento', 'Qué añade vs tu software actual', 'Proyecciones de beneficio', 'Timeline de resultados esperados'].map((item, idx) => (
                 <div key={idx} className="flex items-center gap-3 text-gray-600">
                   <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
                   <span>{item}</span>

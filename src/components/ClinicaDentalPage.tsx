@@ -124,8 +124,8 @@ export default function ClinicaDentalPage({ onBack }: ClinicaDentalPageProps) {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
               {[
                 { value: '24/7', label: 'atención al paciente' },
-                { value: '-60%', label: 'carga administrativa' },
-                { value: '+300%', label: 'reseñas en Google' },
+                { value: '-50%', label: 'carga administrativa' },
+                { value: '+200%', label: 'reseñas en Google' },
               ].map((stat, index) => (
                 <motion.div
                   key={index}
@@ -501,14 +501,14 @@ export default function ClinicaDentalPage({ onBack }: ClinicaDentalPageProps) {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
             {[
-              { value: '-60%', label: 'Carga administrativa', icon: Clock },
-              { value: '+40%', label: 'Citas confirmadas', icon: Calendar },
-              { value: '+300%', label: 'Reseñas en Google', icon: Star },
+              { value: '-50%', label: 'Carga administrativa', icon: Clock },
+              { value: '+30%', label: 'Citas confirmadas', icon: Calendar },
+              { value: '+200%', label: 'Reseñas en Google', icon: Star },
               { value: '24/7', label: 'Atención al paciente', icon: MessageSquare },
               { value: '-35%', label: 'No-shows', icon: AlertCircle },
-              { value: '+50%', label: 'Pacientes recurrentes', icon: Heart },
-              { value: '2min', label: 'Tiempo medio de respuesta', icon: Zap },
-              { value: '+25%', label: 'Facturación media', icon: TrendingUp },
+              { value: '+40%', label: 'Pacientes recuperados', icon: Heart },
+              { value: '<2min', label: 'Tiempo medio de respuesta', icon: Zap },
+              { value: '+12%', label: 'Facturación estimada', icon: TrendingUp },
             ].map((stat, index) => {
               const Icon = stat.icon;
               return (
@@ -589,11 +589,15 @@ export default function ClinicaDentalPage({ onBack }: ClinicaDentalPageProps) {
                   <p className="text-sm text-gray-500">Mantenimiento y soporte continuo</p>
                 </div>
               </div>
-              <div className="flex items-baseline gap-2 mb-4">
-                <span className="text-5xl font-extrabold text-black">495€</span>
-                <span className="text-2xl text-gray-400 font-medium">/mes</span>
+              <div className="mb-4">
+                <div className="flex items-baseline gap-2 mb-2">
+                  <span className="text-3xl font-extrabold text-gray-400 line-through">495€</span>
+                  <span className="text-5xl font-extrabold text-blue-600">320€</span>
+                  <span className="text-2xl text-gray-400 font-medium">/mes</span>
+                </div>
+                <p className="text-blue-600 font-semibold text-sm">Con descuento BQDC (35% off)</p>
               </div>
-              <p className="text-gray-500 mb-6">Por cada clínica. Incluye todo lo necesario para mantener tu agente de IA funcionando y mejorando.</p>
+              <p className="text-gray-500 mb-6">Por cada clínica de la red. Incluye todo lo necesario para mantener tu agente de IA funcionando y mejorando.</p>
               <div className="space-y-3">
                 {['Soporte técnico continuo', 'Actualizaciones y mejoras', 'Ajustes y optimizaciones', 'Monitorización y mantenimiento', 'Nuevas funcionalidades'].map((item, idx) => (
                   <div key={idx} className="flex items-start gap-2">
@@ -619,8 +623,8 @@ export default function ClinicaDentalPage({ onBack }: ClinicaDentalPageProps) {
                 <p className="text-blue-200 text-sm">Para desarrollo de tu IA</p>
               </div>
               <div>
-                <div className="text-3xl font-bold mb-1">495€/mes</div>
-                <p className="text-blue-200 text-sm">Servicio mensual por clínica</p>
+                <div className="text-3xl font-bold mb-1">320€/mes</div>
+                <p className="text-blue-200 text-sm">Con descuento BQDC</p>
               </div>
             </div>
           </motion.div>

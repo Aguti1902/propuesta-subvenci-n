@@ -205,9 +205,9 @@ export default function BQDCAssociationPage({ onBack }: BQDCAssociationPageProps
             <h2 className="text-2xl font-bold mb-6">Impacto por clínica</h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {[
-                { value: '-60%', label: 'carga administrativa' },
+                { value: '-50%', label: 'carga administrativa' },
                 { value: '24/7', label: 'atención al paciente' },
-                { value: '+300%', label: 'reseñas en Google' },
+                { value: '+200%', label: 'reseñas en Google' },
                 { value: '-35%', label: 'no-shows' },
               ].map((stat, idx) => (
                 <div key={idx}>

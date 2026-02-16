@@ -92,9 +92,9 @@ export default function ClinicaROIPage({ onBack }: ClinicaROIPageProps) {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
-                { value: '2.450€', label: 'Ahorro mensual promedio', desc: 'ROI de 5x la inversión' },
-                { value: '47 días', label: 'Para recuperar la inversión', desc: 'Basado en datos reales' },
-                { value: '+18%', label: 'Aumento de facturación', desc: 'Más citas y menos cancelaciones' },
+                { value: '4.495€', label: 'Beneficio mensual estimado', desc: 'Ingresos + ahorros' },
+                { value: '3 días', label: 'Para recuperar el coste mensual', desc: 'Beneficio neto vs 320€' },
+                { value: '+12%', label: 'Aumento de facturación estimado', desc: 'Más citas y mejor ocupación' },
               ].map((stat, index) => (
                 <motion.div key={index} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 + index * 0.1 }}
                   className="bg-blue-50 border border-blue-200 p-6 rounded-2xl"
@@ -163,7 +163,7 @@ export default function ClinicaROIPage({ onBack }: ClinicaROIPageProps) {
                 </div>
                 <h3 className="text-2xl font-bold">Retorno mensual estimado</h3>
               </div>
-              <div className="text-5xl font-extrabold mb-6">2.450€/mes</div>
+              <div className="text-5xl font-extrabold mb-6">4.495€/mes</div>
               <div className="space-y-4">
                 {[
                   { concepto: 'Ahorro en documentación clínica', valor: '~320€', detalle: '8h/mes ahorradas en notas, presupuestos y consentimientos (40€/h)' },
@@ -504,14 +504,14 @@ export default function ClinicaROIPage({ onBack }: ClinicaROIPageProps) {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
             {[
-              { value: '~85%', label: 'Consultas automáticas', desc: 'Sin intervención humana', icon: MessageSquare },
-              { value: '-70%', label: 'Tiempo en documentación', desc: 'Transcripción por voz, presupuestos auto', icon: FileText },
-              { value: '~40%', label: 'Reducción de no-shows', desc: 'Recordatorios inteligentes', icon: AlertCircle },
-              { value: '+300%', label: 'Mejora en reseñas', desc: 'Solicitud automática', icon: Star },
-              { value: '+20%', label: 'Más ocupación agenda', desc: 'Optimización IA + atención 24/7', icon: Calendar },
+              { value: '~80%', label: 'Consultas automáticas', desc: 'Sin intervención humana', icon: MessageSquare },
+              { value: '-50%', label: 'Tiempo en documentación', desc: 'Transcripción por voz, presupuestos auto', icon: FileText },
+              { value: '~35%', label: 'Reducción de no-shows', desc: 'Recordatorios inteligentes', icon: AlertCircle },
+              { value: '+200%', label: 'Mejora en reseñas', desc: 'Solicitud automática', icon: Star },
+              { value: '+15%', label: 'Más ocupación agenda', desc: 'Optimización IA + atención 24/7', icon: Calendar },
               { value: '<2min', label: 'Tiempo de respuesta', desc: 'Vs varias horas antes', icon: Zap },
-              { value: '~50%', label: 'Reducción errores admin', desc: 'Automatización de procesos', icon: Shield },
-              { value: '4-5x', label: 'ROI estimado 3 meses', desc: 'Retorno sobre inversión', icon: Calculator },
+              { value: '~40%', label: 'Reducción errores admin', desc: 'Automatización de procesos', icon: Shield },
+              { value: '13x', label: 'ROI estimado', desc: 'Retorno sobre inversión mensual', icon: Calculator },
             ].map((stat, index) => {
               const Icon = stat.icon;
               return (
@@ -590,21 +590,21 @@ export default function ClinicaROIPage({ onBack }: ClinicaROIPageProps) {
                     <span className="text-gray-700">Ingresos adicionales mensuales:</span>
                     <span className="font-bold text-blue-600">~850€</span>
                   </div>
-                  <div className="flex justify-between items-center p-3 bg-blue-600 rounded-xl text-white">
-                    <span className="font-semibold">Beneficio neto mensual:</span>
-                    <span className="font-extrabold text-2xl">+2.055€</span>
-                  </div>
+                <div className="flex justify-between items-center p-3 bg-blue-600 rounded-xl text-white">
+                  <span className="font-semibold">Beneficio neto mensual:</span>
+                  <span className="font-extrabold text-2xl">+4.175€</span>
+                </div>
                 </div>
               </div>
             </div>
 
             <div className="space-y-4">
               <div className="bg-blue-600 rounded-2xl p-6 text-white text-center">
-                <div className="flex items-center justify-center gap-3 mb-2">
-                  <TrendingUp className="w-8 h-8" />
-                  <div className="text-4xl font-extrabold">ROI: 520%</div>
-                </div>
-                <p className="text-blue-100">Por cada euro invertido, recuperas 5.20€</p>
+              <div className="flex items-center justify-center gap-3 mb-2">
+                <TrendingUp className="w-8 h-8" />
+                <div className="text-4xl font-extrabold">ROI: 1.300%</div>
+              </div>
+              <p className="text-blue-100">Por cada euro invertido, recuperas 13€</p>
               </div>
               
               <div className="bg-blue-50 rounded-2xl p-6 border-2 border-blue-300 text-center">
@@ -772,7 +772,7 @@ export default function ClinicaROIPage({ onBack }: ClinicaROIPageProps) {
           >
             <h3 className="text-2xl font-bold mb-3">Coste de oportunidad total</h3>
             <div className="text-5xl font-extrabold mb-2">~3.150€/mes</div>
-            <p className="text-blue-100 text-lg">Esto es lo que pierdes cada mes sin IA. La inversión de 495€/mes recupera gran parte de esto.</p>
+            <p className="text-blue-100 text-lg">Esto es lo que pierdes cada mes sin IA. La inversión de 320€/mes (con descuento BQDC) recupera gran parte de esto.</p>
           </motion.div>
         </div>
       </section>
@@ -879,7 +879,7 @@ export default function ClinicaROIPage({ onBack }: ClinicaROIPageProps) {
                 <p className="text-blue-100">Tiempo ahorrado al equipo</p>
               </div>
               <div>
-                <div className="text-4xl font-extrabold mb-1">~2.450€/mes</div>
+                <div className="text-4xl font-extrabold mb-1">~4.495€/mes</div>
                 <p className="text-blue-100">Valor generado estimado</p>
               </div>
             </div>
