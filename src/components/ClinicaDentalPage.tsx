@@ -623,7 +623,7 @@ export default function ClinicaDentalPage({ onBack }: ClinicaDentalPageProps) {
                 <p className="text-blue-200 text-sm">Para desarrollo de tu IA</p>
               </div>
               <div>
-                <div className="text-3xl font-bold mb-1">320€/mes</div>
+                <div className="text-3xl font-bold mb-1">299€/mes</div>
                 <p className="text-blue-200 text-sm">Con descuento BQDC</p>
               </div>
             </div>
